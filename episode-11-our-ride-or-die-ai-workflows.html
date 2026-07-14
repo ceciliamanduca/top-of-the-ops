@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJM7VXTYPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GJM7VXTYPN');
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO
+═══════════════════════════════════════════════ -->
+<title>EP 11: Our Ride or Die AI Workflows – Top of the Ops</title>
+<meta name="description" content="The season one bonus episode. Ceci and Bea open the toolbox: the finance operating system, the Slack bot army, the invoice fairy, cease and desist letters drafted in Claude, the meeting coach, and the production stack that runs this podcast in three hours a week. Episode 11 of Top of the Ops.">
+<link rel="canonical" href="https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH
+═══════════════════════════════════════════════ -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Top of the Ops">
+<meta property="og:title" content="EP 11: Our Ride or Die AI Workflows">
+<meta property="og:description" content="Two operators, zero engineering background, one bot army. Ceci and Bea share every automation they actually run, from the invoice fairy to the mean meeting coach.">
+<meta property="og:url" content="https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows">
+<meta property="og:image" content="https://i.ytimg.com/vi/P3NcRGASWtU/maxresdefault.jpg">
+<meta property="og:image:alt" content="Top of the Ops episode 11 thumbnail, Ceci and Bea">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="720">
+<meta property="og:locale" content="en_GB">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER / X CARD
+═══════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="EP 11: Our Ride or Die AI Workflows">
+<meta name="twitter:description" content="Two operators, zero engineering background, one bot army. Ceci and Bea share every automation they actually run, from the invoice fairy to the mean meeting coach.">
+<meta name="twitter:image" content="https://i.ytimg.com/vi/P3NcRGASWtU/maxresdefault.jpg">
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA – PodcastEpisode (AEO)
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PodcastEpisode",
+  "@id": "https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows",
+  "name": "Our Ride or Die AI Workflows",
+  "episodeNumber": 11,
+  "datePublished": "2026-07-14",
+  "image": "https://i.ytimg.com/vi/P3NcRGASWtU/maxresdefault.jpg",
+  "description": "The season one bonus episode. Cecilia Manduca and Beatrice Aliprandi spent the whole season mentioning how much of their jobs runs on AI, so this episode opens the toolbox. Cecilia's finance operating system that turns two accountants, two currencies and a pile of bank statements into a cash dashboard in minutes. Bea's Monday reconciliation and budget commentary trained on her tone of voice. The Slack bot army: the IT bot that quotes the IT Crowd, the invoice fairy, the birthday dude. Cease and desist letters drafted in Claude, the meeting coach that measures your airtime, the COGS skill that caught overcharges, and the production stack that makes this an AI-native podcast. Plus season one reflections and rapid fire rules for non-coders.",
+  "url": "https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows",
+  "inLanguage": "en-GB",
+  "partOfSeries": {
+    "@type": "PodcastSeries",
+    "name": "Top of the Ops",
+    "url": "https://top-of-the-ops.com/"
+  },
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Cecilia Manduca",
+      "url": "https://www.linkedin.com/in/ceciliamanduca/"
+    },
+    {
+      "@type": "Person",
+      "name": "Beatrice Aliprandi",
+      "url": "https://www.linkedin.com/in/beatricealiprandi/"
+    }
+  ],
+  "associatedMedia": [
+    {
+      "@type": "MediaObject",
+      "contentUrl": "https://youtu.be/P3NcRGASWtU",
+      "encodingFormat": "video/mp4",
+      "name": "Watch on YouTube"
+    },
+    {
+      "@type": "MediaObject",
+      "contentUrl": "https://open.spotify.com/episode/6WS2TDjvLPw9d6LiVnYf8N",
+      "encodingFormat": "audio/mpeg",
+      "name": "Listen on Spotify"
+    }
+  ],
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://top-of-the-ops.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Episodes",
+        "item": "https://top-of-the-ops.com/#episodes"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "EP 11: Our Ride or Die AI Workflows",
+        "item": "https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows"
+      }
+    ]
+  }
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": "EP 11: Our Ride or Die AI Workflows",
+  "description": "Two operators, zero engineering background, one bot army. Ceci and Bea share every automation they actually run, from the invoice fairy to the mean meeting coach. Episode 11 of Top of the Ops.",
+  "thumbnailUrl": "https://i.ytimg.com/vi/P3NcRGASWtU/maxresdefault.jpg",
+  "uploadDate": "2026-07-14",
+  "embedUrl": "https://www.youtube-nocookie.com/embed/P3NcRGASWtU",
+  "contentUrl": "https://www.youtube.com/watch?v=P3NcRGASWtU"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="circuit-bg"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TOP OF <span>THE OPS</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#episodes">Episodes</a></li>
+        <li>EP 11: Our Ride or Die AI Workflows</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- EPISODE HERO -->
+  <header class="ep-hero rv" data-num="11">
+    <div class="ep-meta">
+      <span class="ep-badge">Co-host Episode</span>
+      <span class="ep-number">Episode 11</span>
+    </div>
+    <h1>Our Ride or Die AI Workflows<br><span>The Season One Bonus Episode</span></h1>
+    <p class="ep-tagline">Two operators, zero engineering background, one bot army. Ceci and Bea spent the whole season mentioning how much of their jobs runs on AI, so this bonus episode opens the toolbox: every skill, agent and workflow they actually use, and what each one replaced.</p>
+
+    <!-- LISTEN LINKS -->
+    <div class="listen-links">
+      <a href="https://youtu.be/P3NcRGASWtU" class="listen-btn primary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        Watch on YouTube
+      </a>
+      <a href="https://open.spotify.com/episode/6WS2TDjvLPw9d6LiVnYf8N" class="listen-btn secondary" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        Listen on Spotify
+      </a>
+    </div>
+
+    <div class="ep-video"><iframe src="https://www.youtube-nocookie.com/embed/P3NcRGASWtU?enablejsapi=1&amp;rel=0" title="EP 11: Our Ride or Die AI Workflows" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe></div>
+
+    <div class="ep-divider"></div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="ep-content">
+
+    <!-- ── SHOW NOTES / BLOG POST ────────────────────────── -->
+    <article class="ep-section rv">
+      <div class="ep-section-label">Show Notes</div>
+      <h2>About This Episode</h2>
+      <div class="ep-section-bar"></div>
+
+      <div class="show-notes-body">
+        <p><strong>Ceci</strong> (FD at PortalOne, ex-VC at Talis Capital) and <strong>Bea</strong> (Chief of Staff at Praktika, ex-VC at Lakestar) close season one with the episode listeners kept asking for. All season they mentioned, in passing, how much of their jobs runs on Claude and a small army of automations. This is the full inventory: what they built, what it replaced, where it failed, and what they refuse to automate.</p>
+
+        <p>Neither of them had written a line of code before starting. Between them they now run finance, legal, people ops, IT, investor reporting and customer support for two startups, plus this podcast, largely on workflows they built themselves. The episode is a working manual for any chief of staff, ops lead or finance person whose Monday is a wall of spreadsheets.</p>
+
+        <h3>What We Cover in This Episode</h3>
+
+        <h3>The Laptop Test</h3>
+        <p>The opening question: if your laptop got stolen tomorrow and you lost every automation you ever built, what would you rebuild first? Bea's answer comes in one second: the weekly KPIs sheet, half of which is automated, that she needs every Monday. The rest of the episode is essentially the long version of both answers.</p>
+
+        <h3>Cecilia's Finance Operating System</h3>
+        <p>Two entities, one in Norway and one in the US, two accountants, two currencies, lots of bank accounts. Three Python scripts parse whatever the accountants send every Monday, place it into the right spreadsheet, and render an interactive cash dashboard within minutes. Before AI this was seven, eight, nine Google Sheet tabs, pivot tables, PDF parsing and a couple of hours of date-format hell every Monday morning. Month-end is automated too: consolidated accounts flow into a variance analysis of actuals versus forecast and out into a Claude-designed presentation, because people who are not in finance should never be sent a spreadsheet. The human stays in the loop where it matters: understanding why cloud costs dropped, not checking whether numbers match.</p>
+
+        <h3>Bea's Monday Reconciliation and the Tone-of-Voice Problem</h3>
+        <p>Bea downloads credit card and bank transactions, Claude categorises them into buckets, and a second skill writes budget-versus-actuals commentary in her voice: very, very punchy bullet points, straight into the C-level chat. She still pastes the pivot table into the cash flow tool by hand, on principle: not everything automatable should be automated, and she likes looking at those numbers. The honest bit: getting the commentary to sound like you is hard. Ceci reckons hers is barely sixty percent there, Bea lost weeks of training when she migrated her skills between environments. Ceci's fix is a full writing knowledge base of how she writes on Slack, LinkedIn and email. Claude disapproves of her style, apparently too sarcastic and self-deprecating. She doesn't care.</p>
+
+        <h3>The Bot Army</h3>
+        <p>Ceci's pride and joy. There is nobody in IT, nobody in legal, and finance is a team of one, so she built Slack bots that triage each function. The IT bot answers software and licence requests, tells you who owns the seat you need, auto-creates Jira tickets with rationale and cost attached, and quotes the IT Crowd back at you when your request makes no sense. The birthday dude plugs into HiBob and does the job they used to pay a vendor for. Every bot has a personality, on purpose: you interact with these things daily, they may as well crack a joke.</p>
+
+        <h3>The Invoice Fairy</h3>
+        <p>The bot with the biggest plans. First point of triage for vendor setup, company registration numbers, which entity to invoice, contractor how-tos, and whether an invoice has been approved. When a contractor posts a question, the fairy opens a DM group between them, Ceci and herself, and handles the back and forth until a human is actually needed. Bea admits she copied it, merging it with the birthday dude into Praktika's birthday fairy. Rule from both: make bots fail loudly. If the fairy can't reach the information, she says so and tags you, because a silent bot is a process you've stopped checking.</p>
+
+        <h3>Daily Briefs, Granola and the Notion Sweep</h3>
+        <p>Bea's daily brief pulls from Granola, Google Calendar, Gmail and Slack, works out priorities and what she said she'd do, and a supervising agent checks whether tasks were already completed before the list lands as a draft in her inbox. Granola converted both hosts from sceptics: Bea now trains it to take notes in her bullet-point style, Ceci retired a janky Gemini-email-scraping workflow the day she installed it. Ceci's end-of-day version is the Notion Sweep, which cross-references Granola, email, calendar and Slack against her Notion to-do list and presents an interactive widget of what to add, including a waiting-on column for the things she asked other people to do, which is what everyone actually forgets. Also in here: Bea asked Fable to sweep everything she'd built, and it found and fixed an authentication vulnerability in her scheduled tasks. Diligence your own skills.</p>
+
+        <h3>Cease and Desist, Drafted by Claude</h3>
+        <p>Consumer is the wild west: competitors copy Praktika's creatives, bid on their brand in SEO, and occasionally stick their logo on someone else's ad. The original cease and desist was written by a real lawyer; now Bea drags the copied artifact into Claude, which drafts the letter in their amicable non-threatening style, finds the right people to contact at the offending company, and leaves it as a draft to send. Half an hour back each time, and a lot of legal fees. Both hosts are clear on the line: legal Claude plus judgment, a lawyer's template first, and never for shareholder agreements.</p>
+
+        <h3>The Meeting Coach</h3>
+        <p>Ceci's confession: a side effect of her insecurity, and possibly the best thing she's built. An artifact that connects to her calendar and Granola, analyses full meeting transcripts against well-known executive coaching frameworks, and scores her: airtime, questions asked, longest turn, then a verdict. It's mean, because she asked it to be mean, and it tells her exactly how to fix it, like leading with the claim instead of a disclaimer. Bea's calling dibs on copying this one.</p>
+
+        <h3>The Show Production Stack</h3>
+        <p>This is an AI-native podcast: one hour of recording, about one hour of post-production each, three hours total. Ceci runs production: a skill for intro and outro jingles and graphics, a skill that builds each episode's website page, and the transcript as the knowledge base for titles, YouTube and Spotify descriptions and site copy. Bea runs go-to-market: clips from Riverside with subtitles go into a folder, Claude reads the frames and writes the Instagram, TikTok and LinkedIn captions plus the Substack newsletter. Metricool schedules the posts. Bea's weekly COGS skill gets a shout-out too: it pulls run rates from Datadog and caught real overcharges, paying for the whole setup directly.</p>
+
+        <h3>Season One Reflections</h3>
+        <p>The concepts that stuck. Operational depth, the hill Ceci will die on: everyone talks about tech depth, but operational depth will eat your company alive if you ignore it. Ale's operational excellence at ElevenLabs. Clara's chief of agents, which this entire episode accidentally proves. Olivia's "you don't own anything": solve it, automate it, pass it along. Fractionally beautiful, which changed how Bea designs processes: is this efficient, and does it bring people joy? And the observation that every guest this season was a generalist who thrives in chaos, with, as Bea puts it, incredible sheer power of execution.</p>
+
+        <h3>Rapid Fire: Rules for Non-Coders</h3>
+        <p>Bea: if you collaborate on a repo, always git pull, written on post-its everywhere. She now knows what a PR is and sends them to her COO for review, which neither of them can quite believe. Ceci's three rules: if you can dream it you can do it, so the onus is on the dreaming; every three prompts in Claude Code check for bugs, every ten check for security; audit yourself. Both: make the bot fail loudly. Plus the eternal question, Claude Code or cowork, and one joint feature request for Anthropic.</p>
+
+        <h3>Frequently Asked Questions</h3>
+
+        <p><strong>What is episode 11 of Top of the Ops about?</strong></p>
+        <p>It is the season one bonus episode, a co-host episode where Cecilia Manduca and Beatrice Aliprandi share every AI workflow they actually use as operators: Cecilia's automated finance operating system and Slack bot army, Bea's reconciliation and budget commentary skills, the invoice fairy, cease and desist letters drafted in Claude, a meeting coach that scores your airtime, and the production stack that runs the podcast itself. It ends with season one reflections and rapid fire rules for non-coders.</p>
+
+        <p><strong>Do you need to know how to code to build AI workflows like these?</strong></p>
+        <p>No. Neither host had written a line of code before starting. Between them they now run Python scripts, Slack bots, scheduled tasks and Git repos, built by describing what they wanted to Claude. Their rules for non-coders: always git pull on shared repos, check for bugs every three prompts and security every ten, and make every bot fail loudly instead of going silent.</p>
+
+        <p><strong>What is the invoice fairy?</strong></p>
+        <p>The invoice fairy is a Slack bot Cecilia built at PortalOne. It is the first point of triage for finance questions: setting up new vendors, company registration numbers, which entity to invoice, contractor processes, and whether an invoice has been approved. When someone posts a question, the fairy opens a DM group between the person, Cecilia and itself, and handles the back and forth until a human is needed.</p>
+
+        <p><strong>Which AI tools do the hosts use?</strong></p>
+        <p>The stack discussed in this episode: Claude (chat, Claude Code and cowork) as the core, Granola for meeting transcripts and notes, Notion as the to-do source of truth, Metricool for scheduling social posts, Riverside for recording and clips, and Wispr Flow for voice input. The principle underneath: because they automate so much themselves, the bar for buying software is much higher than it used to be.</p>
+
+        <p><strong>Is this a guest episode?</strong></p>
+        <p>No, it is a co-host episode, and the last of season one. Ceci and Bea sign off for the season at the end, with season two in the works.</p>
+      </div>
+    </article>
+
+    <!-- ── TRANSCRIPT ────────────────────────────────────── -->
+    <section class="ep-section rv">
+      <div class="ep-section-label">Full Transcript</div>
+      <h2>Episode Transcript</h2>
+      <div class="ep-section-bar"></div>
+
+      <div class="transcript-layout">
+    <details class="chapter-nav" open>
+      <summary>Chapters</summary>
+      <ol>
+      <li><a data-ch href="#ch-1">Introduction</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=0s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">00:00</a></li>
+      <li><a data-ch href="#ch-2">If Your Laptop Got Stolen Tomorrow</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=90s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">01:30</a></li>
+      <li><a data-ch href="#ch-3">Cecilia&#8217;s Finance Operating System</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=175s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">02:55</a></li>
+      <li><a data-ch href="#ch-4">Bea&#8217;s Monday Reconciliation</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=440s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">07:20</a></li>
+      <li><a data-ch href="#ch-5">Teaching Claude Your Voice</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=519s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">08:39</a></li>
+      <li><a data-ch href="#ch-6">The Bot Army</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=749s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">12:29</a></li>
+      <li><a data-ch href="#ch-7">The Invoice Fairy</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=894s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">14:54</a></li>
+      <li><a data-ch href="#ch-8">Daily Briefs and One-on-One Prep</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=1151s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">19:11</a></li>
+      <li><a data-ch href="#ch-9">The Notion Sweep</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=1376s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">22:56</a></li>
+      <li><a data-ch href="#ch-10">Cease and Desist, Drafted by Claude</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=1479s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">24:39</a></li>
+      <li><a data-ch href="#ch-11">The Meeting Coach</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=1635s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">27:15</a></li>
+      <li><a data-ch href="#ch-12">The Show Production Stack</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=1841s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">30:41</a></li>
+      <li><a data-ch href="#ch-13">Season One Reflections</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=2101s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">35:01</a></li>
+      <li><a data-ch href="#ch-14">Rapid Fire: Rules for Non-Coders</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=2358s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">39:18</a></li>
+      <li><a data-ch href="#ch-15">Goodbye for Season One</a><a class="ch-t" href="https://www.youtube.com/watch?v=P3NcRGASWtU&amp;t=2595s" target="_blank" rel="noopener" title="Watch this chapter on YouTube">43:15</a></li>
+      </ol>
+    </details>
+
+    <div class="transcript-body">
+
+        <h3 class="transcript-section" id="ch-1">Introduction</h3>
+
+        <p class="speaker">Bea [00:42]</p>
+        <p>Welcome to Top of the Ops, the podcast where we have real conversations about what happens behind the scenes of startups. I'm Bea, former VC at Lakestar and now Chief of Staff at Praktika.</p>
+
+        <p class="speaker">Ceci [00:51]</p>
+        <p>And I'm Cecilia, former VC at Talis Capital and now FD at PortalOne. Welcome to the season one bonus episode. Woo woohoo! The one where we chat about our ride or die AI workers. Look, guys, we spent quite a lot of time during the past episodes talking about Claude and talking about how much we leverage AI in our day-to-day work. So we thought we'll share this with you.</p>
+
+        <p class="speaker">Bea [01:16]</p>
+        <p>That's right, that's the whole episode. All right, so Ceci, do you wanna start? We're gonna do a quick I go, you go, and it's gonna be really interesting hopefully.</p>
+
+        <h3 class="transcript-section" id="ch-2">If Your Laptop Got Stolen Tomorrow</h3>
+
+        <p class="speaker">Ceci [01:30]</p>
+        <p>Okay, so let's say your laptop got stolen tomorrow, and you lost every automation that you've ever built, what would you go for? What would you rebuild first?</p>
+
+        <p class="speaker">Bea [01:36]</p>
+        <p>Weekly KPIs sheet definitely. I just need it every Monday. So I just track cash flow on a weekly basis and I would say a good fifty percent of that is automated. How about you?</p>
+
+        <p class="speaker">Ceci [01:48]</p>
+        <p>quick framing, I run finance and broader operations at PortalOne, meaning that I mostly own the numbers, finance ops, FP&amp;A, some legal, some IT, help around people, and just general ops. So a lot of the skills and workflows I would be presenting are helping me in my day-to-day,</p>
+
+        <p class="speaker">Bea [02:10]</p>
+        <p>I’m Chief of Staff at Praktika, which means actually I do handle quite a lot of like function-specific roles. So I'm also in charge of accounting, FP&amp;A, people ops, legal investor relations, so a lot of reporting to the investors, in charge of customer support as well, and business development. So it's really broad, and then I'll have a lot of skills that help me in different sides of it.</p>
+
+        <p class="speaker">Ceci [02:33]</p>
+        <p>Yes, some of this is very specific to us, but one of the reasons we wanted to share this is to inspire other people, leaders, chief of staff that may be needing some help because the day is really filled and busy.</p>
+
+        <p class="speaker">Bea [02:49]</p>
+        <p>Yeah, it's probably very unglamorous, but it's we're gonna get nerdy, so just be prepared.</p>
+
+        <h3 class="transcript-section" id="ch-3">Cecilia&#8217;s Finance Operating System</h3>
+
+        <p class="speaker">Ceci [02:55]</p>
+        <p>Okay. Let me start first with my number one, which is my finance operating system. You know me really well. I like Excel, I don't love it. So the moment in which I found something that stopped me from spending hours fixing the dates in a spreadsheet, I was really, really happy. So two workflows. The first one is on a weekly basis, and we are two entities, one in Norway, one in the US, and I deal with two accountants, two currencies, lots of bank accounts. I have three Python scripts that take care of making sure that we always have an overview of our cash and where our money is getting spent on a weekly basis. So every Monday, as soon as I get different files from the accountants, they parse them and place them in the correct order in the spreadsheet I created for them. And then I have a third script that turns that into a beautiful interactive dashboards. That happens within minutes and I just spend all of my time and attention just looking at where we're spending the money, what has dropped, how are payments moving and just gathering trends.</p>
+
+        <p class="speaker">Bea [04:10]</p>
+        <p>Does that go into Slack directly?</p>
+
+        <p class="speaker">Ceci [04:13]</p>
+        <p>no, it's quite sensitive information so that goes to the founders on Slack. But the finance team is myself so I don't post it into any specific channel and I just post it as soon as it's done on a weekly basis to the founders.</p>
+
+        <p class="speaker">Bea [04:28]</p>
+        <p>And how would that look before AI?</p>
+
+        <p class="speaker">Ceci [04:31]</p>
+        <p>God. dreadful. I basically would get two different sets of differently organized spreadsheets. And I had to create Maybe like seven, eight, nine Google Sheet tab that feeds line by line payments, credit card payments, bank account payments, and then arranges them into a week by week view and has a auto forex exchange so that I can look at both currencies. And that would be just on the payment side. There would be a lot of pivot tables and I would do the same on the bank side. But you have to parse them from some PDFs, parse them from like Google Sheets. That would take me a good couple of hours to make sure as everything is neat. And Google Sheet really doesn't like handling dates formats in different ways.</p>
+
+        <p class="speaker">Bea [05:24]</p>
+        <p>Do you think you should have hired you would have hired more people if you didn't have AI because it requires quite a lot of effort to pull?</p>
+
+        <p class="speaker">Ceci [05:35]</p>
+        <p>I think I moved from doing this manually to doing this with AI quite quickly.</p>
+
+        <p class="speaker">Ceci [05:42]</p>
+        <p>So I never thought how much it would have impacted my workload going forward. And I've always like lived with this would be handled by AI. And it just streamlines it. But in my past company, I was spending a good chunk of the Monday morning. Yeah. Making sure data was where it used to be.</p>
+
+        <p class="speaker">Bea [06:02]</p>
+        <p>Cool. Anything else?</p>
+
+        <p class="speaker">Ceci [06:05]</p>
+        <p>Maybe a quickly like the second side that this one happens on a weekly basis and then on a monthly basis I have automated my month end reconciliation so I get the consolidated accounts and it all goes into an Excel spreadsheet and he automatically does my variance analysis actual versus forecast and then it all goes into a beautifully designed Claude-designed presentation Presentation because I really think people that are not in finance don't like to look at spreadsheets, so try to never ever send a spreadsheet unless I have to. now obviously there is a lot of human loop in this because I need to check where the variance is coming from. Is everything correct? But that's where I spend my time. I spend my time to see: okay, cloud cost went down significantly this month. Why? did I notice? we changed something, do I need to speak it with the back-end team rather than just making sure the numbers are matching.</p>
+
+        <p class="speaker">Bea [07:10]</p>
+        <p>Exactly because then your brain is really on the mechanicals of it and not really on the strategic design. So totally agree.</p>
+
+        <p class="speaker">Ceci [07:15]</p>
+        <p>And I don't trust the commentary of AI that much. How about you?</p>
+
+        <h3 class="transcript-section" id="ch-4">Bea&#8217;s Monday Reconciliation</h3>
+
+        <p class="speaker">Bea [07:20]</p>
+        <p>mine is similar in a way that on Monday I reconcile the cash flow movements of the previous week. And so I would download the credit card transactions and the bank statements or the bank transactions directly from the bank website. And then Claude would categorize them in various buckets. that I used to do manually, which was really dreadful. And of course there was shortcuts and I could just like copy paste a lot and filter and apply same rules, or VLOOKUP. But it was like it was taking a lot of my time. And then I still copy-paste the pivot table manually into our cash flow management tool, well, a spreadsheet, because I actually want to check it. And I like doing it. it could be done automatically, but I don't think everything Is automatable should be automatable. I still like to look at those numbers. And then there's a second scale that does budget versus actuals commentary. And so then I would typically tweak something, but by now it really works in my tone of voice. And it knows that I want very, very punchy bullet points. And so then I would just copy paste it into our C-level executives chats, and then we would comment and draw conclusions from it.</p>
+
+        <h3 class="transcript-section" id="ch-5">Teaching Claude Your Voice</h3>
+
+        <p class="speaker">Ceci [08:39]</p>
+        <p>I have a question on the commentary. because I'm trying to get there and I think it's barely sixty percent to where I want it to be. Because my project has a ton of context, but it obviously like it's not me and it's missing some of the context on why there's some variances or the business rationale or the business reason. How do you get it there?</p>
+
+        <p class="speaker">Bea [09:06]</p>
+        <p>I didn't get it there yet. the context is too broad and it changes too fast for Claude to actually capture it from Slack, from meetings, and it's just a little bit too in-depth right now. Interesting point actually, my commentary was way better. So I started the skills in chat and then I transitioned them to co-work. And the transition was pretty rough for me. really, really rough. I was very sad for a long time because the commentary was just not picking up the correct tone and I had to train it for I think like two or three more weeks until they got to the point that I was semi-happy and it's still not great and I just don't know what went wrong.</p>
+
+        <p class="speaker">Ceci [09:49]</p>
+        <p>Was it the same model that you were using? It was</p>
+
+        <p class="speaker">Bea [09:53]</p>
+        <p>same model. Switch from 4.7 to 4.8 Opus. Let's see what Fable does.</p>
+
+        <p class="speaker">Ceci [09:58]</p>
+        <p>Maybe. Tokens. how does it know your voice? Do you have a my voice database of documents?</p>
+
+        <p class="speaker">Bea [10:10]</p>
+        <p>Actually no, I was not that advanced. It's just trial and error. I'm actually very feedback oriented with Claude. I give a lot of feedback to it and I just speak a lot, I Wispr flow a lot, so I just tend to give a lot of context. How about you?</p>
+
+        <p class="speaker">Ceci [10:24]</p>
+        <p>I'm really picky about writing. And so I have a full-on document in my operating system folder of everything where I have like the knowledge base. I also have my voice and it picks up how I write on Slack, how I write on Slack for everybody or for some people, how write on LinkedIn, how I write emails. it's not really happy with my writing style, but I don't care.</p>
+
+        <p class="speaker">Bea [10:54]</p>
+        <p>Does he disapprove?</p>
+
+        <p class="speaker">Ceci [10:56]</p>
+        <p>Yeah, it says I'm too sarcastic and self deprecating and too like short form and I am, Okay, thanks, THX.</p>
+
+        <p class="speaker">Bea [11:04]</p>
+        <p>It's just your style. That's hilarious. By the way, so on the finance side, again, I was spending probably five hours on a Monday doing this, and now I probably spend around three, but I still do a lot of the checkings. And a lot there's there's a lot more time that I spend on strategic points and actually understanding what are the to-dos after this.</p>
+
+        <p class="speaker">Ceci [11:26]</p>
+        <p>Question, you mentioned checking quite a lot. Has it ever gone wrong or failed at certain points?</p>
+
+        <p class="speaker">Bea [11:34]</p>
+        <p>Yeah, at certain points it was picking up the budget from the week before, for example, so I had to like redirect it. But on the finance categorization, the first point never went wrong. It was just very solid.</p>
+
+        <p class="speaker">Ceci [11:47]</p>
+        <p>I actually do something similar for my own personal finances. Like I get my credit card and my Monzo. and then I kinda create a dashboard that is categorized automatically by AI and merges all together and 'cause I'm really curious about how much I'm spending in flights.</p>
+
+        <p class="speaker">Bea [12:06]</p>
+        <p>I guess it's a lot. also because you're here. Also, there's a plethora of personal skills that we have, including my stocks portfolio dashboard.</p>
+
+        <p class="speaker">Ceci [12:21]</p>
+        <p>I think maybe we do a personal skill bonus bonus bonus episode.</p>
+
+        <p class="speaker">Bea [12:25]</p>
+        <p>But yeah, we'll keep it strictly professional. do you wanna go next?</p>
+
+        <h3 class="transcript-section" id="ch-6">The Bot Army</h3>
+
+        <p class="speaker">Ceci [12:29]</p>
+        <p>Okay, so this brings me so much joy. I have a bot army and I built a bunch of Slackbots agents that triage in a lot of different functions for me. The context being We don't have a lot of people especially in ops. So there's nobody in IT, I'm the only person in finance, there's nobody in legal. I also think that operations is a service function. And I want to offer a good service for everyone else on the team. And at the same time, sending people to read a document somewhere, it's not a good service. People are not gonna do it. And I'm one of them. So I sat down and bit by bit I built this army. I first started with the IT bot and this is a bot that triages all of like software type requests. So somebody saying, do we have a license to this software? Can I have a seat? Can we buy this software? Things like that, it is the first point of touch where it would say, No, we don't need to buy a license. There is this license already existing and you can speak with this person. Or creates automatically Jira tickets for me when somebody's requesting to buy a software with already the rationale and how much the software would be. So it's really simple for me to look at things quickly.</p>
+
+        <p class="speaker">Bea [13:57]</p>
+        <p>Where does it plug into like is there a repository of all the softwares and vendors that you use?</p>
+
+        <p class="speaker">Ceci [14:02]</p>
+        <p>Yes, the repo is my model. because obviously I have all the expenses my model is in Excel, but I have a connector between that Excel and a Google Sheet that automates like every week or so. just because we don't need it more often than that for quite a small team. And so it gets all the information from there and That Google Sheet pulls from another Google Sheet that has more information about the cost centers, so therefore who owns it and who might be able to give access. It's pretty like it was pretty easy. And like the most beautiful thing of the IT bot is that I don't know if people have watched the IT Crowd. It's a great UK show, but it quotes the IT crowd back at you when you say things that don't make sense.</p>
+
+        <p class="speaker">Bea [14:38]</p>
+        <p>That's I might steal that.</p>
+
+        <h3 class="transcript-section" id="ch-7">The Invoice Fairy</h3>
+
+        <p class="speaker">Ceci [14:54]</p>
+        <p>I have another one that I wanna give a shout out to, the other two are a bit more boring, but I have the invoice fairy and I have big plans for the invoice fairy.</p>
+
+        <p class="speaker">Bea [15:01]</p>
+        <p>They knew it was not boring.</p>
+
+        <p class="speaker">Ceci [15:04]</p>
+        <p>Yeah, the birthday dude just plugs into HiBob and looks at anniversaries and birthdays and just says happy birthday. I figure out we used to pay something to do that.</p>
+
+        <p class="speaker">Bea [15:15]</p>
+        <p>Oh my god, we too, we had a kudos thing where it we just like sign virtual cards and it was not even a software, like it was not even automated, we would have to do it manually.</p>
+
+        <p class="speaker">Ceci [15:28]</p>
+        <p>And so I was, I don't think we're gonna pay for that. but the Invoice Fairy it's the first point of triaging for some questions like you're setting up a new vendor, you don't know, or you're sending a an invoice to one of our entities, you forgot our company registration number, the address, what which one is the correct one. So it has all of the questions also on how to. We have a lot of contractors. So if they change from one entity to the other, that's the whole information bank is there. And then especially for one entity so far, it looks at when I've approved one invoice. So if somebody's asking Have we paid this vendor? she would know. Which one?</p>
+
+        <p class="speaker">Bea [16:13]</p>
+        <p>Interesting. What happens if one of them fails or lies?</p>
+
+        <p class="speaker">Ceci [16:18]</p>
+        <p>I'm tagged into them really, like the moment in which they get a request. So each of them lives in a Slack channel, and let's say you're a contractor and you want to ask me like some personal invoice questions, you just would just post a personal invoice question, and then the invoice fairy will create a DM group between me, you, and her, and would be, what's it about? and so all of that exchange is taken care by the fairy and then I just need to come in and just say something if I'm needed, but I don't have to do the back and forth of asking information.</p>
+
+        <p class="speaker">Bea [16:59]</p>
+        <p>I must admit to the fact that I copied you in a slight way. Well, I took the birthday dude and the invoice fairy and merged it into the birthday fairy and which now congratulates Praktika employees on their birthday and pulls from our HR system. And it's beautiful and it has a great icon, it's a little fairy.</p>
+
+        <p class="speaker">Ceci [17:25]</p>
+        <p>It's so fun. I just like to give them personality.</p>
+
+        <p class="speaker">Bea [17:29]</p>
+        <p>It's really cool actually. But yeah, I might actually copy you on the invoice part because it's really cool.</p>
+
+        <p class="speaker">Ceci [17:35]</p>
+        <p>depending on what which invoice software you use, you can create an API integration where the invoice fairy sees things or not. we have Two different ones and one is a lot easier for me to do, but the norwegian one is a bit trickier. One other thing is that a way work around that sometimes if you're the approver of the invoices, you get an email saying like you have to approve an invoice to XYZ and the fairy can read your emails.</p>
+
+        <p class="speaker">Bea [18:05]</p>
+        <p>wait, so do you not use ramp?</p>
+
+        <p class="speaker">Ceci [18:09]</p>
+        <p>So we use Pleo and Brex. I have oversight of those. But our invoice that gets sent directly to our accountants.</p>
+
+        <p class="speaker">Bea [18:13]</p>
+        <p>Right. I see, I see. Cause all our invoices pass through Ramp.</p>
+
+        <p class="speaker">Ceci [18:26]</p>
+        <p>No, Pleo doesn't do that yet and we don't use Brex for the invoices yet.</p>
+
+        <p class="speaker">Bea [18:32]</p>
+        <p>I would say ramp is a pretty good software product. they're obviously really massive, but do not expect them to be replaced by AI anytime soon, at least on like invoicing and it's just a very, very good product.</p>
+
+        <p class="speaker">Ceci [18:46]</p>
+        <p>Ramp doesn't integrate with Norwegian accounting software.</p>
+
+        <p class="speaker">Bea [18:52]</p>
+        <p>But this is just to say that also because we automate so much, the bar for a software product is so high these days. we just have to really understand like, well, I am I gonna just develop this internally or like buy something externally.</p>
+
+        <p class="speaker">Ceci [19:08]</p>
+        <p>Absolutely. You go.</p>
+
+        <h3 class="transcript-section" id="ch-8">Daily Briefs and One-on-One Prep</h3>
+
+        <p class="speaker">Bea [19:11]</p>
+        <p>So I have a daily brief and one-on-one prep. I would say it's probably nothing too out of the ordinary, but every day it pulls from my granola, my which initially I was so skeptical of</p>
+
+        <p class="speaker">Ceci [19:25]</p>
+        <p>I was So ready to ask you about granola because you were skeptical and now I started reading granola here, granola there</p>
+
+        <p class="speaker">Bea [19:31]</p>
+        <p>Okay, so it pulls from my granola, Google Calendar, Gmail and Slack and tells me what needs priority and what I have to do and what I said that I would do that maybe is not always I just jot down. And then it has it has a supervising agent that checks whether I have actually completed those things. because otherwise at the beginning it was just giving me like rough, you have to do this, but then actually there was a whole other thread on Slack about that. It was very clear that action was done. And so I asked another agent to check on a daily basis before it sends the email with the to-do list and priorities. one detail, it is a draft in my inbox, and I have to send it to myself every morning. It's a small click that I can live with. But I would love if I could just send an email to myself if the recipient of the email is my email, then Claude can just send an email to myself. I'm sure there's a way to do that permission, but I'm not aware.</p>
+
+        <p class="speaker">Ceci [20:36]</p>
+        <p>I haven't been able to clock it either. I have a similar workflow for something completely different and it sits in my drafts.</p>
+
+        <p class="speaker">Bea [20:46]</p>
+        <p>So, parenthesis on granola, I first downloaded it and I was just not impressed, to say the least. I was just not impressed. But then, because it plugs into Claude and there's an MCP, it's just really convenient. And by the way, I’m on the free version, But because it plugs into Claude, then it just captures everything. And I have now trained it to take notes a little bit more in my bullet point style and then I can just send my to-do list for example for calls and people are always like, wow that's so organized. Well it's Granola</p>
+
+        <p class="speaker">Ceci [21:22]</p>
+        <p>I much prefer the style of the bullet points of granola and I had this this skill that would scout my Gmail every so often to look for emails sent by Gemini and then I will have to take those emails from Gemini and put them into like my knowledge bank for Claude to gain context about what happened in a set meeting and the action points. And that was something I could live with, but it was junky and it took up a lot of space. granola just solves it.</p>
+
+        <p class="speaker">Bea [21:58]</p>
+        <p>Also, nerdy thing, but I think very interesting. I asked Fable in the past couple days to just sweep everything that I have. And it found some vulnerability in my scheduled tasks. Because I remember that at some point my connectors broke and I had to reconnect everything. And Fable found, an authentication problem, and then how it was said in the Python script, was incorrect, and it was subject to vulnerability in case some of the connectors would change. And then it just fixed it. So I highly recommend ask Fable to just diligence all your skills and everything that you do.</p>
+
+        <h3 class="transcript-section" id="ch-9">The Notion Sweep</h3>
+
+        <p class="speaker">Ceci [22:56]</p>
+        <p>I'm gonna copy you on something on like my daily productivity, and I call it the Notion Sweep. And I do it at the end of the day. It's a skill. I just like names. quite similar to yours, plugs into granola, emails, calendars, Slack, and everything. I have my to-do list on Notion, and it looks at what's on my to-do list, what's new in the day, cross-references. And it presents me the information on what should I add or what should I change into a very interactive widget on my co-work. I don't get a lot of extras because I can always click on and off which ones I want or don't want. Which is quite basic. But the interesting thing I got it to do is I do remember like what I have to do myself, but I quite often tend to forget what I asked other people to do or what I'm waiting on others. So now it also not only looks at what I said I would do but also what I ask people to do and I it just like adds them in a waiting on column. So it's something that's visually there. And then it's up to me to know okay these things I'm not gonna chase for another three days or I'm not gonna chase for a while because I have the context but I will forget it on like you can't save those things on Slack. Like you can but it annoys me.</p>
+
+        <p class="speaker">Bea [24:15]</p>
+        <p>Does that fill your notion with junk at some point? Like what's the risk on that?</p>
+
+        <p class="speaker">Ceci [24:21]</p>
+        <p>Not at all because it's an interactive widget. So first of all it cross references, with what's in Notion already. And then I just get it a as a widget and I would just go be, you already said this and I click and click and click and it's in.</p>
+
+        <h3 class="transcript-section" id="ch-10">Cease and Desist, Drafted by Claude</h3>
+
+        <p class="speaker">Bea [24:39]</p>
+        <p>Interesting. Alright, moving on to my round three. This is let's say a slightly controversial one. But we get a lot of people that just copy us a lot in terms of our creatives, our brands. Sometimes people bid on our like name company name in SEO. consumer is the wild west and they just copy entire things with our app and just like Stick competitors’ logo on the creatives, and so we do send a decent amount of just legal letters to be, hey guys, do you mind taking that down? It's our brand, and sometimes it's our logo, and our logo is has a trademark. So anyway, so based on the copied artifact, I would just drag it into Claude and Claude would spin up a</p>
+
+        <p class="speaker">Ceci [25:26]</p>
+        <p>Okay.</p>
+
+        <p class="speaker">Bea [25:37]</p>
+        <p>a cease and desist in our style and in the legal language that we need that is non-threatening, very amicable, and it's not like we're gonna sue you. It's like, can you please take that down? That's a bit incorrect. the skill also finds the correct people to contact at that company and then sends it as a draft in my inbox and I just have to click send or maybe our lawyers if it's more formal. I would say that sped up that process by I would probably spend a half hour maybe on that letter and it's half hour back.</p>
+
+        <p class="speaker">Ceci [26:19]</p>
+        <p>it's not just the time and that. Like I worked on a cease and desist issue in my past company and I remember how much money we spent.</p>
+
+        <p class="speaker">Bea [26:29]</p>
+        <p>yeah, on legal. Yeah. Yeah. Our great lawyer. Shout out. He's great, but expensive.</p>
+
+        <p class="speaker">Ceci [26:34]</p>
+        <p>I think what's beautiful with AI and I tend to use it a lot for legal frameworks, when we have for example mutual termination agreements in Norway, then we will use a template that's been drafted by a lawyer and then adapt it. in these few months I've used legal Claude for a lot of things. Yeah. I think legal Claude plus judgment. Totally.</p>
+
+        <p class="speaker">Bea [26:58]</p>
+        <p>See the original cease and desist was written by our lawyer and then we iterated with Claude. It's always very important to have that first a professional view and I would never use Claude for like shareholder agreement or very very important documents.</p>
+
+        <h3 class="transcript-section" id="ch-11">The Meeting Coach</h3>
+
+        <p class="speaker">Ceci [27:15]</p>
+        <p>No. this one is definitely not a productivity tool or something that I use in my day-to-day like work and function. but it's probably like a side effect of my insecurity. But I built a meeting coach artifact, which I really love. And it's an artifact so it lives in co-work and in the background it connects to my calendar and to my granola and analyzes the transcripts, not the notes, but specifically the transcripts of all of my meetings, and then it plugs into really well known executive coaches and meeting coaches frameworks. And then gives me feedback. on all of my meetings if I want. So I would I just have to click artifact. I have the list of my meetings. I can show you if you want. And I have things like how much you spoke, what's your air time, how many questions you asked, what's the longest turn. And then it gives me a verdict. it's really mean sometimes, but I want it mean. And it also tells me like how to fix it, like lead with your claim, not with a disclaimer, and just tells me how it should have changed like how I say things. Yes. I think I have this one ready to share actually.</p>
+
+        <p class="speaker">Bea [28:39]</p>
+        <p>This is brilliant. Another one that I will copy. Please do. Shall we actually put our skills up in the open?</p>
+
+        <p class="speaker">Ceci [28:49]</p>
+        <p>I think some of them, sharing is caring.</p>
+
+        <p class="speaker">Bea [28:54]</p>
+        <p>I used to have a weekly roundup that is similar to my daily brief. I don't use it that much anymore because I have the daily brief and it like overlaps. but I have a weekly COGS skill that pulls from Datadog and tells me what's the run rate on certain costs. And actually, because of that, and also other people intuition that we found out that we were overcharged on a couple of things. So very, very useful. And Claude just gave me maybe like another lens of some monitoring that I was doing on the invoices front. Also on a weekly accrual level. That was very, very useful because it did cause loads of savings like directly.</p>
+
+        <p class="speaker">Ceci [29:48]</p>
+        <p>I think that's fantastic. That's such a great use. I don't know about the daily briefs. I used to have something that a 7 a.m. checks my Slack, my calendars and my Gmails, and then placed a five minute meeting before that meeting that I was going to have with like three bullet points on this is where you're meeting, this is why. And I don't think I have that many like external meetings.</p>
+
+        <p class="speaker">Bea [30:15]</p>
+        <p>I think it's great for salespeople.</p>
+
+        <p class="speaker">Ceci [30:16]</p>
+        <p>Exactly. Mine are also a bit too confidential sometimes. So having that on my calendar, I would have to go and put it private, a 7:01. and it was a bit not working. But I think it's a great idea for like if you're in back to back. Well first of all it reminds you when the calendar call is coming because you have a five minutes pre, you just go there and you have something already in your calendar.</p>
+
+        <h3 class="transcript-section" id="ch-12">The Show Production Stack</h3>
+
+        <p class="speaker">Bea [30:41]</p>
+        <p>There's a huge set of skills that we use for this very podcast, which we call the show production stack. And that is basically because we really don't have time for this podcast. We're here today and we have one hour of recording time, but everything else has to be automated, or it will eat into our weekend directly. And sometimes we have to work on a weekend, and sometimes we also want to enjoy our lives on the weekend as much as we love you guys. So we can introduce our production stack, army of agents.</p>
+
+        <p class="speaker">Ceci [31:16]</p>
+        <p>The army of agents, I love this has been one of the reasons why we wanted to do this.</p>
+
+        <p class="speaker">Bea [31:21]</p>
+        <p>This is an AI native podcast. Do you wanna start?</p>
+
+        <p class="speaker">Ceci [31:25]</p>
+        <p>Okay, so I do a bit more on The production and editing side?</p>
+
+        <p class="speaker">Bea [31:33]</p>
+        <p>Yeah I must say. I do more of the go to market.</p>
+
+        <p class="speaker">Ceci [31:36]</p>
+        <p>Markets yes, I'll do the creatives, so complain with me. so I have a Claude skill that generates the intro and outro jingles and graphics. I would use Chat GPT for the thumbnails and all of the imagery. I also have a skill that automatically creates website pages for each episode and Fable got a little bit like nicher, check out our website it's better than it used to be. Basically we record on Riverside, we get our transcript and then the transcript is really the basis of most things that I do there. Everything. So I put that into Claude, I get title, I get</p>
+
+        <p class="speaker">Bea [32:21]</p>
+        <p>The knowledge base for everything.</p>
+
+        <p class="speaker">Ceci [32:27]</p>
+        <p>YouTube descriptions, Spotify descriptions, the actual copy for the website. And is that it? Over to you. What do we do after that?</p>
+
+        <p class="speaker">Bea [32:37]</p>
+        <p>I have a skill that is essentially a go-to-market skill, so I bring the transcript into a folder together with certain clips that are done quite automatically by Riverside. I would like to experiment on that a little bit more, but for now, Riverside is great. I just drag the clips into the folder together with the transcript, and the clips already have subtitles, so Claude can read each frame and understand what those clips are talking about. And then based on that, it would create the Instagram, TikTok, and LinkedIn caption and the newsletter as well, because we have a newsletter on Substack, Top of the Ops, if you want to subscribe. And then we have one that is more of a content creation skill if we want to do short clips. That is called TikTok Yap skill. And it this is not our skills. we just stole it from my partner. And thank you, Alex.</p>
+
+        <p class="speaker">Ceci [33:37]</p>
+        <p>I have another plug on the content side actually. -Metricool.</p>
+
+        <p class="speaker">Bea [33:43]</p>
+        <p>yes. a software that nobody knew until they integrated with Claude.</p>
+
+        <p class="speaker">Ceci [33:48]</p>
+        <p>Exactly. So Metricool integrates with Claude and it schedules posts LinkedIn, TikTok, and Instagram. I mostly use it for TikTok. And it also writes a caption, figures out the time. But what I got it to do, 'cause I'm really lazy and TikTok it's a rabbit hole I don’t wanna spend too much time on. I point it to the folder that Bea has created with all of the shorts. They all have subtitles and so I tell him look there, figure out what the reels is about, figure out the caption, read the subtitles, then figure out the TikTok post and then post it.</p>
+
+        <p class="speaker">Bea [34:33]</p>
+        <p>That's really cool. I would say this is a really AI native podcast. We spend one hour of recording and probably maximum one hour each on like post production. And so it's three hours in total, combined with the two of us.</p>
+
+        <p class="speaker">Ceci [34:47]</p>
+        <p>Yeah. again AI has made it has made editing so much faster because it's just like editing a Word document.</p>
+
+        <h3 class="transcript-section" id="ch-13">Season One Reflections</h3>
+
+        <p class="speaker">Bea [35:01]</p>
+        <p>so this is the end of our first season. I also want to have a moment of reflection and maybe ask you what did you what did you expect, what did you not expect, what stuck with you the most? What would you say to our audience and listeners, maybe to go and check as an episode?</p>
+
+        <p class="speaker">Ceci [35:27]</p>
+        <p>Okay, so emotional moment. I didn't expect to bring more than my friends and family that would force to watch this show. So it's a big thank you to you and everyone else here, so to start with. But to get more concrete, to talk about operational things, So many concepts have really resonated with me, and I keep using them in my day-to-day work and also when I chat with people. one is operational depth. this is a hill I would die on. Everybody talks about tech depth, but there's operational depth and will eat your company alive if you don't think about it. So I would urge every founder just to go and think about it. the second What Ale said about operational excellence at Eleven Labs and like how they maintain that at scale. I think it's a such a great episode full of nuggets. Third one from Clara, episode six. Chief of Agents. we literally just spent</p>
+
+        <p class="speaker">Ceci [36:35]</p>
+        <p>an episode talking about all of our agents and what we get them to do. And if that's not inspiring to like new coming chief of staff to think about how they can avoid their role to manage actually a lot of agents. I don't know what can And I think the last one, and I'll let you go, is that I think everyone we had the pleasure to meet is a true generalist that really thrives in chaos and in uncertainty. And I think those are such fundamental qualities for anyone who needs to be able to shape shift in companies that now are evolving faster than ever. And so it just brought me so much newfound appreciation for the role and the people that decides to follow this</p>
+
+        <p class="speaker">Bea [37:24]</p>
+        <p>All of the women, actually, all women that we interviewed, you would throw them at a problem, they will probably solve it. Like in no time. it's incredible, the sheer power of execution of the people that we interviewed. Sanyans have no toes.</p>
+
+        <p class="speaker">Ceci [37:38]</p>
+        <p>How about you?</p>
+
+        <p class="speaker">Bea [37:42]</p>
+        <p>Honestly, this was probably the one that l stuck with me the most. the concept that you don't own anything and you solve a problem, you automate it and you pass it along. the fact that you cannot be territorial on it and you can be a pragmatic dreamer that stuck with me a lot and also Ale’s “Vaya con Dios” 11 Labs agents being so real that customers say “adios vaya con Dios” that was actually quite funny. the talent bar changing our episode with Megan and a lot of the topics that we talked about with Gaby. And the expectations on the founders are changing, hence the trendy role of the chief of staff. And finally, I would say probably the one that stuck with us the most is fractionally beautiful.</p>
+
+        <p class="speaker">Ceci [38:38]</p>
+        <p>Yes.</p>
+
+        <p class="speaker">Bea [38:38]</p>
+        <p>That inspired me quite a lot in like my day-to-day job and like how I think about processes and I'm thinking, does this bring people joy? I did not think about that before. Before I was like, is this efficient? And now I just add that into my consideration.</p>
+
+        <p class="speaker">Ceci [38:57]</p>
+        <p>it's potentially one of the reasons why my army of bots has a personality. Because I why not? Like you’re on Slack every day maybe wanna interact with somebody that say cracks a joke every now and then, ? Exactly.</p>
+
+        <p class="speaker">Bea [39:04]</p>
+        <p>Fair enough. Not like a soulless bot.</p>
+
+        <h3 class="transcript-section" id="ch-14">Rapid Fire: Rules for Non-Coders</h3>
+
+        <p class="speaker">Ceci [39:18]</p>
+        <p>I have a quick idea for a rapid fire. We just improv. we've never written line of codes before approaching AI, What’s your one, two, three, things to keep in mind to get you started or to keep you going with AI.</p>
+
+        <p class="speaker">Bea [39:31]</p>
+        <p>If you collaborate on a repo together, always Git pull. I wrote it everywhere. I always forgot to do it. at some point I had post-its everywhere. whenever I go in Claude Code and the repo is shared, always remember to Git pull. And then nothing, I now know what a PR is, and I merge PRs, and sometimes I send PRs to review to our COO and co-founder. We had this one mind blowing moment where we're like, wait, I'm sending you a PR and you're approving the PR and like we are not coders. This is incredible. How about you?</p>
+
+        <p class="speaker">Ceci [40:19]</p>
+        <p>I have three rules. The first one, this is more of a motto, but like if you can dream it, you can do it. So the onus is more on the dreaming and being creative.. The second is every three prompts and Claude Code, check for bugs, every 10, check for security. Audit yourself.</p>
+
+        <p class="speaker">Bea [41:04]</p>
+        <p>Also make the bot fail loudly. Make it write something instead of going silent. If you're not mentally checking that the bot is actually doing the job and like putting birthdays in, for example, the birthday fairy, then if they can't reach the information, make it say, Hi, I'm the fairy, I couldn't reach the information and tag you so that you actually know when it's failing. Otherwise, it's not a process that you are keeping in your mind.</p>
+
+        <p class="speaker">Ceci [41:30]</p>
+        <p>Yeah, Git automation has been helping me.</p>
+
+        <p class="speaker">Bea [41:37]</p>
+        <p>What is Git automation. That will be for a second episode.</p>
+
+        <p class="speaker">Ceci [41:41]</p>
+        <p>Oh my god, we're gonna get so cancelled for this. But Git Automation is your scheduled runs but on Git and so it sends you a notification when something has a run. I see. And so you basically go to Claude Code and ask him what has happened and then Claude fixes it.</p>
+
+        <p class="speaker">Bea [42:00]</p>
+        <p>Do you prefer code or cowork?</p>
+
+        <p class="speaker">Ceci [42:03]</p>
+        <p>different use cases. cowork is my colleague. We think together, we solve problems together, he goes and does things but it's a lot more quick iteration on documents, on processes, whereas Claude Code is I'm solving a problem, I get there.</p>
+
+        <p class="speaker">Bea [42:22]</p>
+        <p>I think they are very similar and cowork is just made for non-coders. It's just a better UX that feels more human.</p>
+
+        <p class="speaker">Ceci [42:35]</p>
+        <p>But I have a whole set of my operating system where cowork pulls from and so the memory around it for me cowork is helpful because of the context that I just spent a lot of time building. Yeah.</p>
+
+        <p class="speaker">Bea [42:49]</p>
+        <p>Also, one complaint for anthropic. Could we make cowork and code talk more with each other, please?</p>
+
+        <p class="speaker">Ceci [43:02]</p>
+        <p>plus one, a project that lives in chat and lives in co-work and have the same name. Just the memory if you can blend great thank you. Thank you. Anytime when you're not busy IPO ing.</p>
+
+        <h3 class="transcript-section" id="ch-15">Goodbye for Season One</h3>
+
+        <p class="speaker">Bea [43:15]</p>
+        <p>So that's the list. Are you ready to say goodbye for season one?</p>
+
+        <p class="speaker">Ceci [43:21]</p>
+        <p>Goodbye for Season One. We love to hear about what you liked, what stick with you, what you wanna hear more about, and maybe we'll be releasing some of this</p>
+
+        <p class="speaker">Bea [43:32]</p>
+        <p>Also, have we really missed something that you guys are doing in terms of skills that we are not? And let us know in the comment and send us a LinkedIn and we're always here. This was Top of the Ops</p>
+
+        <p class="speaker">Ceci [43:48]</p>
+        <p>Happy summer. Bye bye.</p>
+
+
+      </div>
+
+      </div><!-- /transcript-layout -->
+
+    </section>
+
+    <!-- ── MORE EPISODES ─────────────────────────────────── -->
+    <section class="ep-section rv">
+      <div class="ep-section-label">More Episodes</div>
+      <h2>Keep Listening</h2>
+      <div class="ep-section-bar"></div>
+
+      <a href="episode-10-olivia-elf-inside-sanas-1-1b-exit.html" class="more-ep-card">
+        <div class="more-ep-num" aria-hidden="true">10</div>
+        <div>
+          <div class="more-ep-title">Inside Sana's $1.1B Exit: The Operating Principles That Made It</div>
+          <div class="more-ep-desc">Olivia Elf joined Sana at 20 people and rode it to a $1.1B Workday acquisition. Giving away your Legos, Sanyans have no toes, fractionally beautiful.</div>
+        </div>
+        <div class="more-ep-arrow" aria-hidden="true">→</div>
+      </a>
+
+      <a href="episode-9-chief-of-staff-dead-end-or-launching-pad.html" class="more-ep-card">
+        <div class="more-ep-num" aria-hidden="true">09</div>
+        <div>
+          <div class="more-ep-title">Is Chief of Staff a Dead End or a Launching Pad?</div>
+          <div class="more-ep-desc">Two thirds of Chiefs of Staff get promoted, but the average tenure is two years. Ceci and Bea map every realistic exit from the role.</div>
+        </div>
+        <div class="more-ep-arrow" aria-hidden="true">→</div>
+      </a>
+
+      <a href="episode-8-megan-standing-why-i-left-elevenlabs.html" class="more-ep-card">
+        <div class="more-ep-num" aria-hidden="true">08</div>
+        <div>
+          <div class="more-ep-title">Why I Left ElevenLabs to Be Employee #1 at an AI Startup</div>
+          <div class="more-ep-desc">Megan Standing on scaling ElevenLabs 30 to 300, holding the hiring bar in hypergrowth, and why the first hire was ops, not engineering.</div>
+        </div>
+        <div class="more-ep-arrow" aria-hidden="true">→</div>
+      </a>
+    </section>
+
+  </main>
+
+</div>
+
+<footer>
+  <div class="fi">
+    <a href="index.html" class="f-logo">TOP OF <span>THE OPS</span></a>
+    <div class="f-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="index.html#hosts">Hosts</a>
+      <a href="https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb" target="_blank" rel="noopener" title="Spotify">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TopOfTheOps" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+    </div>
+    <div class="f-copy">&copy; 2026 Top of the Ops</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var els=document.querySelectorAll('.rv');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis')}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){o.observe(el)});
+}catch(e){els.forEach(function(el){el.classList.add('vis')})}
+</script>
+
+<script>
+(function(){
+  var nav=document.querySelector('.chapter-nav');if(!nav)return;
+  if(window.innerWidth<769){nav.removeAttribute('open');}
+  var links={};nav.querySelectorAll('a[data-ch]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var hs=document.querySelectorAll('.transcript-section[id]');var cur=null;
+  try{
+    var ob=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){if(cur)cur.classList.remove('active');cur=links[e.target.id];if(cur)cur.classList.add('active');}
+    });},{rootMargin:'-10% 0px -75% 0px'});
+    hs.forEach(function(h){ob.observe(h);});
+  }catch(e){}
+})();
+</script>
+<script>
+// Outbound listen-click tracking (GA4)
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');if(!a)return;
+  var h=a.href||'';
+  var plat=h.indexOf('youtu')>-1?'youtube':(h.indexOf('spotify')>-1?'spotify':null);
+  if(plat&&typeof gtag==='function'){gtag('event','outbound_click',{platform:plat,link_url:h,page_path:location.pathname});}
+});
+</script>
+</body>
+</html>
