@@ -52,6 +52,10 @@
 {
   "@context": "https://schema.org",
   "@type": "PodcastEpisode",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".show-notes-body"]
+  },
   "@id": "https://top-of-the-ops.com/episode-1-from-the-board-to-the-trenches",
   "name": "From the Board to the Trenches",
   "episodeNumber": 1,
@@ -135,6 +139,46 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What skills transfer from VC to operations?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The most valuable transferable skills include: pace and speed under pressure, critical thinking and pattern recognition, applying an investment lens to internal resource allocation decisions, and the ability to prioritise ruthlessly. Perhaps most surprisingly, emotional detachment — the ability to kill a project that isn't working — is a skill operators consistently undervalue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the hardest part of transitioning from VC to operator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The biggest mindset shift is moving from evaluation to execution. VCs are trained to research, analyse, and pattern-match. Operators need to build, ship, and iterate quickly. The tendency to over-research before acting is one of the most common failure modes for former VCs joining startups."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is a Chief of Staff role good for former VCs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Chief of Staff role is a particularly strong fit for former investors because it requires exactly the Swiss Army knife versatility that years of deal-making build. You're constantly switching contexts — strategy, product, GTM, investor relations, team operations — while also needing to identify and solve problems nobody assigned to you. The VC background also makes former investors better at choosing which startup to join, since they apply the same diligence to investing their time as they once did to investing capital."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is AI changing the role of junior VCs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "AI tools are rapidly automating many of the tasks that justified junior VC roles — research, financial modelling, pattern analysis, and even early-stage due diligence. At the same time, AI has dramatically lowered the barrier to building tech products, reducing the amount of pre-seed capital founders need. Both trends are putting pressure on the traditional VC model, particularly at seed stage."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="circuit-bg"></div>

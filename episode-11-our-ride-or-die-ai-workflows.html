@@ -51,6 +51,10 @@
 {
   "@context": "https://schema.org",
   "@type": "PodcastEpisode",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".show-notes-body"]
+  },
   "@id": "https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows",
   "name": "Our Ride or Die AI Workflows",
   "episodeNumber": 11,
@@ -134,6 +138,54 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is episode 11 of Top of the Ops about?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is the season one bonus episode, a co-host episode where Cecilia Manduca and Beatrice Aliprandi share every AI workflow they actually use as operators: Cecilia's automated finance operating system and Slack bot army, Bea's reconciliation and budget commentary skills, the invoice fairy, cease and desist letters drafted in Claude, a meeting coach that scores your airtime, and the production stack that runs the podcast itself. It ends with season one reflections and rapid fire rules for non-coders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you need to know how to code to build AI workflows like these?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Neither host had written a line of code before starting. Between them they now run Python scripts, Slack bots, scheduled tasks and Git repos, built by describing what they wanted to Claude. Their rules for non-coders: always git pull on shared repos, check for bugs every three prompts and security every ten, and make every bot fail loudly instead of going silent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the invoice fairy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The invoice fairy is a Slack bot Cecilia built at PortalOne. It is the first point of triage for finance questions: setting up new vendors, company registration numbers, which entity to invoice, contractor processes, and whether an invoice has been approved. When someone posts a question, the fairy opens a DM group between the person, Cecilia and itself, and handles the back and forth until a human is needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which AI tools do the hosts use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The stack discussed in this episode: Claude (chat, Claude Code and cowork) as the core, Granola for meeting transcripts and notes, Notion as the to-do source of truth, Metricool for scheduling social posts, Riverside for recording and clips, and Wispr Flow for voice input. The principle underneath: because they automate so much themselves, the bar for buying software is much higher than it used to be."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this a guest episode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, it is a co-host episode, and the last of season one. Ceci and Bea sign off for the season at the end, with season two in the works."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="circuit-bg"></div>

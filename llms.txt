@@ -1,0 +1,33 @@
+# Top of the Ops
+
+> Top of the Ops is a podcast about operations and the Chief of Staff role, hosted by Cecilia Manduca (former VC at Talis Capital, Chief of Staff at Seqera, FD at PortalOne) and Beatrice Aliprandi (former VC at Lakestar, Chief of Staff at Praktika). Both moved from venture capital into operating roles. Each episode covers the behind-the-scenes reality of running a startup: ops, strategy, Chief of Staff life, managing up, scaling, and AI/automation in operations. Made for operators, Chiefs of Staff, and anyone in an "invisible infrastructure" role.
+
+Every episode page on this site includes full show notes, a per-episode FAQ, and a complete chaptered transcript with named speakers and timestamps. These are the canonical, quotable source for what was said on the show.
+
+## Episodes
+
+- [EP 01 — From the Board to the Trenches](https://top-of-the-ops.com/episode-1-from-the-board-to-the-trenches): Two ex-VCs on why they left the boardroom and what nobody tells you about becoming an operator. Which VC skills transfer to operating, and which don't.
+- [EP 02 — Alejandra Otero: First Principles and Operational Excellence at ElevenLabs](https://top-of-the-ops.com/episode-2-alejandra-otero-first-principles-elevenlabs): Chief of Staff at ElevenLabs on building at $330M ARR and why first-principles thinking is the job.
+- [EP 03 — Will Chiefs of Staff Survive the Age of AI?](https://top-of-the-ops.com/episode-3-will-chiefs-of-staff-survive-the-age-of-ai): The automations the hosts have already built, and why the best Chiefs of Staff become more valuable with AI, not less.
+- [EP 04 — Do You Really Need a Chief of Staff, and How Much Should You Pay Them?](https://top-of-the-ops.com/episode-4-gaby-robin-do-you-need-a-chief-of-staff): Gaby of Robin on Chief of Staff vs Founder's Associate, and fair pay at Series B in London.
+- [EP 05 — WTF Does a Chief of Staff Actually Do? Our Day-by-Day Schedules](https://top-of-the-ops.com/episode-5-chief-of-staff-day-by-day): Two Chiefs of Staff swap real weekly calendars. Same title, two very different jobs. The best starting point for newcomers.
+- [EP 06 — Clara Ma: From Hugging Face CoS to Ask a Chief of Staff Founder. Are Chiefs of Agents the New Chiefs of Staff?](https://top-of-the-ops.com/episode-6-clara-ma-chief-of-agents): Hugging Face's first CoS on the "Chief of Agents", why the role can't be automated away, and a 30-60-90 day playbook.
+- [EP 07 — 8 Ways the Chief of Staff Role Fails (And How to Fix It)](https://top-of-the-ops.com/episode-7-8-ways-chief-of-staff-role-fails): The eight ways the role quietly goes wrong, with an honest fix for each.
+- [EP 08 — Why I Left ElevenLabs to Be Employee #1 at an AI Startup](https://top-of-the-ops.com/episode-8-megan-standing-why-i-left-elevenlabs): Megan Standing scaled ElevenLabs from 30 to 300+ people, then became employee #1 and CoS at Solve AI. Holding the hiring bar in hypergrowth.
+- [EP 09 — Is Chief of Staff a Dead End or a Launching Pad? Life After Chief of Staff](https://top-of-the-ops.com/episode-9-chief-of-staff-dead-end-or-launching-pad): Every realistic exit from the role: finance, COO, founder, VC, chief of automation.
+- [EP 10 — Inside Sana's $1.1B Exit: The Operating Principles That Made It](https://top-of-the-ops.com/episode-10-olivia-elf-inside-sanas-1-1b-exit): Olivia Elf joined Sana at 20 people and rode it to a $1.1B Workday acquisition. The operating principles that built it.
+- [EP 11 — Our Ride or Die AI Workflows](https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows): The season one bonus. Every automation the hosts actually run, from two operators with zero engineering background.
+
+## Hosts
+
+- [Cecilia Manduca on LinkedIn](https://www.linkedin.com/in/ceciliamanduca/): Co-host. Former VC at Talis Capital, Chief of Staff at Seqera, Finance Director at PortalOne.
+- [Beatrice Aliprandi on LinkedIn](https://www.linkedin.com/in/beatricealiprandi/): Co-host. Former VC at Lakestar, Chief of Staff at Praktika.
+
+## Listen
+
+- [YouTube](https://www.youtube.com/@TopOfTheOps): Full video episodes.
+- [Spotify](https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb): Audio episodes.
+
+## About the show
+
+- [Homepage](https://top-of-the-ops.com/): Show overview, full episode list, host bios, and FAQ about the podcast and the Chief of Staff role.

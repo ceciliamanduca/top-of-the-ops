@@ -52,6 +52,10 @@
 {
   "@context": "https://schema.org",
   "@type": "PodcastEpisode",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": ["h1", ".show-notes-body"]
+  },
   "@id": "https://top-of-the-ops.com/episode-3-will-chiefs-of-staff-survive-the-age-of-ai",
   "name": "Will Chiefs of Staff survive the age of AI?",
   "episodeNumber": 3,
@@ -135,6 +139,46 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Will AI replace Chief of Staff roles?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The role won't be replaced — but it will bifurcate. Chiefs of Staff who embrace AI and use it to expand their operational surface area will become significantly more valuable; those who remain attached to manual, task-based work will struggle to justify their role. The irreplaceable parts of the job — distributing context, maintaining execution accountability, and surfacing problems nobody else has named yet — are inherently human and cannot currently be automated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are the best use cases for AI automation in an operator role?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The highest-impact automations tend to be recurring, data-heavy, and currently manual: investor updates and reporting dashboards, legal agreement review for standard contracts, customer support routing and resolution for common request types, weekly metrics tracking and summary generation, and financial modelling. The pattern is consistent: if a task involves pulling structured data from known sources and producing a predictable output, it can almost certainly be automated."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you get started with AI automation if you're not technical?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start by auditing what you actually do. Spend a week logging your tasks and categorising them by impact and frequency. Begin automating lower-stakes, repetitive tasks to build comfort and fluency. Use personal projects — a website, an app for friends, anything with no professional consequences — to experiment. Ask AI to explain things step by step rather than just doing them for you. The communication skill required to interact effectively with AI is within reach of anyone; the main barrier is mental, not technical."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should Chief of Staffs be the AI champions in their companies?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes — but with a specific angle. Every function leader should champion AI within their domain. The Chief of Staff's role is to champion AI at the organisational level: identifying cross-functional automation opportunities, reducing the maintenance burden on processes across the company, and modelling what 10x operating leverage looks like in practice. Their broad context and lack of a single functional home makes them uniquely positioned to drive AI adoption holistically rather than within a single lane."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 <div class="circuit-bg"></div>
