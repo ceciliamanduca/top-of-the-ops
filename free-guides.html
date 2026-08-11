@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJM7VXTYPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GJM7VXTYPN');
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO
+═══════════════════════════════════════════════ -->
+<title>Free AI Guides for Operators – Top of the Ops</title>
+<meta name="description" content="Free, practical AI guides for operators and Chiefs of Staff, from the hosts of Top of the Ops. The prompts, workflows and automations we actually run, written up so you can copy them.">
+<meta name="keywords" content="free AI guides, AI for operators, chief of staff AI, ops automation guide, AI workflows, AI prompts for operations, Top of the Ops">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://top-of-the-ops.com/free-guides">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH (LinkedIn, Facebook, Slack previews)
+═══════════════════════════════════════════════ -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Top of the Ops">
+<meta property="og:title" content="Free AI Guides for Operators – Top of the Ops">
+<meta property="og:description" content="The prompts, workflows and automations two operators actually run, written up as free guides you can copy.">
+<meta property="og:url" content="https://top-of-the-ops.com/free-guides">
+<meta property="og:image" content="https://top-of-the-ops.com/og-image.png">
+<meta property="og:image:alt" content="Top of the Ops podcast cover art">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER / X CARD
+═══════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Free AI Guides for Operators – Top of the Ops">
+<meta name="twitter:description" content="The prompts, workflows and automations two operators actually run, written up as free guides you can copy.">
+<meta name="twitter:image" content="https://top-of-the-ops.com/og-image.png">
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA – CollectionPage + Breadcrumb (AEO)
+
+     WHEN YOU ADD GUIDES: add an "ItemList" node to the @graph
+     below, one listItem per guide, so the set is machine-readable:
+
+     {
+       "@type": "ItemList",
+       "@id": "https://top-of-the-ops.com/free-guides#guides",
+       "itemListOrder": "https://schema.org/ItemListOrderDescending",
+       "numberOfItems": 1,
+       "itemListElement": [
+         { "@type": "ListItem", "position": 1,
+           "url": "https://top-of-the-ops.com/guide-<slug>",
+           "name": "<Guide title>" }
+       ]
+     }
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://top-of-the-ops.com/free-guides#webpage",
+      "url": "https://top-of-the-ops.com/free-guides",
+      "name": "Free AI Guides for Operators",
+      "description": "Free, practical AI guides for operators and Chiefs of Staff, from the hosts of Top of the Ops.",
+      "inLanguage": "en-GB",
+      "isPartOf": { "@id": "https://top-of-the-ops.com/#website" },
+      "publisher": { "@id": "https://top-of-the-ops.com/#organization" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://top-of-the-ops.com/free-guides#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://top-of-the-ops.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free Guides",
+          "item": "https://top-of-the-ops.com/free-guides"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="circuit-bg"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TOP OF <span>THE OPS</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="free-guides.html" aria-current="page">Free Guides</a>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li>Free Guides</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="ep-hero rv" data-num="AI">
+    <div class="ep-meta">
+      <span class="ep-badge">Free Resources</span>
+      <span class="ep-number">No sign-up wall</span>
+    </div>
+    <h1>Free AI Guides<br><span>For Operators Who Want Their Time Back</span></h1>
+    <p class="ep-tagline">Every episode we mention another workflow we have automated. This is where those get written up properly: the prompts, the setups, and the ops problems they actually solve. Free to read, free to copy, no engineering background required.</p>
+
+    <div class="about-topics" style="margin-top:0;margin-bottom:32px">
+      <span class="topic-chip">Prompts</span>
+      <span class="topic-chip">Workflows</span>
+      <span class="topic-chip">Automations</span>
+      <span class="topic-chip">Templates</span>
+    </div>
+
+    <div class="ep-divider"></div>
+  </header>
+
+  <div class="ep-content guides-page">
+
+    <!-- ═══════════════════════════════════════════════
+         THE GUIDES
+    ═══════════════════════════════════════════════ -->
+    <section class="ep-section rv">
+      <div class="ep-section-label">The Guides</div>
+      <h2>Pick a guide, steal the workflow</h2>
+      <div class="ep-section-bar"></div>
+
+      <!-- ───────────────────────────────────────────────
+           HOW TO ADD A GUIDE
+
+           1. Build the guide page itself as guide-<slug>.html
+              (copy an episode page for the head/nav/footer, or
+              copy this page and swap the body).
+           2. Delete the .guides-empty block below the first time
+              you add a real guide.
+           3. Copy the template between the markers into the list,
+              newest guide at the top, and bump the number.
+           4. Also update: sitemap.xml, llms.txt, _redirects
+              (short /guide-N URL), and the ItemList schema in the
+              <head> of this page.
+
+           ── GUIDE CARD TEMPLATE ──────────────────────
+           <a href="guide-<slug>.html" class="more-ep-card">
+             <div class="more-ep-num">01</div>
+             <div>
+               <div class="more-ep-title">Guide title goes here</div>
+               <div class="more-ep-desc">One line on the problem it solves and who it is for.</div>
+             </div>
+             <div class="more-ep-arrow">&rarr;</div>
+           </a>
+           ── END TEMPLATE ─────────────────────────────
+      ─────────────────────────────────────────────── -->
+
+      <div class="guides-list">
+
+        <!-- Guide cards go here. Remove the empty state below once the first one ships. -->
+
+        <div class="guides-empty">
+          <div class="ge-label">Coming Soon</div>
+          <div class="ge-title">The first guides are being written</div>
+          <p class="ge-desc">We are turning the workflows from the show into proper step-by-step guides. Drop your email below and we will send them over as they land, or start with <a href="episode-11-our-ride-or-die-ai-workflows.html">episode 11</a>, where we walk through every automation we run.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         NOTIFY
+    ═══════════════════════════════════════════════ -->
+    <section class="ep-section rv">
+      <div class="sub-box">
+        <div class="ep-section-label" style="text-align:center">Get Them First</div>
+        <h2 class="st" style="text-align:center">New guide,<br>straight to your inbox.</h2>
+        <div class="sd" style="margin:0 auto 32px"></div>
+        <p class="sub-desc" style="text-align:center">Same list as the episode alerts. No spam, no drip sequence, just a note when there is something new worth reading.</p>
+        <form id="subscribe-form" class="email-form">
+          <input type="email" name="email" class="email-in" placeholder="your@email.com" required>
+          <button type="submit" class="email-btn">Send Me the Guides</button>
+        </form>
+        <div id="form-msg" class="form-msg" style="text-align:center"></div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════
+         BACK TO THE SHOW
+    ═══════════════════════════════════════════════ -->
+    <section class="ep-section rv">
+      <div class="ep-section-label">In the Meantime</div>
+      <h2>Start with these episodes</h2>
+      <div class="ep-section-bar"></div>
+
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="more-ep-card">
+        <div class="more-ep-num">11</div>
+        <div>
+          <div class="more-ep-title">Our Ride or Die AI Workflows</div>
+          <div class="more-ep-desc">Every automation we actually run, from two operators with zero engineering background.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="episode-6-clara-ma-chief-of-agents.html" class="more-ep-card">
+        <div class="more-ep-num">06</div>
+        <div>
+          <div class="more-ep-title">Clara Ma: Chiefs of Agents</div>
+          <div class="more-ep-desc">Hugging Face's first Chief of Staff on the rise of the "Chief of Agents".</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="episode-3-will-chiefs-of-staff-survive-the-age-of-ai.html" class="more-ep-card">
+        <div class="more-ep-num">03</div>
+        <div>
+          <div class="more-ep-title">Will Chiefs of Staff Survive the Age of AI?</div>
+          <div class="more-ep-desc">The automations we had already built, and why good operators get more valuable with AI.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <a href="index.html" class="f-logo">TOP OF <span>THE OPS</span></a>
+    <div class="f-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="index.html#hosts">Hosts</a>
+      <a href="free-guides.html">Free Guides</a>
+      <a href="https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb" target="_blank" rel="noopener" title="Spotify">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TopOfTheOps" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/topoftheopspodcast/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@top.of.the.ops" target="_blank" rel="noopener" title="TikTok">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+    </div>
+    <div class="f-copy">&copy; 2026 Top of the Ops</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var els=document.querySelectorAll('.rv');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis')}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){o.observe(el)});
+}catch(e){els.forEach(function(el){el.classList.add('vis')})}
+</script>
+
+<script>
+// Email subscription via Netlify Forms — same "subscribe" list as the homepage
+document.getElementById('subscribe-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  var form = this;
+  var btn = form.querySelector('.email-btn');
+  var msg = document.getElementById('form-msg');
+  var email = form.querySelector('input[name="email"]').value;
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  var formData = new FormData();
+  formData.append('form-name', 'subscribe');
+  formData.append('email', email);
+
+  fetch('/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams(formData).toString()
+  })
+  .then(function(response) {
+    if (response.ok) {
+      if(typeof gtag==='function'){gtag('event','newsletter_subscribe',{source:'free_guides'});}
+      btn.textContent = 'You\'re in!';
+      btn.style.background = 'var(--cy)';
+      msg.className = 'form-msg ok';
+      msg.textContent = 'Welcome aboard. We\'ll send the guides as they land.';
+      form.querySelector('input[name="email"]').value = '';
+    } else {
+      throw new Error('Form submission failed');
+    }
+  })
+  .catch(function() {
+    btn.textContent = 'You\'re in!';
+    btn.style.background = 'var(--cy)';
+    msg.className = 'form-msg ok';
+    msg.textContent = 'Welcome aboard. We\'ll send the guides as they land.';
+    form.querySelector('input[name="email"]').value = '';
+  });
+});
+</script>
+
+<script>
+// Outbound listen-click tracking (GA4)
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');if(!a)return;
+  var h=a.href||'';
+  var plat=h.indexOf('youtu')>-1?'youtube':(h.indexOf('spotify')>-1?'spotify':null);
+  if(plat&&typeof gtag==='function'){gtag('event','outbound_click',{platform:plat,link_url:h,page_path:location.pathname});}
+});
+</script>
+</body>
+</html>
