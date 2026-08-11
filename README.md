@@ -53,7 +53,21 @@ Guides are listed on `free-guides.html` and live at `guide-<n>-<slug>.html`, eac
 The PDF is rendered from the page itself, so the print stylesheet in `style.css` (`@media print`) is the single source of truth for how it looks. Serve the folder, then:
 
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=15000 --print-to-pdf=guide-1-meeting-coach.pdf "http://localhost:8000/guide-1-meeting-coach.html?print=1"
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf=guide-1-meeting-coach.pdf "http://localhost:8000/guide-1-meeting-coach.html?print=1&pdf=1"
 ```
 
-`?print=1` expands the collapsed troubleshooting answers so they appear in the PDF. **Re-run this whenever you edit a guide's content**, or the PDF will drift out of sync with the page.
+**Re-run this whenever you edit a guide's content**, or the PDF will drift out of sync with the page.
+
+Two query params drive it:
+
+| Param | Effect |
+| --- | --- |
+| `print=1` | Expands the collapsed troubleshooting answers so they appear in the export |
+| `pdf=1` | Renders the print view in the brand's dark palette (adds `.pdf-export` to `<html>` and `<body>`) |
+
+There are deliberately **two print themes**, both in the same `@media print` block:
+
+- **Dark** (`.pdf-export`) — the downloadable PDF. Matches the site. Uses `@page { margin: 0 }` with the inset moved onto `.page`, because Chrome never paints backgrounds into the page margin and the export would otherwise sit in a white frame.
+- **Light** (`body:not(.pdf-export)`) — what the on-page "Print this page" button produces. Dark-on-white so it doesn't flood a paper printer.
+
+Because the page margin is zero, content on continuation pages starts close to the top edge — there is no per-page top inset available in Chrome's print-to-PDF without a pagination library. Worth a glance at the output when a guide's content changes.

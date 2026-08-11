@@ -369,8 +369,13 @@ section.g-sec{padding:0}
 /* Print / Save-as-PDF */
 .print-only{display:none}
 @media print{
-  @page{margin:15mm 14mm}
-  html,body{background:#fff!important}
+  /* Chrome never paints backgrounds into the @page margin, so a dark export
+     would sit in a white frame. Zero the margin and inset the content instead. */
+  @page{margin:0}
+  .page{padding:15mm 14mm!important}
+  /* The root element's background propagates to the whole page canvas,
+     including the @page margins — so it must go on <html>, not <body>. */
+  html:not(.pdf-export),body:not(.pdf-export){background:#fff!important}
   .circuit-bg,body::before,body::after,nav,footer,.breadcrumb,.chapter-nav,.copy-btn,
   .g-download,.ep-divider,.listen-links,.more-ep-card,.ep-section-label,.ep-section h2,
   .ep-section-bar,.ticker{display:none!important}
@@ -381,28 +386,56 @@ section.g-sec{padding:0}
   .ep-hero,.ep-content{max-width:none;padding:0}
   .ep-hero::before{display:none}
 
-  /* Everything is dark-on-white. Catch-all first, then the exceptions. */
-  body,.guide-body,.guide-body *,.ep-hero,.ep-hero *,.callout,.callout *,
-  .g-stat,.g-stat *,.g-table,.g-table *{color:#222!important}
-  .ep-hero h1,.ep-hero h1 span,.g-sec h2,.guide-body h3,.guide-body strong,
-  .g-stat b,.g-table td strong,.callout strong{color:#000!important}
-  .ep-hero h1 span{-webkit-text-fill-color:#000!important;background:none!important}
-  .guide-body em,.callout em,.g-quote,.g-quote em{color:#222!important;opacity:1!important}
-  .prompt-label,.callout-t,.g-sec-num,.ep-badge,.ep-number,.g-table th,
-  .g-stat span,.g-quote cite{color:#555!important}
-  .ep-badge{background:none!important;border:1px solid #bbb!important}
+  /* ── INK-FRIENDLY (default): dark-on-white, for the Print button ──
+     Scoped to :not(.pdf-export) so the dark PDF export can opt out.
+     Catch-all first, then the exceptions. */
+  body:not(.pdf-export),
+  body:not(.pdf-export) .guide-body,body:not(.pdf-export) .guide-body *,
+  body:not(.pdf-export) .ep-hero,body:not(.pdf-export) .ep-hero *,
+  body:not(.pdf-export) .callout,body:not(.pdf-export) .callout *,
+  body:not(.pdf-export) .g-stat,body:not(.pdf-export) .g-stat *,
+  body:not(.pdf-export) .g-table,body:not(.pdf-export) .g-table *{color:#222!important}
+  body:not(.pdf-export) .ep-hero h1,body:not(.pdf-export) .ep-hero h1 span,
+  body:not(.pdf-export) .g-sec h2,body:not(.pdf-export) .guide-body h3,
+  body:not(.pdf-export) .guide-body strong,body:not(.pdf-export) .g-stat b,
+  body:not(.pdf-export) .g-table td strong,body:not(.pdf-export) .callout strong{color:#000!important}
+  body:not(.pdf-export) .ep-hero h1 span{-webkit-text-fill-color:#000!important;background:none!important}
+  body:not(.pdf-export) .guide-body em,body:not(.pdf-export) .callout em,
+  body:not(.pdf-export) .g-quote,body:not(.pdf-export) .g-quote em{color:#222!important;opacity:1!important}
+  body:not(.pdf-export) .prompt-label,body:not(.pdf-export) .callout-t,
+  body:not(.pdf-export) .g-sec-num,body:not(.pdf-export) .ep-badge,
+  body:not(.pdf-export) .ep-number,body:not(.pdf-export) .g-table th,
+  body:not(.pdf-export) .g-stat span,body:not(.pdf-export) .g-quote cite{color:#555!important}
+  body:not(.pdf-export) .ep-badge{background:none!important;border:1px solid #bbb!important}
+  body:not(.pdf-export) .g-stat,body:not(.pdf-export) .callout,
+  body:not(.pdf-export) .prompt-block,body:not(.pdf-export) .g-table-wrap{background:#fafafa!important;border:1px solid #ccc!important}
+  body:not(.pdf-export) .callout{border-left:3px solid #888!important}
+  body:not(.pdf-export) .g-quote{border-left:3px solid #888!important}
+  body:not(.pdf-export) .prompt-block pre{color:#111!important}
+  body:not(.pdf-export) .prompt-head{background:#f0f0f0!important;border-bottom:1px solid #ccc!important}
+  body:not(.pdf-export) .g-table th{background:#f0f0f0!important}
+  body:not(.pdf-export) .guide-body a{color:#111!important;border-bottom:1px solid #999}
+  body:not(.pdf-export) .g-sec-bar{background:#888!important}
+  body:not(.pdf-export) .faq-item{border:1px solid #ccc!important;background:#fafafa!important}
+  body:not(.pdf-export) .faq-item summary{color:#000!important}
+  body:not(.pdf-export) .faq-a{color:#222!important}
+  body:not(.pdf-export) .print-head{color:#666!important;border-bottom:1px solid #ddd}
+  body:not(.pdf-export) .print-head strong{color:#000!important}
 
-  /* Blocks */
-  .g-stat,.callout,.prompt-block,.g-table-wrap{background:#fafafa!important;border:1px solid #ccc!important;break-inside:avoid}
-  .callout{border-left:3px solid #888!important}
-  .g-quote{border-left:3px solid #888!important;break-inside:avoid}
-  .prompt-block pre{color:#111!important;white-space:pre-wrap;word-break:break-word;font-size:10px;line-height:1.6;padding:14px}
-  .prompt-head{background:#f0f0f0!important;border-bottom:1px solid #ccc!important}
-  .g-table th{background:#f0f0f0!important}
+  /* ── BRAND DARK (.pdf-export): keep the site's colours in the PDF ──
+     print-color-adjust:exact stops the renderer dropping backgrounds. */
+  html.pdf-export,body.pdf-export{background:var(--bk)!important}
+  html.pdf-export,body.pdf-export,body.pdf-export *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  body.pdf-export .print-head{color:var(--gr)!important;border-bottom:1px solid rgba(212,163,59,.25)}
+  body.pdf-export .print-head strong{color:var(--wh)!important}
+  /* The gradient headline survives; force the paint so it doesn't flatten. */
+  body.pdf-export .ep-hero h1 span{-webkit-text-fill-color:transparent!important}
+
+  /* Shared block sizing, theme-independent */
+  .g-stat,.callout,.prompt-block,.g-table-wrap,.g-quote,.faq-item{break-inside:avoid}
+  .prompt-block pre{white-space:pre-wrap;word-break:break-word;font-size:10px;line-height:1.6;padding:14px}
   .g-table{font-size:11.5px}
   .g-table th,.g-table td{padding:9px 12px}
-  .guide-body a{color:#111!important;border-bottom:1px solid #999}
-  .g-sec-bar{background:#888!important}
 
   /* Rhythm: tighter sections, clearer paragraphs, no orphan headings */
   .guide-body{font-size:12pt;line-height:1.6;max-width:none}
@@ -418,16 +451,14 @@ section.g-sec{padding:0}
   .ep-hero h1{font-size:24pt}
   .ep-tagline{font-size:12pt;margin-bottom:18px}
 
-  /* Troubleshooting <details> must print open */
-  .faq-item{break-inside:avoid;border:1px solid #ccc!important;background:#fafafa!important;margin-bottom:8px}
-  .faq-item summary{color:#000!important}
+  /* Troubleshooting <details> must print open (colours are set per-theme above) */
+  .faq-item{margin-bottom:8px}
   .faq-item summary::after{display:none!important}
-  .faq-a{display:block!important;color:#222!important}
+  .faq-a{display:block!important}
 
-  /* Provenance line at the top of the printed document */
+  /* Provenance line at the top of the printed document (colours set per-theme above) */
   .print-head{font-family:'Space Mono',monospace;font-size:8.5pt;letter-spacing:1px;
-    color:#666!important;border-bottom:1px solid #ddd;padding-bottom:8px;margin-bottom:22px}
-  .print-head strong{color:#000!important}
+    padding-bottom:8px;margin-bottom:22px}
 }
 
 /* FOOTER */

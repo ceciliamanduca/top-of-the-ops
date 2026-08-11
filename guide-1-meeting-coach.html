@@ -703,7 +703,7 @@ about the risk, not general.</pre>
           <!-- DOWNLOAD -->
           <div class="g-download rv">
             <div class="g-dl-title">Take it with you</div>
-            <p class="g-dl-desc">The whole guide as a PDF &mdash; prompts included, formatted for printing and for sending to the colleague who needs it most.</p>
+            <p class="g-dl-desc">The whole guide as a PDF, prompts included, in full colour &mdash; for reading offline or sending to the colleague who needs it most. The print option gives you an ink-friendly version instead.</p>
             <div class="g-dl-btns">
               <a href="guide-1-meeting-coach.pdf" class="g-dl-btn primary" download data-dl="pdf">
                 <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
@@ -868,6 +868,13 @@ try{
   function openAll(){ds.forEach(function(d){if(!d.open){d.dataset.wasShut='1';d.open=true;}});}
   function restore(){ds.forEach(function(d){if(d.dataset.wasShut){d.open=false;delete d.dataset.wasShut;}});}
   if(location.search.indexOf('print=1')>-1){openAll();}
+  // ?pdf=1 renders the print view in the brand's dark palette instead of the
+  // ink-friendly light one. Used for the downloadable PDF; the Print button
+  // stays light so it doesn't flood a paper printer.
+  if(location.search.indexOf('pdf=1')>-1){
+    document.body.classList.add('pdf-export');
+    document.documentElement.classList.add('pdf-export');
+  }
   window.addEventListener('beforeprint',openAll);
   window.addEventListener('afterprint',restore);
   if(window.matchMedia){
