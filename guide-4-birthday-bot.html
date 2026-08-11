@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJM7VXTYPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GJM7VXTYPN');
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO
+═══════════════════════════════════════════════ -->
+<title>The Birthday Bot – Build Your First Automation in 20 Minutes | Top of the Ops</title>
+<meta name="description" content="Operator Field Guide No. 04. Replace the paid birthday tool with a bot that posts birthday and work anniversary messages, respects opt-outs, and tells you when it breaks. Free, no code, 20 minutes.">
+<meta name="keywords" content="birthday bot, Slack bot, work anniversary bot, first automation, no-code bot, team celebrations, HR automation, Claude scheduled task">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://top-of-the-ops.com/guide-4-birthday-bot">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH
+═══════════════════════════════════════════════ -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Top of the Ops">
+<meta property="og:title" content="The Birthday Bot – Build Your First Automation in 20 Minutes">
+<meta property="og:description" content="The safest possible place to learn the pattern every other bot uses. And it replaces a paid subscription. Operator Field Guide No. 04.">
+<meta property="og:url" content="https://top-of-the-ops.com/guide-4-birthday-bot">
+<meta property="og:image" content="https://top-of-the-ops.com/og-image.png">
+<meta property="og:image:alt" content="Top of the Ops podcast cover art">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER / X CARD
+═══════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Birthday Bot – Build Your First Automation in 20 Minutes">
+<meta name="twitter:description" content="The safest possible place to learn the pattern every other bot uses. And it replaces a paid subscription. Operator Field Guide No. 04.">
+<meta name="twitter:image" content="https://top-of-the-ops.com/og-image.png">
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA – TechArticle + HowTo + Breadcrumb (AEO)
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://top-of-the-ops.com/guide-4-birthday-bot#article",
+      "headline": "The Birthday Bot: Build Your First Automation in Twenty Minutes",
+      "description": "Operator Field Guide No. 04. Replace the paid birthday tool with a bot that posts birthday and work anniversary messages, respects opt-outs, and tells you when it breaks. Free, no code, 20 minutes.",
+      "url": "https://top-of-the-ops.com/guide-4-birthday-bot",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "keywords": "birthday bot, Slack bot, work anniversary bot, first automation, no-code bot, team celebrations, HR automation, Claude scheduled task",
+      "author": [
+        { "@type": "Person", "name": "Cecilia Manduca", "url": "https://www.linkedin.com/in/ceciliamanduca/" },
+        { "@type": "Person", "name": "Beatrice Aliprandi", "url": "https://www.linkedin.com/in/beatricealiprandi/" }
+      ],
+      "publisher": { "@id": "https://top-of-the-ops.com/#organization" },
+      "isPartOf": { "@id": "https://top-of-the-ops.com/free-guides#webpage" },
+      "image": "https://top-of-the-ops.com/og-image.png"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://top-of-the-ops.com/guide-4-birthday-bot#howto",
+      "name": "Build a birthday and work anniversary bot",
+      "description": "Post celebration messages to team chat from a sheet or HR system, respecting opt-outs and alerting you when the source is unreachable.",
+      "totalTime": "PT20M",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "GBP", "value": "0" },
+      "supply": [
+        { "@type": "HowToSupply", "name": "A list of dates in a sheet or HR system" },
+        { "@type": "HowToSupply", "name": "A team chat tool such as Slack or Teams" },
+        { "@type": "HowToSupply", "name": "An AI assistant with scheduled tasks" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Get your dates in one place", "text": "Build a five-column sheet with names, handles, birthdays, start dates and an announce flag, or connect your HR system.", "url": "https://top-of-the-ops.com/guide-4-birthday-bot#step-1" },
+        { "@type": "HowToStep", "position": 2, "name": "Write the build prompt", "text": "Specify the bot's name, personality, posting rules, message rules, failure behaviour, and ask for a dry run first.", "url": "https://top-of-the-ops.com/guide-4-birthday-bot#step-2" },
+        { "@type": "HowToStep", "position": 3, "name": "Give it a name and a face", "text": "Name it, give it an icon and one running joke, so people tolerate rather than mute it.", "url": "https://top-of-the-ops.com/guide-4-birthday-bot#personality" },
+        { "@type": "HowToStep", "position": 4, "name": "Install it", "text": "Schedule it as a weekday task, dry-running to a DM for a week before pointing it at a public channel.", "url": "https://top-of-the-ops.com/guide-4-birthday-bot#install" },
+        { "@type": "HowToStep", "position": 5, "name": "Make it fail loudly", "text": "Alert on an unreachable date list, and add a weekly heartbeat so a silent failure is visible.", "url": "https://top-of-the-ops.com/guide-4-birthday-bot#fail-loudly" },
+        { "@type": "HowToStep", "position": 6, "name": "Audit it", "text": "Check monthly whether the bot's access is broader than names and dates.", "url": "https://top-of-the-ops.com/guide-4-birthday-bot#audit" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://top-of-the-ops.com/guide-4-birthday-bot#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://top-of-the-ops.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Guides", "item": "https://top-of-the-ops.com/free-guides" },
+        { "@type": "ListItem", "position": 3, "name": "The Birthday Bot", "item": "https://top-of-the-ops.com/guide-4-birthday-bot" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="circuit-bg"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TOP OF <span>THE OPS</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="free-guides.html"><span class="nav-free">Free </span>Guides</a>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Provenance line — only appears in print/PDF, where the nav and footer are hidden -->
+  <div class="print-only print-head">
+    <strong>Top of the Ops</strong> &mdash; Operator Field Guide No. 04 &middot; top-of-the-ops.com/guide-4-birthday-bot
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="free-guides.html">Free Guides</a></li>
+        <li>No. 04 &mdash; The Birthday Bot</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="ep-hero rv" data-num="04">
+    <div class="ep-meta">
+      <span class="ep-badge">Operator Field Guide No. 04</span>
+      <span class="ep-number">Free &mdash; no sign-up wall</span>
+    </div>
+    <h1>The Birthday Bot<br><span>Cancel the software you're paying for, and build your first bot in twenty minutes</span></h1>
+    <p class="ep-tagline">A bot that posts happy birthday and work anniversary messages in your team chat, pulling from wherever you already keep dates. With a personality, and a name.</p>
+
+    <div class="g-stats">
+      <div class="g-stat"><b>20 minutes</b><span>Time to build</span></div>
+      <div class="g-stat"><b>A subscription</b><span>What it replaces</span></div>
+      <div class="g-stat"><b>No code</b><span>Skill level</span></div>
+      <div class="g-stat"><b>Free tier</b><span>Cost</span></div>
+    </div>
+
+    <div class="listen-links">
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="listen-btn secondary">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        From EP 11 &mdash; Ride or Die AI Workflows
+      </a>
+    </div>
+
+    <div class="ep-divider"></div>
+  </header>
+
+  <div class="ep-content">
+    <div class="transcript-layout">
+
+      <!-- CONTENTS -->
+      <details class="chapter-nav" open>
+        <summary>Contents</summary>
+        <ol>
+          <li><a href="#start-here" data-ch>Start here</a></li>
+          <li><a href="#need" data-ch>What you need</a></li>
+          <li><a href="#consent" data-ch>The consent bit</a></li>
+          <li><a href="#model" data-ch>Pick your model</a></li>
+          <li><a href="#step-1" data-ch>1 · Get your dates together</a></li>
+          <li><a href="#step-2" data-ch>2 · The build prompt</a></li>
+          <li><a href="#personality" data-ch>3 · Name and face</a></li>
+          <li><a href="#install" data-ch>4 · Install it</a></li>
+          <li><a href="#fail-loudly" data-ch>5 · Make it fail loudly</a></li>
+          <li><a href="#audit" data-ch>6 · Audit it</a></li>
+          <li><a href="#limits" data-ch>When not to do this</a></li>
+          <li><a href="#troubleshooting" data-ch>Troubleshooting</a></li>
+          <li><a href="#point" data-ch>The point of this</a></li>
+        </ol>
+      </details>
+
+      <div class="guide-body">
+
+        <section class="g-sec rv" id="start-here">
+          <div class="g-sec-num">Start here</div>
+          <h2>Even though it's the smallest</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>If you've never built an automation, build this one first. Not because it's the most valuable. <strong>Because it's the safest possible place to learn the pattern that every other bot uses.</strong></p>
+
+          <p>Think about what happens when it breaks. Somebody doesn't get a birthday message. That's it. Compare that to a finance bot getting a number wrong, or an invoice bot telling a contractor the wrong bank details. You want to make your beginner mistakes here.</p>
+
+          <div class="callout key">
+            <div class="callout-t">The pattern you learn</div>
+            <p>A bot that <strong>reads a source, decides whether today is the day, posts something, and tells you when it can&#39;t.</strong> Swap the source and the message and you&#39;ve got a renewals bot, a contract-expiry bot, a probation-review bot.</p>
+          </div>
+
+          <p>There's also a nice bit of history in this one. On the episode, Ceci built hers first, calling it the birthday dude. Bea copied it, merged the naming with Ceci's invoice fairy, and ended up with a birthday fairy:</p>
+
+          <blockquote class="g-quote">
+            &quot;I took the birthday dude and the invoice fairy and merged it into the birthday fairy, which now congratulates employees on their birthday and pulls from our HR system. And it&#39;s beautiful and it has a great icon, it&#39;s a little fairy.&quot;
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <p>Steal it. That's what it's for.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="need">
+          <div class="g-sec-num">What you need</div>
+          <h2>Three things, and a spreadsheet counts</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>You need</th><th>Options that work</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A list of dates</strong></td><td>An HR system with an API (BambooHR, HiBob, Personio, Rippling, Deel), or <strong>a Google Sheet with two columns</strong>. The spreadsheet version works exactly as well.</td></tr>
+                <tr><td><strong>A team chat</strong></td><td>Slack, Microsoft Teams, Discord</td></tr>
+                <tr><td><strong>An AI with a scheduler</strong></td><td>Claude with scheduled tasks, or ChatGPT Tasks for the reminder version</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>The spreadsheet route is not the lesser option.</strong> If your HR system has no API, or you don't have admin rights to it, a sheet with <code>Name</code>, <code>Start date</code>, <code>Birthday</code> is completely fine and takes two minutes to create. Most small companies should just do this.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="consent">
+          <div class="g-sec-num">Before you build</div>
+          <h2>The consent bit</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>This one has a genuine privacy dimension that people skip, and it's worth thirty seconds of thought.</p>
+
+          <div class="callout warn">
+            <div class="callout-t">Birthdays are personal data</div>
+            <p>Not everyone wants theirs announced. Some people actively hate it. Some don&#39;t want their age inferable. In some jurisdictions, storing and publishing birth dates without a clear basis is a GDPR problem, not just an etiquette one.</p>
+          </div>
+
+          <p>So: make it opt-out at minimum, opt-in ideally. In practice, add a column called <code>Announce? (Y/N)</code> and have the bot respect it absolutely. Then tell the team the bot exists and how to opt out. One Slack message.</p>
+
+          <p><strong>Also: don't store the birth year if you only need the day.</strong> Store <code>14 March</code>, not <code>14 March 1991</code>. You cannot leak what you never held, and the bot doesn't need the year.</p>
+
+          <p>Work anniversaries are much less sensitive than birthdays. If you want the easiest version with the fewest issues, do anniversaries only.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="model">
+          <div class="g-sec-num">Pick your model</div>
+          <h2>The one build you don't need the top tier for</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>As of August 2026:</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>What you're doing</th><th>On Claude</th><th>On ChatGPT</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Building it</strong></td><td><span class="yes">Sonnet 5</span></td><td><span class="yes">GPT-5.6 Terra</span></td></tr>
+                <tr><td><strong>The daily run</strong></td><td><span class="yes">Sonnet 5</span></td><td><span class="yes">GPT-5.6 Terra</span></td></tr>
+                <tr><td><strong>Auditing your bots</strong></td><td><span class="yes">Fable 5</span>, high effort</td><td><span class="yes">GPT-5.6 Sol</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>This is the one workflow where you don't need the top tier to build. The task is small and well defined. <strong>Save Fable 5 and Sol for the audit.</strong></p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-1">
+          <div class="g-sec-num">Step 1</div>
+          <h2>Get your dates in one place</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>If you're using a sheet, make it exactly this:</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>Name</th><th>Slack handle</th><th>Birthday (day month)</th><th>Start date</th><th>Announce?</th></tr></thead>
+              <tbody>
+                <tr><td>Priya Raman</td><td>@priya</td><td>14 March</td><td>2024-02-01</td><td><span class="yes">Y</span></td></tr>
+                <tr><td>Tom Okafor</td><td>@tom</td><td>2 September</td><td>2022-11-15</td><td><span class="no">N</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>That's the whole schema. Don't over-engineer it.</p>
+
+          <p>If you're using an HR system, connect it and ask the AI to confirm what it can see <em>before</em> you build anything else:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Check the schema first</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Connect to my HR system and tell me exactly which fields you can read for
+each employee. List the field names. Do not read or display anyone's actual
+data yet, just the schema.</pre>
+          </div>
+
+          <p>Knowing what it can see before you point it at anything is a good habit that generalises well beyond this bot.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-2">
+          <div class="g-sec-num">Step 2</div>
+          <h2>The build prompt</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">The build prompt</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Build me a bot that posts birthday and work anniversary messages in our team
+chat. Give it a name and a personality.
+
+BOT NAME: [e.g. the Birthday Fairy]
+PERSONALITY: [e.g. warm, slightly over the top, uses one emoji, never cringe]
+WHERE IT POSTS: [e.g. #general in Slack]
+WHERE THE DATES LIVE: [the sheet, or the HR system]
+
+WHAT IT DOES, every weekday at [09:00]:
+
+1. Read the date list.
+2. Find anyone whose birthday is today AND who has Announce set to Y.
+3. Find anyone whose work anniversary is today, counting whole years only.
+   Ignore anyone at 0 years.
+4. If there is nobody, post nothing. Do not post "no birthdays today."
+5. If there is someone, write ONE message covering everyone. Never post
+   separate messages for two people on the same day.
+6. Tag them by their handle.
+
+MESSAGE RULES:
+- Vary the wording every time. Never send the same sentence twice in a month.
+- Birthdays: never mention age, never guess age, never reference a birth year.
+- Anniversaries: say the number of years plainly. "3 years today."
+- One or two sentences maximum. Nobody wants a paragraph.
+- No corporate language. Not "we value your contribution."
+- Never invent a fact about the person. No "the office wouldn't run without
+  you" unless I have told you that is true. Warm and generic beats specific
+  and wrong.
+
+WHEN IT CANNOT RUN:
+If you cannot reach the date list, do NOT stay silent and do NOT skip the day.
+Post in [my DM] saying: "[Bot name] here. I could not reach the date list
+today, so I have not posted anything. Someone's birthday may have been
+missed." Then tag me.
+
+Before you set this up as a scheduled task, show me:
+- five example messages, so I can check the tone
+- what will happen on a day with nobody
+- what will happen on a day with three people
+- exactly what happens if the date list is unreachable</pre>
+          </div>
+
+          <div class="callout key">
+            <div class="callout-t">The &amp;quot;never invent a fact&amp;quot; rule matters more than it looks</div>
+            <p>A bot that tells a two-week-old hire that the team couldn&#39;t function without them is worse than no bot. Warm and slightly generic is the correct register for an automated message, and everyone knows it&#39;s automated anyway.</p>
+          </div>
+
+          <p><strong>The dry-run request at the end is the habit to build.</strong> Never schedule something you haven't seen the output of. Five examples costs you thirty seconds and catches the tone problem before the whole company sees it.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="personality">
+          <div class="g-sec-num">Step 3</div>
+          <h2>Give it a name and a face</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>This looks like a joke. It isn't, quite.</p>
+
+          <p>Ceci's framing: <em>"I just like to give them personality."</em> And her IT bot quotes a British sitcom back at people when they ask it something nonsensical: <em>"it quotes the IT Crowd back at you when you say things that don't make sense."</em> Bea's response on tape was <em>"That's I might steal that."</em></p>
+
+          <p>There's a real argument underneath. Later in the episode Bea lands on the thing that stuck with her most from the whole season, which came from a guest: <strong>fractionally beautiful</strong>.</p>
+
+          <blockquote class="g-quote">
+            &quot;I&#39;m thinking, does this bring people joy? I did not think about that before. Before I was, is this efficient? And now I just add that into my consideration.&quot;
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <p>Ceci connects the two directly: <em>"it's potentially one of the reasons why my army of bots has a personality. Because why not? Like every day maybe wanna interact with somebody that cracks a joke every now and then."</em></p>
+
+          <p>Practically:</p>
+
+          <ul>
+            <li><strong>Give it a name.</strong> People forgive a named bot for being a bot.</li>
+            <li><strong>Give it an icon.</strong> Slack and Teams both let you set one. Takes ten seconds.</li>
+            <li><strong>Give it one running joke.</strong> One. A bot with too many jokes is exhausting.</li>
+          </ul>
+
+          <p>The efficiency case is real too: an automation people find charming gets tolerated. <strong>One that feels like corporate spam gets muted, and a muted bot is a dead bot.</strong></p>
+
+        </section>
+
+        <section class="g-sec rv" id="install">
+          <div class="g-sec-num">Step 4</div>
+          <h2>Install it</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <h3>On Claude</h3>
+
+          <p>Ask in a chat with your chat tool and date source connected:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Schedule it</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Set this up as a scheduled task, every weekday at 09:00 in my timezone, using
+the spec above. Run it once now as a dry run and post the output to me in a
+DM rather than to the channel, so I can check it before it goes live.</pre>
+          </div>
+
+          <p>Always do the DM dry run for a week before you point it at a public channel.</p>
+
+          <p><strong>As a reusable skill</strong>, folder <code>birthday-bot</code>, file <code>SKILL.md</code>:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">SKILL.md frontmatter</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>---
+name: birthday-bot
+description: Post birthday and work anniversary messages to the team chat,
+  reading dates from a sheet or HR system, respecting opt-outs, varying the
+  wording, and alerting the owner when the date source is unreachable. Use
+  when the user asks about the birthday bot, anniversary messages, or wants to
+  set up automated team celebrations.
+---</pre>
+          </div>
+
+          <p>Spec underneath, zip, rename to <code>.skill</code>, upload.</p>
+
+          <h3>On ChatGPT</h3>
+
+          <p>ChatGPT can't post into Slack on a schedule without additional wiring, so use Tasks as a prompt-you version:</p>
+
+          <p><em>"Every weekday at 08:45, check my birthday sheet and tell me if anyone has a birthday or anniversary today. If so, draft the message and I'll paste it."</em></p>
+
+          <p>Less magic, ten seconds of your morning, zero permissions to worry about. Honestly a reasonable place to start.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="fail-loudly">
+          <div class="g-sec-num">Step 5</div>
+          <h2>Make it fail loudly</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p><strong>This bot is the canonical example of why the rule exists</strong>, and it's exactly the one Bea used to explain it on the episode:</p>
+
+          <blockquote class="g-quote">
+            &quot;If they can&#39;t reach the information, make it say: Hi, I&#39;m the fairy, I couldn&#39;t reach the information and tag you so that you actually know when it&#39;s failing. Otherwise, it&#39;s not a process that you are keeping.&quot;
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <p>Think about why this bot specifically. Most automations, you notice when they break, because you were waiting for the output. <strong>Nobody waits for a birthday message.</strong> If it silently stopped working in February you might discover it in July, and by then you've missed thirty people's birthdays and the team has quietly concluded that nobody cares.</p>
+
+          <div class="callout warn">
+            <div class="callout-t">Silence looks identical to a quiet week</div>
+            <p>That&#39;s the trap. So: two safeguards.</p>
+          </div>
+
+          <p><strong>One, alert on failure</strong>, as in the spec above. <strong>Two, a weekly heartbeat:</strong></p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Weekly heartbeat</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Every Friday at 17:00, DM me one line: "[Bot name] ran [N] times this week and
+posted [M] messages." Send this even if both numbers are zero.</pre>
+          </div>
+
+          <p>A zero-zero week in a 40-person company is a signal. Without the heartbeat you'd never see it.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="audit">
+          <div class="g-sec-num">Step 6</div>
+          <h2>Audit it</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>Bots accumulate. Once you have three or four, run this monthly on your strongest model:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Security audit</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Go through every bot and scheduled task I have. For each: what data can it
+read, what can it post and where, whose credentials is it using, and what
+happens if a permission changes or a connector breaks. Flag anything where the
+access is broader than the job requires.</pre>
+          </div>
+
+          <div class="callout warn">
+            <div class="callout-t">The specific question for this bot</div>
+            <p><strong>Does it have read access to your entire HR system when all it needs is names and dates?</strong> Very often the answer is yes, because that was the easy way to connect it. Narrow it. A birthday bot with visibility of salaries is an accident waiting for a prompt injection.</p>
+          </div>
+
+          <div class="callout key">
+            <div class="callout-t">The general cadence</div>
+            <p>Every three prompts, check for bugs. Every ten, check for security.</p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="limits">
+          <div class="g-sec-num">Honest limits</div>
+          <h2>When not to do this</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <ul>
+            <li><strong>If your team would find it naff, don't.</strong> Culture varies. A birthday bot in a team of eight who all sit together is worse than a human saying it. This is for teams big enough that people genuinely get forgotten.</li>
+            <li><strong>Don't extend it to sensitive dates.</strong> Birthdays and work anniversaries, fine. Not probation end dates, not visa expiries, not performance review dates. Those need to be private, and a bot that posts them publicly is a serious incident.</li>
+            <li><strong>Don't let it infer.</strong> No "congratulations on your promotion" from a job-title change it spotted. Title fields change for all sorts of reasons and getting that wrong publicly is genuinely painful for someone.</li>
+            <li><strong>Cancel the old subscription.</strong> Genuinely. The saving only exists if you actually turn the paid tool off, and this is the step people forget.</li>
+          </ul>
+
+        </section>
+
+        <section class="g-sec rv" id="troubleshooting">
+          <div class="g-sec-num">Troubleshooting</div>
+          <h2>When it misbehaves</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <details class="faq-item">
+            <summary>&quot;It posted twice.&quot;</summary>
+            <div class="faq-a">Two runs, or a retry. Add: <em>"Before posting, check whether you already posted about this person today. If so, do nothing."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;The messages are all identical.&quot;</summary>
+            <div class="faq-a">It&#39;s ignoring the variation rule. Give it fifteen approved variants to rotate through, rather than asking it to be creative daily.</div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It mentioned someone&#39;s age.&quot;</summary>
+            <div class="faq-a">Delete the birth year from your source entirely. This is a data problem, not a prompt problem, and the data fix is permanent.</div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It posted for someone who left.&quot;</summary>
+            <div class="faq-a">Your source is stale. Add: <em>"Skip anyone whose end date is in the past or who is marked inactive."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It went quiet and I didn&#39;t notice.&quot;</summary>
+            <div class="faq-a">You skipped Step 5. Go back and add the heartbeat.</div>
+          </details>
+
+        </section>
+
+        <section class="g-sec rv" id="point">
+          <div class="g-sec-num">The point of this</div>
+          <h2>Does this bring people joy?</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>It's a birthday bot. It is not going to transform your company.</p>
+
+          <p>But it teaches you the shape of every bot you'll build afterwards, in the one place where getting it wrong costs nothing. And it makes the case for the thing that's easy to sneer at: <strong>a small, warm, slightly silly automation that makes a Tuesday marginally better.</strong></p>
+
+          <p>Does this bring people joy, or is it just efficient? Best question in the episode. Worth asking about everything you build.</p>
+
+        </section>
+
+        <!-- DOWNLOAD -->
+        <div class="g-download rv">
+          <div class="g-dl-title">Take it with you</div>
+          <p class="g-dl-desc">The whole guide as a PDF, prompts included, in full colour &mdash; for reading offline or sending to the colleague who needs it most. The print option gives you an ink-friendly version instead.</p>
+          <div class="g-dl-btns">
+            <a href="guide-4-birthday-bot.pdf" class="g-dl-btn primary" download data-dl="pdf">
+              <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+              Download PDF
+            </a>
+            <button type="button" class="g-dl-btn secondary" id="print-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5a3 3 0 0 0-3 3v6h4v3h12v-3h4v-6a3 3 0 0 0-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm3-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              Print this page
+            </button>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:32px">
+          <p>This guide came out of Top of the Ops, Season 1 Bonus &mdash; <a href="episode-11-our-ride-or-die-ai-workflows.html">"Ride or Die AI Workflows"</a>, where Bea and Ceci went through every automation they actually run. The rest of the Operator Field Guides live on the <a href="free-guides.html">Free Guides</a> page.</p>
+          <p><em>Built something better? Tell us. We'll publish the improved version and credit you.</em></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MORE -->
+    <section class="ep-section rv" style="padding:0;margin-top:20px">
+      <div class="ep-section-label">Keep Going</div>
+      <h2>More from Top of the Ops</h2>
+      <div class="ep-section-bar"></div>
+
+      <a href="guide-5-invoice-fairy.html" class="more-ep-card">
+        <div class="more-ep-num">05</div>
+        <div>
+          <div class="more-ep-title">The Invoice Fairy</div>
+          <div class="more-ep-desc">A Slack bot that answers the same finance question for the fortieth time.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="more-ep-card">
+        <div class="more-ep-num">11</div>
+        <div>
+          <div class="more-ep-title">Our Ride or Die AI Workflows</div>
+          <div class="more-ep-desc">The episode this guide came from. Every automation we actually run.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="free-guides.html" class="more-ep-card">
+        <div class="more-ep-num">&#9733;</div>
+        <div>
+          <div class="more-ep-title">All Free Guides</div>
+          <div class="more-ep-desc">The rest of the Operator Field Guides.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <a href="index.html" class="f-logo">TOP OF <span>THE OPS</span></a>
+    <div class="f-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="index.html#hosts">Hosts</a>
+      <a href="free-guides.html">Free Guides</a>
+      <a href="https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb" target="_blank" rel="noopener" title="Spotify">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TopOfTheOps" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/topoftheopspodcast/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@top.of.the.ops" target="_blank" rel="noopener" title="TikTok">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+    </div>
+    <div class="f-copy">&copy; 2026 Top of the Ops</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var els=document.querySelectorAll('.rv');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis')}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){o.observe(el)});
+}catch(e){els.forEach(function(el){el.classList.add('vis')})}
+</script>
+
+<script>
+// Contents nav — collapse on mobile, highlight the section in view
+(function(){
+  var nav=document.querySelector('.chapter-nav');if(!nav)return;
+  if(window.innerWidth<769){nav.removeAttribute('open');}
+  var links={};nav.querySelectorAll('a[data-ch]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var hs=document.querySelectorAll('.g-sec[id]');var cur=null;
+  try{
+    var ob=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){if(cur)cur.classList.remove('active');cur=links[e.target.id];if(cur)cur.classList.add('active');}
+    });},{rootMargin:'-10% 0px -75% 0px'});
+    hs.forEach(function(h){ob.observe(h);});
+  }catch(e){}
+})();
+</script>
+
+<script>
+// Copy-to-clipboard on every prompt block.
+// Three tiers: async clipboard API -> execCommand -> select the text so the
+// keyboard shortcut works. The button always says what happened.
+(function(){
+  function flash(btn,label,cls,ms){
+    if(!btn.dataset.label){btn.dataset.label=btn.textContent;}
+    btn.textContent=label;
+    btn.classList.remove('done');
+    if(cls){btn.classList.add(cls);}
+    clearTimeout(btn._t);
+    btn._t=setTimeout(function(){btn.textContent=btn.dataset.label;btn.classList.remove('done');},ms||2000);
+  }
+  function succeeded(btn){
+    flash(btn,'Copied','done');
+    if(typeof gtag==='function'){
+      var l=btn.closest('.prompt-block').querySelector('.prompt-label');
+      gtag('event','copy_prompt',{label:l?l.textContent:'',page_path:location.pathname});
+    }
+  }
+  function selectBlock(btn,pre){
+    try{
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      flash(btn,'Selected — press \u2318C',null,4000);
+    }catch(e){
+      flash(btn,'Copy failed',null,3000);
+    }
+  }
+  function execCopy(pre){
+    var ta=document.createElement('textarea');
+    ta.value=pre.textContent;ta.setAttribute('readonly','');
+    ta.style.position='absolute';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pre=btn.closest('.prompt-block').querySelector('pre');
+      if(!pre)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(pre.textContent).then(
+          function(){succeeded(btn);},
+          function(){execCopy(pre)?succeeded(btn):selectBlock(btn,pre);}
+        );
+      }else{
+        execCopy(pre)?succeeded(btn):selectBlock(btn,pre);
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// Troubleshooting answers are collapsed on screen — force them open for print,
+// then restore. ?print=1 opens them up front for the PDF export.
+(function(){
+  var ds=document.querySelectorAll('.faq-item');
+  function openAll(){ds.forEach(function(d){if(!d.open){d.dataset.wasShut='1';d.open=true;}});}
+  function restore(){ds.forEach(function(d){if(d.dataset.wasShut){d.open=false;delete d.dataset.wasShut;}});}
+  if(location.search.indexOf('print=1')>-1){openAll();}
+  // ?pdf=1 renders the print view in the brand's dark palette instead of the
+  // ink-friendly light one. Used for the downloadable PDF; the Print button
+  // stays light so it doesn't flood a paper printer.
+  if(location.search.indexOf('pdf=1')>-1){
+    document.body.classList.add('pdf-export');
+    document.documentElement.classList.add('pdf-export');
+    // Relative links are dead once the PDF leaves the browser — absolutise them
+    // so a shared PDF's links still work. Export only; the live page is untouched.
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(!h||/^(https?:|mailto:|#)/.test(h))return;
+      a.setAttribute('href','https://top-of-the-ops.com/'+h.replace(/^\.?\//,'').replace(/\.html($|#)/,'$1'));
+    });
+  }
+  window.addEventListener('beforeprint',openAll);
+  window.addEventListener('afterprint',restore);
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    var onChange=function(m){m.matches?openAll():restore();};
+    if(mq.addEventListener){mq.addEventListener('change',onChange);}
+    else if(mq.addListener){mq.addListener(onChange);}
+  }
+})();
+
+// Download / print tracking
+var pb=document.getElementById('print-btn');
+if(pb){pb.addEventListener('click',function(){
+  if(typeof gtag==='function'){gtag('event','print_guide',{page_path:location.pathname});}
+  window.print();
+});}
+document.querySelectorAll('a[data-dl]').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(typeof gtag==='function'){gtag('event','download_guide',{format:a.getAttribute('data-dl'),page_path:location.pathname});}
+  });
+});
+// Outbound listen-click tracking (GA4)
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');if(!a)return;
+  var h=a.href||'';
+  var plat=h.indexOf('youtu')>-1?'youtube':(h.indexOf('spotify')>-1?'spotify':null);
+  if(plat&&typeof gtag==='function'){gtag('event','outbound_click',{platform:plat,link_url:h,page_path:location.pathname});}
+});
+</script>
+</body>
+</html>
