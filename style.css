@@ -326,6 +326,10 @@ section.g-sec{padding:0}
 .callout.warn{border-left-color:var(--yl)}.callout.warn .callout-t{color:var(--yl)}
 .callout.tip{border-left-color:var(--cy)}.callout.tip .callout-t{color:var(--cy)}
 .callout.key{border-left-color:var(--mg);background:rgba(222,43,136,.05)}.callout.key .callout-t{color:var(--mg)}
+/* Callouts also appear in the hero, outside .guide-body, so link styling
+   can't rely on the prose rules — without this they render browser-default blue. */
+.callout a{color:var(--cy);text-decoration:none;border-bottom:1px solid rgba(24,183,190,.3);transition:border-color .3s}
+.callout a:hover{border-bottom-color:var(--cy)}
 
 /* Pull quote from the episode */
 .g-quote{border-left:3px solid var(--mg);padding:6px 0 6px 22px;margin:26px 0;font-family:'Montserrat',sans-serif;font-style:italic;font-size:17px;line-height:1.7;color:rgba(240,236,228,.9)}

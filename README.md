@@ -13,6 +13,8 @@ A static site: hand-written HTML, one shared stylesheet, no build step.
 | `index.html` | Landing page with the episode list |
 | `episode-*.html` | One page per episode (show notes, chaptered transcript, FAQ, schema) |
 | `free-guides.html` | Free AI guides hub, linked from the nav on every page |
+| `guide-*.html` | One page per Operator Field Guide, each with a matching `.pdf` |
+| `cash-flow-tracker.xlsx` | Downloadable template that ships with guide 02 |
 | `style.css` | Shared styles for every page |
 | `404.html` | Custom not-found page |
 | `_redirects` | Netlify redirect rules (short `/episode-N` URLs → full slugs) |
@@ -40,9 +42,9 @@ Each episode is a standalone `episode-<n>-<slug>.html` page. When adding one, al
 
 ## Adding a free guide
 
-Guides are listed on `free-guides.html` and live at `guide-<n>-<slug>.html`, each with a matching `.pdf`.
+Guides are listed on `free-guides.html` and live at `guide-<n>-<slug>.html`, each with a matching `.pdf`. Guides 01–05 are live; keep numbering sequential.
 
-1. Create `guide-<n>-<slug>.html` by copying `guide-1-meeting-coach.html`. It already has the contents nav, callout styles, copy-to-clipboard prompt blocks, tables, print styles and the PDF download block.
+1. Create `guide-<n>-<slug>.html` by copying an existing guide. They all share the same shell: contents nav, callout styles, copy-to-clipboard prompt blocks, tables, print styles and the PDF download block. If a guide ships a downloadable asset (as guide 02 does with `cash-flow-tracker.xlsx`), add the file to the repo root, link it from a `.callout` in the hero, and add a second button to the download block.
 2. In `free-guides.html`, add a card inside `.guides-list` (copy-paste template sits in an HTML comment right above it), newest first.
 3. Add a `listItem` to the `ItemList` in the `free-guides.html` `<head>` and bump `numberOfItems`.
 4. Export the PDF (see below).
@@ -63,7 +65,13 @@ Two query params drive it:
 | Param | Effect |
 | --- | --- |
 | `print=1` | Expands the collapsed troubleshooting answers so they appear in the export |
-| `pdf=1` | Renders the print view in the brand's dark palette (adds `.pdf-export` to `<html>` and `<body>`) |
+| `pdf=1` | Renders the print view in the brand's dark palette (adds `.pdf-export` to `<html>` and `<body>`), and rewrites relative links to absolute ones so they still work once the PDF leaves the browser |
+
+To re-export all five at once, with the folder served on port 8000:
+
+```bash
+for s in guide-1-meeting-coach guide-2-monday-money-hour guide-3-daily-brief guide-4-birthday-bot guide-5-invoice-fairy; do "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=20000 --print-to-pdf="$s.pdf" "http://localhost:8000/$s.html?print=1&pdf=1"; done
+```
 
 There are deliberately **two print themes**, both in the same `@media print` block:
 

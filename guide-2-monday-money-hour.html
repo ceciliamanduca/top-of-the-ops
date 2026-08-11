@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJM7VXTYPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GJM7VXTYPN');
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO
+═══════════════════════════════════════════════ -->
+<title>The Monday Money Hour – Automate Your Weekly Cash Flow | Top of the Ops</title>
+<meta name="description" content="Operator Field Guide No. 02. One prompt and a free nine-tab spreadsheet that categorises transactions, rolls them into a P&amp;L-style cash view, compares against budget and writes the commentary. Free, no code, 45 minutes.">
+<meta name="keywords" content="cash flow automation, AI bookkeeping, transaction categorisation, weekly finance update, cash flow template, chief of staff finance, Claude skill, budget variance commentary">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://top-of-the-ops.com/guide-2-monday-money-hour">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH
+═══════════════════════════════════════════════ -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Top of the Ops">
+<meta property="og:title" content="The Monday Money Hour – Automate Your Weekly Cash Flow">
+<meta property="og:description" content="Five hours every Monday became three, and the three are the useful part. Free nine-tab tracker included. Operator Field Guide No. 02.">
+<meta property="og:url" content="https://top-of-the-ops.com/guide-2-monday-money-hour">
+<meta property="og:image" content="https://top-of-the-ops.com/og-image.png">
+<meta property="og:image:alt" content="Top of the Ops podcast cover art">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER / X CARD
+═══════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Monday Money Hour – Automate Your Weekly Cash Flow">
+<meta name="twitter:description" content="Five hours every Monday became three, and the three are the useful part. Free nine-tab tracker included. Operator Field Guide No. 02.">
+<meta name="twitter:image" content="https://top-of-the-ops.com/og-image.png">
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA – TechArticle + HowTo + Breadcrumb (AEO)
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://top-of-the-ops.com/guide-2-monday-money-hour#article",
+      "headline": "The Monday Money Hour: Automate Your Weekly Cash Flow With One Prompt and One Spreadsheet",
+      "description": "Operator Field Guide No. 02. One prompt and a free nine-tab spreadsheet that categorises transactions, rolls them into a P&L-style cash view, compares against budget and writes the commentary. Free, no code, 45 minutes.",
+      "url": "https://top-of-the-ops.com/guide-2-monday-money-hour",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "keywords": "cash flow automation, AI bookkeeping, transaction categorisation, weekly finance update, cash flow template, chief of staff finance, Claude skill, budget variance commentary",
+      "author": [
+        { "@type": "Person", "name": "Cecilia Manduca", "url": "https://www.linkedin.com/in/ceciliamanduca/" },
+        { "@type": "Person", "name": "Beatrice Aliprandi", "url": "https://www.linkedin.com/in/beatricealiprandi/" }
+      ],
+      "publisher": { "@id": "https://top-of-the-ops.com/#organization" },
+      "isPartOf": { "@id": "https://top-of-the-ops.com/free-guides#webpage" },
+      "image": "https://top-of-the-ops.com/og-image.png"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://top-of-the-ops.com/guide-2-monday-money-hour#howto",
+      "name": "Automate a weekly cash flow process",
+      "description": "Ingest bank transactions, categorise them, roll them into a P&L-style cash view and generate a budget-versus-actuals commentary.",
+      "totalTime": "PT45M",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "GBP", "value": "0" },
+      "supply": [
+        { "@type": "HowToSupply", "name": "The cash-flow-tracker.xlsx template" },
+        { "@type": "HowToSupply", "name": "Bank or card transaction exports" },
+        { "@type": "HowToSupply", "name": "An AI assistant (Claude or ChatGPT)" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Connect your data", "text": "Point bank and card statement exports at a single folder your AI can read, and connect the workbook.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#step-1" },
+        { "@type": "HowToStep", "position": 2, "name": "Set the template up", "text": "Fill in the Setup tab, rename the categories to match your spend, and enter your opening cash balance.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#step-2" },
+        { "@type": "HowToStep", "position": 3, "name": "Pick your model", "text": "Build with the strongest model available, run weekly on the balanced mid-tier, never use the cheap tier on money.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#model" },
+        { "@type": "HowToStep", "position": 4, "name": "Run the four-stage prompt", "text": "Ingest and check, categorise, write to the workbook, then write the commentary \u2014 stopping at any failed gate.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#step-4" },
+        { "@type": "HowToStep", "position": 5, "name": "Bank your rules", "text": "Correct the misfiled categories out loud and have the model write out the accumulated ruleset to reuse.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#step-5" },
+        { "@type": "HowToStep", "position": 6, "name": "Install it", "text": "Set it up as a Claude Project, a Skill, or a scheduled Monday task that drafts rather than posts.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#step-6" },
+        { "@type": "HowToStep", "position": 7, "name": "Make it fail loudly", "text": "Force a message when the inbox is empty, and audit the automation and workbook formulas monthly.", "url": "https://top-of-the-ops.com/guide-2-monday-money-hour#fail-loudly" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://top-of-the-ops.com/guide-2-monday-money-hour#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://top-of-the-ops.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Guides", "item": "https://top-of-the-ops.com/free-guides" },
+        { "@type": "ListItem", "position": 3, "name": "The Monday Money Hour", "item": "https://top-of-the-ops.com/guide-2-monday-money-hour" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="circuit-bg"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TOP OF <span>THE OPS</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="free-guides.html"><span class="nav-free">Free </span>Guides</a>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Provenance line — only appears in print/PDF, where the nav and footer are hidden -->
+  <div class="print-only print-head">
+    <strong>Top of the Ops</strong> &mdash; Operator Field Guide No. 02 &middot; top-of-the-ops.com/guide-2-monday-money-hour
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="free-guides.html">Free Guides</a></li>
+        <li>No. 02 &mdash; The Monday Money Hour</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="ep-hero rv" data-num="02">
+    <div class="ep-meta">
+      <span class="ep-badge">Operator Field Guide No. 02</span>
+      <span class="ep-number">Free &mdash; no sign-up wall</span>
+    </div>
+    <h1>The Monday Money Hour<br><span>One prompt, one spreadsheet. Transactions in, a cash view and a written commentary out.</span></h1>
+    <p class="ep-tagline">You connect your data once. From then on, one prompt categorises every transaction, files it into a daily tracker that rolls into a monthly view that rolls into a yearly P&amp;L-style cash statement, compares it against your budget, and writes the commentary. In that order, in one run.</p>
+
+    <div class="g-stats">
+      <div class="g-stat"><b>45 minutes</b><span>Time to build</span></div>
+      <div class="g-stat"><b>2 hours a week</b><span>Time it gives back</span></div>
+      <div class="g-stat"><b>No code</b><span>Skill level</span></div>
+      <div class="g-stat"><b>Free</b><span>Cost</span></div>
+    </div>
+
+    <div class="callout key" style="max-width:660px">
+      <div class="callout-t">Download the template</div>
+      <p><a href="cash-flow-tracker.xlsx" download data-dl="xlsx"><strong>cash-flow-tracker.xlsx</strong></a> &mdash; nine tabs, roughly 12,800 formulas, already wired. You never build a formula.</p>
+    </div>
+
+    <div class="listen-links">
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="listen-btn secondary">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        From EP 11 &mdash; Ride or Die AI Workflows
+      </a>
+    </div>
+
+    <div class="ep-divider"></div>
+  </header>
+
+  <div class="ep-content">
+    <div class="transcript-layout">
+
+      <!-- CONTENTS -->
+      <details class="chapter-nav" open>
+        <summary>Contents</summary>
+        <ol>
+          <li><a href="#shape" data-ch>The shape of it</a></li>
+          <li><a href="#step-1" data-ch>1 · Connect your data</a></li>
+          <li><a href="#step-2" data-ch>2 · Set up the template</a></li>
+          <li><a href="#model" data-ch>3 · Pick your model</a></li>
+          <li><a href="#step-4" data-ch>4 · The prompt</a></li>
+          <li><a href="#step-5" data-ch>5 · Your rules are the asset</a></li>
+          <li><a href="#step-6" data-ch>6 · Install it</a></li>
+          <li><a href="#step-7" data-ch>7 · Keep the thinking step</a></li>
+          <li><a href="#fail-loudly" data-ch>8 · Fail loudly, and audit</a></li>
+          <li><a href="#warnings" data-ch>Two warnings</a></li>
+          <li><a href="#data" data-ch>The data question</a></li>
+          <li><a href="#limits" data-ch>When not to do this</a></li>
+          <li><a href="#troubleshooting" data-ch>Troubleshooting</a></li>
+          <li><a href="#point" data-ch>The point of this</a></li>
+        </ol>
+      </details>
+
+      <div class="guide-body">
+
+        <section class="g-sec rv" id="shape">
+          <div class="g-sec-num">The shape of it</div>
+          <h2>The spreadsheet does the arithmetic, the AI does the judgment</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>You connect your data once. From then on, one prompt categorises every transaction, files it into a daily tracker that rolls into a monthly view that rolls into a yearly P&amp;L-style cash statement, compares it against your budget, and writes the commentary. In that order, in one run.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">The flow</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>CONNECTORS ─┐
+            ├─▶  ONE PROMPT  ─▶  Transactions  ─▶  Daily  ─▶  Monthly  ─▶  Yearly
+exports ────┘         │                                          │
+                      │                            Budget ──▶ Variance
+                      │                                          │
+                      └──────────── writes the commentary ◀──────┘</pre>
+          </div>
+
+          <div class="callout key">
+            <div class="callout-t">The design decision</div>
+            <p><strong>Categorising is judgment. Summing is not.</strong> Most people get this backwards, hand the AI a pile of maths, and then wonder why the totals drift between runs.</p><p>Every rollup in the template is a live formula. Add a transaction in August and the August column, the yearly total, the variance and the closing cash all move on their own. The AI never touches a total.</p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="step-1">
+          <div class="g-sec-num">Step 1</div>
+          <h2>Connect your data, so this stops being a chore</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>The version of this that survives is the one where you don't download anything. Set the connectors up once and the Monday job becomes "run the skill."</p>
+
+          <h4>Aim for this chain</h4>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>Layer</th><th>What to connect</th><th>What it gives you</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Bank and card</strong></td><td>Your bank's scheduled statement export, or your accounting tool's bank feed</td><td>Transactions arriving without you fetching them</td></tr>
+                <tr><td><strong>The landing zone</strong></td><td>Google Drive or a shared folder, connected to your AI</td><td>The AI reads new files itself</td></tr>
+                <tr><td><strong>The accounting tool</strong></td><td>Xero, QuickBooks, Pleo, Ramp, Brex connector if one exists for your AI</td><td>Live data, no files at all</td></tr>
+                <tr><td><strong>The workbook</strong></td><td>Google Sheets connector, or Drive</td><td>The AI writes results straight into the tracker</td></tr>
+                <tr><td><strong>The delivery</strong></td><td>Slack or Teams connector</td><td>The commentary posts itself</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Being realistic about banks.</strong> Very few banks offer a direct connector to an AI assistant today. The reliable pattern is one hop:</p>
+
+          <ol>
+            <li>Set your bank and card provider to email or deposit a statement export on a schedule. Almost all of them do this. Weekly or monthly.</li>
+            <li>Point that at a single folder, <code>cash-flow/inbox</code>, in Drive or wherever your AI can read.</li>
+            <li>Connect that folder.</li>
+          </ol>
+
+          <p>Now new data appears without you touching it, which is the actual goal. If your accounting tool already aggregates every account, connect that instead and skip the folder entirely.</p>
+
+          <div class="callout tip">
+            <div class="callout-t">Naming matters more than you'd think</div>
+            <p>Use <code>YYYY-MM-DD_account-name.csv</code>. The prompt reads the date range off the filename as a cross-check against the contents, which catches the single most common failure: running last week's file twice.</p>
+          </div>
+
+          <p><strong>Connect the workbook too.</strong> If the tracker lives in Google Sheets rather than as a local file, the AI can write the transactions in directly and you never open a download folder again. This is the difference between a workflow you run for a month and one you run for a year.</p>
+
+          <p><strong>No connectors available?</strong> Everything below still works. You upload two files instead. You lose the automation, not the output.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-2">
+          <div class="g-sec-num">Step 2</div>
+          <h2>Set the template up, once</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>Open <code>cash-flow-tracker.xlsx</code>. Nine tabs.</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>Tab</th><th>What it is</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Setup</strong></td><td>Base currency, reporting year, current month. Four cells.</td></tr>
+                <tr><td><strong>Categories</strong></td><td>Your buckets and how each maps into the P&amp;L. <strong>Edit this first.</strong></td></tr>
+                <tr><td><strong>Transactions</strong></td><td>The daily tracker. Every transaction, one row. The only tab data goes into.</td></tr>
+                <tr><td><strong>Daily</strong></td><td>Every date in the year, totalled by category, with a running cash balance.</td></tr>
+                <tr><td><strong>Monthly</strong></td><td>The same categories by month, arranged as a P&amp;L.</td></tr>
+                <tr><td><strong>Budget</strong></td><td>Optional. Your budget by category and month.</td></tr>
+                <tr><td><strong>Variance</strong></td><td>This month and year to date, actual against budget.</td></tr>
+                <tr><td><strong>Yearly</strong></td><td>The full year against budget and against last year.</td></tr>
+                <tr><td><strong>Commentary</strong></td><td>Where each commentary gets logged, so you keep a history.</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Three things to do before you run anything:</strong></p>
+
+          <ol>
+            <li><strong>Setup tab.</strong> Base currency, reporting year, current month number, company name. Yellow cells only.</li>
+            <li><strong>Categories tab.</strong> Fifteen categories are pre-filled with a P&amp;L group each. Rename them to match how you actually think about spend. Keep the P&amp;L group values exactly as written &mdash; the rollups match on that text.</li>
+            <li><strong>Monthly tab.</strong> Type your 1 January cash balance into the January opening cash cell. Every later month carries forward on its own.</li>
+          </ol>
+
+          <p>Budget is optional. Leave it empty and every variance column stays blank rather than breaking.</p>
+
+          <h3>The one rule the whole thing depends on</h3>
+
+          <div class="callout key">
+            <div class="callout-t">Money in is positive. Money out is negative.</div>
+            <p>Every rollup assumes it. If your bank export uses separate debit and credit columns, or shows outflows as positive, the sign has to be fixed before it lands. The prompt below does that for you, but it's worth knowing why it matters: with this convention, gross profit is simply revenue plus cost of revenue, and net movement is the sum of everything. No sign gymnastics anywhere.</p>
+          </div>
+
+          <h3>Two columns nobody should ever type into</h3>
+
+          <p>On the Transactions tab, <strong>column G (Amount in base)</strong> and <strong>column I (P&amp;L group)</strong> are formulas. G converts using your FX rate; I looks up the group from the Categories tab.</p>
+
+          <div class="callout warn">
+            <div class="callout-t">Deleting a row wipes them silently</div>
+            <p>Delete a whole row and those formulas go with it, and that row silently stops counting. It'll look fine. It just won't be in any total.</p><p>So: write into columns A to F, H, and J to N. Never G or I. To clear a row, clear those columns individually rather than selecting the row and hitting delete. The prompt below is instructed accordingly, but if you're pasting by hand, this is the thing that will get you.</p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="model">
+          <div class="g-sec-num">Step 3</div>
+          <h2>Pick your model</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>As of August 2026:</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>What you're doing</th><th>On Claude</th><th>On ChatGPT</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Building the skill</strong></td><td><span class="yes">Fable 5</span></td><td><span class="yes">GPT-5.6 Sol</span></td></tr>
+                <tr><td><strong>The weekly run</strong></td><td><span class="yes">Sonnet 5</span></td><td><span class="yes">GPT-5.6 Terra</span></td></tr>
+                <tr><td><strong>The commentary</strong></td><td><span class="yes">Opus 5</span> or Sonnet 5</td><td><span class="yes">GPT-5.6 Sol</span> or Terra</td></tr>
+                <tr><td><strong>Auditing the setup</strong></td><td><span class="yes">Fable 5</span>, high effort</td><td><span class="yes">GPT-5.6 Sol</span></td></tr>
+                <tr><td><strong>Never</strong></td><td><span class="no">Haiku</span></td><td><span class="no">Luna</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>On the temptation to go cheap.</strong> Categorising transactions looks like the perfect job for the fastest, cheapest model. High volume, mechanical, repetitive. Don't. A miscategorised transaction that flows into a board number costs more than every token you'd save, and the cheap tiers degrade sharply past a few hundred rows &mdash; Luna sits around 41% on long-context recall against Sol's 91%.</p>
+
+          <div class="callout">
+            <div class="callout-t">The durable rule, for when these names change</div>
+            <p><em>Build with the strongest model you have, run with the balanced mid-tier, never let the cheap tier near money.</em></p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="step-4">
+          <div class="g-sec-num">Step 4</div>
+          <h2>The prompt</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>This is the whole workflow. One prompt, four stages, in order. It stops between stages if something looks wrong rather than pushing a bad number all the way through to a commentary you'd send to your CEO.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">The weekly cash flow prompt</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>You are running my weekly cash flow process. Work through all four stages in
+order. If a stage fails a check, STOP and tell me. Never continue past a
+failed check.
+
+=== SETUP ===
+WORKBOOK: [link to the Google Sheet, or the attached cash-flow-tracker.xlsx]
+NEW DATA: [the connected folder, the accounting connector, or attached files]
+BASE CURRENCY: [e.g. GBP]
+PERIOD: [e.g. 4 to 10 August 2026]
+MY ROLE: [e.g. Chief of Staff]
+WHO READS THE COMMENTARY: [e.g. three founders, none of them in finance]
+
+===================================================================
+STAGE 1 — INGEST AND CHECK
+===================================================================
+Read every new transaction file, or pull from the connector.
+
+Before anything else, report:
+- each source, its date range, and its row count
+- the date range you were expecting
+- whether any transaction falls outside the stated period
+- whether any transaction already exists in the Transactions tab
+  (same date, same amount, same counterparty)
+
+STOP AND ASK if: a date range does not match, a file looks like a repeat of
+one already processed, or more than 5% of rows look like duplicates.
+Never silently skip or silently include a duplicate.
+
+Normalise every row to: date (ISO), description, counterparty, amount,
+currency, FX rate to base.
+
+SIGN CONVENTION, absolute: money in is POSITIVE, money out is NEGATIVE. If the
+source uses separate debit and credit columns, or shows outflows as positive,
+convert it. Then state explicitly which convention the source used and confirm
+you converted it. Get this wrong and every number downstream is wrong.
+
+===================================================================
+STAGE 2 — CATEGORISE
+===================================================================
+Read the Categories tab. Use ONLY those category names, spelled exactly.
+
+For each transaction assign a category and a confidence (high / medium / low).
+
+RULES:
+1. Below 90% confidence, use "Other or uncategorised". Never guess into a real
+   category. A wrong category that looks right is worse than a blank one.
+2. Never alter a date, amount or description. Copy them exactly.
+3. Flag possible duplicates: same counterparty, same amount, within 3 days.
+   Flag them, never delete them.
+4. Flag anything more than 3x the typical size for its category.
+5. Flag any counterparty that appears nowhere else in the workbook history.
+6. Apply my saved rules below, they override your judgment:
+   [paste your accumulated rules here, e.g. "AWS EMEA is Infrastructure and
+   hosting", "anything from Fiverr is Payroll and contractors"]
+
+===================================================================
+STAGE 3 — WRITE TO THE WORKBOOK
+===================================================================
+Append every transaction to the Transactions tab, one row each, after the last
+populated row.
+
+WRITE ONLY into columns A to F, H, and J to N.
+NEVER write into column G or column I. Those are formulas. Overwriting them
+breaks the rollups silently.
+
+Column mapping:
+A Date · B Description · C Counterparty · D Amount · E Currency ·
+F FX to base · H Category · J Confidence · K Flag · L Notes ·
+M Source (the filename or connector) · N Entity
+
+Do NOT touch the Daily, Monthly, Yearly or Variance tabs. They are entirely
+formula driven and update themselves. Writing into them destroys the model.
+
+Then confirm:
+- how many rows you added
+- the sum of column D for those rows
+- that the sum matches the total of the source files, to the penny
+
+If it does not match to the penny, STOP. Do not proceed to the commentary.
+
+===================================================================
+STAGE 4 — THE COMMENTARY
+===================================================================
+Only after Stage 3 reconciles.
+
+Read the Variance tab, which is already calculated. Do NOT recompute anything.
+Read the numbers as they are. If Budget is empty, skip every budget comparison
+and write a movements-only commentary.
+
+State first: the exact period of the actuals and the exact period of the
+budget you are reading. If they do not match, stop and say so.
+
+Then write the update. I will paste it straight into a leadership chat.
+
+WRITING RULES:
+- Short bullets. No paragraphs, no preamble, no sign-off.
+- Number first, then the reason. Not the reverse.
+- Every claim carries a figure. "Hosting up 22% to 14.2k", never "hosting
+  increased".
+- If you do not know why something moved, write "cause unknown, checking".
+  NEVER invent a reason. This rule outranks all the others.
+- No performance adjectives. No "strong", "concerning", "healthy". Give the
+  number and let them judge.
+- Maximum 8 bullets.
+
+STRUCTURE:
+**Cash** closing balance, and the movement on the week
+**Against budget** the 2 or 3 biggest variances only, with value and percentage
+**Worth a look** anything unusual, new, or newly large
+**Clean** one line confirming what came in as expected, so they know it was
+  checked and was fine
+
+Then, separately, marked FOR ME NOT FOR THEM:
+- every transaction that landed in "Other or uncategorised", so I can fix it
+- everything you flagged
+- the questions I should chase before sending this
+
+Finally, append the commentary to the Commentary tab: date generated, period,
+type, the commentary text, and the questions to chase.</pre>
+          </div>
+
+          <h3>Why it's built in stages</h3>
+
+          <p>Each stage has a gate. Stage 1 stops on a date mismatch, which is how you catch running the same file twice. Stage 3 stops unless the total reconciles to the penny, which is how you catch dropped rows. Stage 4 refuses to compute anything, which is how the commentary can't contradict the spreadsheet.</p>
+
+          <div class="callout key">
+            <div class="callout-t">That last one is the important design decision</div>
+            <p>The commentary reads the Variance tab rather than doing its own arithmetic. So the number in your Slack message is definitionally the number in the sheet. Let an AI compute the totals as well as narrate them and eventually those two things disagree, in public.</p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="step-5">
+          <div class="g-sec-num">Step 5</div>
+          <h2>Your rules are the real asset</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>The first run will get a handful of calls wrong. Correct them out loud:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Correcting it</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Three corrections. "AWS EMEA" is Infrastructure and hosting, not Software.
+"Stripe fee" lines are Banking and FX, not Professional services. Anything
+from Fiverr is Payroll and contractors. Add these as permanent rules.</pre>
+          </div>
+
+          <p>Then make it write them down:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Extracting your ruleset</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Write out my complete categorisation ruleset as a numbered list, including
+everything I have corrected. I want to save this and paste it into Stage 2.</pre>
+          </div>
+
+          <p>After about four weeks, "Other or uncategorised" shrinks to almost nothing and stays there. <strong>That accumulated ruleset, not the prompt, is what you actually built.</strong> Keep it as its own document, because you will need to re-teach it &mdash; see the warning below.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-6">
+          <div class="g-sec-num">Step 6</div>
+          <h2>Install it</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <h3>On Claude</h3>
+
+          <h4>As a Project (start here)</h4>
+          <ol>
+            <li>Create a Project, <code>Weekly Cash Flow</code>.</li>
+            <li>Paste the Stage 1 to 4 prompt into the custom instructions.</li>
+            <li>Upload your ruleset and your voice file to the Project knowledge.</li>
+            <li>Connect Drive or Sheets, and Slack.</li>
+            <li>Monday: <em>"run the weekly cash flow."</em></li>
+          </ol>
+
+          <h4>As a Skill</h4>
+          <p>Folder <code>weekly-cash-flow</code>, file <code>SKILL.md</code>:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">SKILL.md frontmatter</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>---
+name: weekly-cash-flow
+description: Run the weekly cash flow process end to end — ingest new bank and
+  card transactions, reconcile the totals, categorise into the user's own
+  buckets, write them into the Transactions tab of the cash flow tracker, then
+  read the Variance tab and draft a budget versus actuals commentary in the
+  user's voice. Use when the user asks to run their weekly cash flow, uploads
+  bank statements or transaction exports, or asks for their finance update.
+---</pre>
+          </div>
+
+          <p>The full prompt underneath. Zip, rename to <code>.skill</code>, upload.</p>
+
+          <h4>Fully scheduled</h4>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Scheduled task</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Set this up as a scheduled task, every Monday at 08:00.
+Check cash-flow/inbox for files newer than the last run. If there are none, DM
+me "No new files, did not run" and stop. If there are, run all four stages.
+Put the commentary in my inbox as a draft, and the FOR ME section in a DM.
+Never post the commentary anywhere automatically.</pre>
+          </div>
+
+          <div class="callout warn">
+            <div class="callout-t">Never auto-post a finance commentary</div>
+            <p>The draft step is your last look before a number reaches your leadership team.</p>
+          </div>
+
+          <h3>On ChatGPT</h3>
+
+          <p>Create a Project, <code>Weekly Cash Flow</code>, with the prompt in Project instructions and your ruleset as a Project file. Connect Drive so it reads the inbox folder itself. Use Tasks for the Monday nudge.</p>
+
+          <p>If your workbook is a local xlsx rather than a Sheet, ChatGPT can read the upload and hand you back the rows to paste. More clicking, same output.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-7">
+          <div class="g-sec-num">Step 7</div>
+          <h2>Keep the step that makes you think</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>You can automate all of this. Bea deliberately doesn't:</p>
+
+          <blockquote class="g-quote">
+            "I still copy-paste the pivot table manually into our cash flow management tool... because I actually want to check it. And I like doing it. It could be done automatically, but I don&#39;t think everything is automatable should be automatable. I still like to look at those numbers."
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <p>The template gives you a natural place to keep that: <strong>read the Variance tab yourself before you send the commentary.</strong> Thirty seconds. It's where you notice hosting is up 30% and nobody mentioned it.</p>
+
+          <p><strong>Automate the typing. Keep the noticing.</strong></p>
+
+        </section>
+
+        <section class="g-sec rv" id="fail-loudly">
+          <div class="g-sec-num">Step 8</div>
+          <h2>Make it fail loudly</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>Every gate above already stops rather than guessing. Add one more:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Failure instruction</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>If the inbox has no new files, do not produce a report. DM me: "No new files
+found, cash flow did not run this week." Send this even when nothing happened.</pre>
+          </div>
+
+          <p>Silence and success look identical. A workflow that quietly skips a week is worse than none, because you'll believe the number you're looking at is current.</p>
+
+          <div class="callout warn">
+            <div class="callout-t">The known failure mode, from the episode</div>
+            <p>The one time this went wrong for Bea, it <em>&quot;was picking up the budget from the week before.&quot;</em> Not a crash. A quietly stale comparison, which is the dangerous kind. Stage 4 opens by stating both date ranges specifically to catch that.</p>
+          </div>
+
+          <h3>Audit it</h3>
+
+          <p>Monthly, on your strongest model:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Security audit</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Review my weekly cash flow automation. What data can it read, what can it write
+and where, whose credentials does it use, and what happens if a connector
+breaks or a permission changes. Flag anything where access is wider than the
+job needs. Then check the workbook itself: has anything overwritten a formula
+in the Daily, Monthly, Yearly or Variance tabs.</pre>
+          </div>
+
+          <p>That second question is the one that matters here. This is not theoretical &mdash; on the episode, Bea's own sweep found a real authentication flaw in a scheduled task, left over from reconnecting broken connectors. Reconnecting things can leave you worse off than before, and you cannot see it in the output.</p>
+
+          <div class="callout key">
+            <div class="callout-t">The general cadence</div>
+            <p>Every three prompts, check for bugs. Every ten, check for security.</p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="warnings">
+          <div class="g-sec-num">From experience</div>
+          <h2>Two warnings from people who've run this a while</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p><strong>Getting the voice right takes weeks, not an afternoon.</strong> Bea: <em>"trial and error. I'm actually very feedback oriented with Claude."</em> Ceci, who maintains a full written voice document, still puts hers at <em>"barely sixty percent to where I want it to be."</em> The shortcut is a voice file: five real updates you've sent, plus a banned-words list. That gets you further in an hour than a month of corrections.</p>
+
+          <p><strong>Tuning can be undone.</strong> Bea moved her skills between Claude surfaces and the commentary quality collapsed:</p>
+
+          <blockquote class="g-quote">
+            "The transition was pretty rough... really, really rough. I was very sad for a long time... I had to train it for two or three more weeks."
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <p>A platform or model change can wipe weeks of tuning. Which is the real reason to keep your ruleset and voice file as separate documents: they're your backup.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="data">
+          <div class="g-sec-num">Before you connect anything</div>
+          <h2>The data question</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>This workflow involves your company's actual money.</p>
+
+          <ul>
+            <li><strong>Know where it goes.</strong> Check your company's policy and whether your plan trains on your data &mdash; business and enterprise tiers generally do not, consumer free tiers may. One conversation, once, beats finding out later.</li>
+            <li><strong>Strip what isn't needed.</strong> The categoriser needs date, description, amount, currency. It does not need full account numbers, card numbers or counterparty addresses. Delete those columns. Thirty seconds, materially less exposure.</li>
+            <li><strong>Consider aggregating payroll.</strong> Individual salary lines are sensitive in a way the rest of this isn't. One line called Payroll works fine for a cash view.</li>
+          </ul>
+
+        </section>
+
+        <section class="g-sec rv" id="limits">
+          <div class="g-sec-num">Honest limits</div>
+          <h2>When not to do this</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <ul>
+            <li><strong>Anything going to an investor, a board or a regulator</strong> is a first pass, not a source of truth. A human reconciles before it leaves the building.</li>
+            <li><strong>This is a cash view arranged like a P&amp;L.</strong> No accruals, no prepayments, no depreciation. It tells you what moved and when. Don't call it a P&amp;L to your accountant.</li>
+            <li><strong>Don't automate the review.</strong> Categorising, flagging, totalling, first draft: automate freely. Deciding what the numbers mean is the reason you have the job.</li>
+          </ul>
+
+        </section>
+
+        <section class="g-sec rv" id="troubleshooting">
+          <div class="g-sec-num">Troubleshooting</div>
+          <h2>When it misbehaves</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <details class="faq-item">
+            <summary>"The totals don&#39;t match the source."</summary>
+            <div class="faq-a">Stage 3 should have caught it. Ask: <em>"Show me the sum of column D for the rows you added against the source file totals, row by row, and find the discrepancy."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>"A row isn&#39;t in any total."</summary>
+            <div class="faq-a">Column G or I got wiped. Copy the formula down from the row above, or the row silently doesn&#39;t exist.</div>
+          </details>
+          <details class="faq-item">
+            <summary>"Everything is the wrong sign."</summary>
+            <div class="faq-a">Stage 1's convention check was skipped. Ask what convention the source used and have it redo Stage 1 only.</div>
+          </details>
+          <details class="faq-item">
+            <summary>"It&#39;s guessing categories."</summary>
+            <div class="faq-a">Your bucket descriptions are too thin, or the 90% rule isn't being enforced. Add examples on the Categories tab and re-state the rule at the top.</div>
+          </details>
+          <details class="faq-item">
+            <summary>"The commentary contradicts the spreadsheet."</summary>
+            <div class="faq-a">It computed instead of reading. Reply: <em>"You are not permitted to calculate. Read the Variance tab as-is and quote it."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>"It invented a reason for a variance."</summary>
+            <div class="faq-a">Reply: <em>"You stated a cause you cannot know. Replace it with &#39;cause unknown, checking&#39;."</em> Then move that rule to the very top.</div>
+          </details>
+          <details class="faq-item">
+            <summary>"Variance columns are all blank."</summary>
+            <div class="faq-a">Budget tab is empty. That's the designed behaviour, not a fault.</div>
+          </details>
+
+        </section>
+
+        <section class="g-sec rv" id="point">
+          <div class="g-sec-num">The point of this</div>
+          <h2>Automate in the right order</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>Five hours became three. The two hours that vanished were the typing. The three that remain are the thinking.</p>
+
+          <p><strong>Most people automate in the wrong order.</strong> They build the beautiful dashboard and keep categorising by hand. Do it the other way round: let the machine sort and sum, and spend Monday morning looking at what it found.</p>
+
+        </section>
+
+        <!-- DOWNLOAD -->
+        <div class="g-download rv">
+          <div class="g-dl-title">Take it with you</div>
+          <p class="g-dl-desc">The whole guide as a PDF, prompts included, in full colour. And the spreadsheet itself, if you skipped past it at the top.</p>
+          <div class="g-dl-btns">
+            <a href="guide-2-monday-money-hour.pdf" class="g-dl-btn primary" download data-dl="pdf">
+              <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+              Download PDF
+            </a>
+            <a href="cash-flow-tracker.xlsx" class="g-dl-btn secondary" download data-dl="xlsx">
+              <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+              Download the tracker (.xlsx)
+            </a>
+            <button type="button" class="g-dl-btn secondary" id="print-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5a3 3 0 0 0-3 3v6h4v3h12v-3h4v-6a3 3 0 0 0-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm3-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              Print this page
+            </button>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:32px">
+          <p>This guide came out of Top of the Ops, Season 1 Bonus &mdash; <a href="episode-11-our-ride-or-die-ai-workflows.html">"Ride or Die AI Workflows"</a>, where Bea and Ceci went through every automation they actually run. The rest of the Operator Field Guides live on the <a href="free-guides.html">Free Guides</a> page.</p>
+          <p><em>Built something better? Tell us. We'll publish the improved version and credit you.</em></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MORE -->
+    <section class="ep-section rv" style="padding:0;margin-top:20px">
+      <div class="ep-section-label">Keep Going</div>
+      <h2>More from Top of the Ops</h2>
+      <div class="ep-section-bar"></div>
+
+      <a href="guide-3-daily-brief.html" class="more-ep-card">
+        <div class="more-ep-num">03</div>
+        <div>
+          <div class="more-ep-title">The Daily Brief That Checks Up On You</div>
+          <div class="more-ep-desc">A morning brief with a second agent whose only job is catching the first one lying.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="more-ep-card">
+        <div class="more-ep-num">11</div>
+        <div>
+          <div class="more-ep-title">Our Ride or Die AI Workflows</div>
+          <div class="more-ep-desc">The episode this guide came from. Every automation we actually run.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="free-guides.html" class="more-ep-card">
+        <div class="more-ep-num">&#9733;</div>
+        <div>
+          <div class="more-ep-title">All Free Guides</div>
+          <div class="more-ep-desc">The rest of the Operator Field Guides.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <a href="index.html" class="f-logo">TOP OF <span>THE OPS</span></a>
+    <div class="f-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="index.html#hosts">Hosts</a>
+      <a href="free-guides.html">Free Guides</a>
+      <a href="https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb" target="_blank" rel="noopener" title="Spotify">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TopOfTheOps" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/topoftheopspodcast/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@top.of.the.ops" target="_blank" rel="noopener" title="TikTok">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+    </div>
+    <div class="f-copy">&copy; 2026 Top of the Ops</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var els=document.querySelectorAll('.rv');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis')}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){o.observe(el)});
+}catch(e){els.forEach(function(el){el.classList.add('vis')})}
+</script>
+
+<script>
+// Contents nav — collapse on mobile, highlight the section in view
+(function(){
+  var nav=document.querySelector('.chapter-nav');if(!nav)return;
+  if(window.innerWidth<769){nav.removeAttribute('open');}
+  var links={};nav.querySelectorAll('a[data-ch]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var hs=document.querySelectorAll('.g-sec[id]');var cur=null;
+  try{
+    var ob=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){if(cur)cur.classList.remove('active');cur=links[e.target.id];if(cur)cur.classList.add('active');}
+    });},{rootMargin:'-10% 0px -75% 0px'});
+    hs.forEach(function(h){ob.observe(h);});
+  }catch(e){}
+})();
+</script>
+
+<script>
+// Copy-to-clipboard on every prompt block.
+// Three tiers: async clipboard API -> execCommand -> select the text so the
+// keyboard shortcut works. The button always says what happened.
+(function(){
+  function flash(btn,label,cls,ms){
+    if(!btn.dataset.label){btn.dataset.label=btn.textContent;}
+    btn.textContent=label;
+    btn.classList.remove('done');
+    if(cls){btn.classList.add(cls);}
+    clearTimeout(btn._t);
+    btn._t=setTimeout(function(){btn.textContent=btn.dataset.label;btn.classList.remove('done');},ms||2000);
+  }
+  function succeeded(btn){
+    flash(btn,'Copied','done');
+    if(typeof gtag==='function'){
+      var l=btn.closest('.prompt-block').querySelector('.prompt-label');
+      gtag('event','copy_prompt',{label:l?l.textContent:'',page_path:location.pathname});
+    }
+  }
+  function selectBlock(btn,pre){
+    try{
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      flash(btn,'Selected — press \u2318C',null,4000);
+    }catch(e){
+      flash(btn,'Copy failed',null,3000);
+    }
+  }
+  function execCopy(pre){
+    var ta=document.createElement('textarea');
+    ta.value=pre.textContent;ta.setAttribute('readonly','');
+    ta.style.position='absolute';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pre=btn.closest('.prompt-block').querySelector('pre');
+      if(!pre)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(pre.textContent).then(
+          function(){succeeded(btn);},
+          function(){execCopy(pre)?succeeded(btn):selectBlock(btn,pre);}
+        );
+      }else{
+        execCopy(pre)?succeeded(btn):selectBlock(btn,pre);
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// Troubleshooting answers are collapsed on screen — force them open for print,
+// then restore. ?print=1 opens them up front for the PDF export.
+(function(){
+  var ds=document.querySelectorAll('.faq-item');
+  function openAll(){ds.forEach(function(d){if(!d.open){d.dataset.wasShut='1';d.open=true;}});}
+  function restore(){ds.forEach(function(d){if(d.dataset.wasShut){d.open=false;delete d.dataset.wasShut;}});}
+  if(location.search.indexOf('print=1')>-1){openAll();}
+  // ?pdf=1 renders the print view in the brand's dark palette instead of the
+  // ink-friendly light one. Used for the downloadable PDF; the Print button
+  // stays light so it doesn't flood a paper printer.
+  if(location.search.indexOf('pdf=1')>-1){
+    document.body.classList.add('pdf-export');
+    document.documentElement.classList.add('pdf-export');
+    // Relative links are dead once the PDF leaves the browser — absolutise them
+    // so a shared PDF's links still work. Export only; the live page is untouched.
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(!h||/^(https?:|mailto:|#)/.test(h))return;
+      a.setAttribute('href','https://top-of-the-ops.com/'+h.replace(/^\.?\//,'').replace(/\.html($|#)/,'$1'));
+    });
+  }
+  window.addEventListener('beforeprint',openAll);
+  window.addEventListener('afterprint',restore);
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    var onChange=function(m){m.matches?openAll():restore();};
+    if(mq.addEventListener){mq.addEventListener('change',onChange);}
+    else if(mq.addListener){mq.addListener(onChange);}
+  }
+})();
+
+// Download / print tracking
+var pb=document.getElementById('print-btn');
+if(pb){pb.addEventListener('click',function(){
+  if(typeof gtag==='function'){gtag('event','print_guide',{page_path:location.pathname});}
+  window.print();
+});}
+document.querySelectorAll('a[data-dl]').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(typeof gtag==='function'){gtag('event','download_guide',{format:a.getAttribute('data-dl'),page_path:location.pathname});}
+  });
+});
+// Outbound listen-click tracking (GA4)
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');if(!a)return;
+  var h=a.href||'';
+  var plat=h.indexOf('youtu')>-1?'youtube':(h.indexOf('spotify')>-1?'spotify':null);
+  if(plat&&typeof gtag==='function'){gtag('event','outbound_click',{platform:plat,link_url:h,page_path:location.pathname});}
+});
+</script>
+</body>
+</html>
