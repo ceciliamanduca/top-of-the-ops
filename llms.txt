@@ -21,6 +21,7 @@ Every episode page on this site includes full show notes, a per-episode FAQ, and
 ## Free Guides
 
 - [Free AI Guides](https://top-of-the-ops.com/free-guides): Free, practical AI guides for operators and Chiefs of Staff, written up from the workflows discussed on the show. Prompts, workflows, automations and templates, free to read with no sign-up wall. Guides are published here as they are written.
+- [Guide 01 — The Meeting Coach](https://top-of-the-ops.com/guide-1-meeting-coach): Operator Field Guide No. 01. A full build for an AI coach that reads a meeting transcript and reports talk share, questions asked, longest monologue, interruptions and decisions reached, then gives three specific fixes with rewrites of what you actually said. Includes the complete prompt, tone calibration, install steps for Claude Projects/Skills and ChatGPT Projects/custom GPTs, a monthly tracking layer, a security-audit prompt, and honest limits. Free, no code, ~20 minutes. Also available as a PDF.
 
 ## Hosts
 

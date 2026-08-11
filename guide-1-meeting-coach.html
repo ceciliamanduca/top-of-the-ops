@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJM7VXTYPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GJM7VXTYPN');
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO
+═══════════════════════════════════════════════ -->
+<title>The Meeting Coach – Build an AI That Grades Your Meetings | Top of the Ops</title>
+<meta name="description" content="Operator Field Guide No. 01. Build an AI meeting coach that reads your transcripts and tells you your talk share, questions asked, longest monologue, and the three things to fix. Free, no code, 20 minutes.">
+<meta name="keywords" content="AI meeting coach, meeting transcript analysis, talk share, chief of staff AI, Claude skill, custom GPT, meeting feedback, AI workflow for operators">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://top-of-the-ops.com/guide-1-meeting-coach">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH
+═══════════════════════════════════════════════ -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Top of the Ops">
+<meta property="og:title" content="The Meeting Coach – Build an AI That Grades Your Meetings">
+<meta property="og:description" content="Most professional feedback stops arriving around your first management job. A transcript doesn't find it awkward. Operator Field Guide No. 01.">
+<meta property="og:url" content="https://top-of-the-ops.com/guide-1-meeting-coach">
+<meta property="og:image" content="https://top-of-the-ops.com/og-image.png">
+<meta property="og:image:alt" content="Top of the Ops podcast cover art">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER / X CARD
+═══════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Meeting Coach – Build an AI That Grades Your Meetings">
+<meta name="twitter:description" content="Most professional feedback stops arriving around your first management job. A transcript doesn't find it awkward.">
+<meta name="twitter:image" content="https://top-of-the-ops.com/og-image.png">
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA – HowTo + Article + Breadcrumb (AEO)
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://top-of-the-ops.com/guide-1-meeting-coach#article",
+      "headline": "The Meeting Coach: Build an AI That Grades Your Meetings and Tells You How to Fix Them",
+      "description": "Operator Field Guide No. 01. A step-by-step build for an AI coach that reads a meeting transcript and reports talk share, questions asked, longest monologue, interruptions, decisions reached, and three specific fixes.",
+      "url": "https://top-of-the-ops.com/guide-1-meeting-coach",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "keywords": "AI meeting coach, meeting transcript analysis, talk share, Claude skill, custom GPT",
+      "author": [
+        { "@type": "Person", "name": "Cecilia Manduca", "url": "https://www.linkedin.com/in/ceciliamanduca/" },
+        { "@type": "Person", "name": "Beatrice Aliprandi", "url": "https://www.linkedin.com/in/beatricealiprandi/" }
+      ],
+      "publisher": { "@id": "https://top-of-the-ops.com/#organization" },
+      "isPartOf": { "@id": "https://top-of-the-ops.com/free-guides#webpage" },
+      "image": "https://top-of-the-ops.com/og-image.png"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://top-of-the-ops.com/guide-1-meeting-coach#howto",
+      "name": "Build an AI meeting coach",
+      "description": "Turn any meeting transcript into evidence-based feedback on how you showed up.",
+      "totalTime": "PT20M",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "GBP", "value": "0" },
+      "supply": [
+        { "@type": "HowToSupply", "name": "A meeting transcript with speaker labels" },
+        { "@type": "HowToSupply", "name": "An AI assistant (Claude or ChatGPT, free tier is fine)" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Get one transcript", "text": "Export a plain-text transcript with speaker labels from a meeting where you did most of the talking.", "url": "https://top-of-the-ops.com/guide-1-meeting-coach#step-1" },
+        { "@type": "HowToStep", "position": 2, "name": "Run the coach", "text": "Paste the coaching prompt into Claude or ChatGPT, fill in your name, role and the meeting's purpose, then paste the transcript underneath.", "url": "https://top-of-the-ops.com/guide-1-meeting-coach#step-2" },
+        { "@type": "HowToStep", "position": 3, "name": "Calibrate the tone", "text": "Add a line to make the coach harsher or gentler, then tune it based on whether you actually read the reports.", "url": "https://top-of-the-ops.com/guide-1-meeting-coach#step-3" },
+        { "@type": "HowToStep", "position": 4, "name": "Make it reusable", "text": "Install the prompt as a Claude Project, a Claude Skill, a custom GPT, or a scheduled task.", "url": "https://top-of-the-ops.com/guide-1-meeting-coach#step-4" },
+        { "@type": "HowToStep", "position": 5, "name": "Add the tracking layer", "text": "Log one line per meeting so you can see trends rather than single verdicts, and review monthly.", "url": "https://top-of-the-ops.com/guide-1-meeting-coach#step-5" },
+        { "@type": "HowToStep", "position": 6, "name": "Make it fail loudly, and audit it", "text": "Force the workflow to announce missing transcripts, and periodically audit every automation's data access.", "url": "https://top-of-the-ops.com/guide-1-meeting-coach#step-6" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://top-of-the-ops.com/guide-1-meeting-coach#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://top-of-the-ops.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Guides", "item": "https://top-of-the-ops.com/free-guides" },
+        { "@type": "ListItem", "position": 3, "name": "The Meeting Coach", "item": "https://top-of-the-ops.com/guide-1-meeting-coach" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="circuit-bg"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TOP OF <span>THE OPS</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="free-guides.html"><span class="nav-free">Free </span>Guides</a>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Provenance line — only appears in print/PDF, where the nav and footer are hidden -->
+  <div class="print-only print-head">
+    <strong>Top of the Ops</strong> &mdash; Operator Field Guide No. 01 &middot; top-of-the-ops.com/guide-1-meeting-coach
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="free-guides.html">Free Guides</a></li>
+        <li>No. 01 &mdash; The Meeting Coach</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="ep-hero rv" data-num="01">
+    <div class="ep-meta">
+      <span class="ep-badge">Operator Field Guide No. 01</span>
+      <span class="ep-number">Free &mdash; no sign-up wall</span>
+    </div>
+    <h1>The Meeting Coach<br><span>Build an AI that grades your meetings and tells you how to fix them</span></h1>
+    <p class="ep-tagline">A coach that reads the transcript of any meeting you were in and tells you how much you talked, how many questions you actually asked, how long your longest monologue ran, and the three things to do differently next time. With the exact line you said, and the better version of it.</p>
+
+    <div class="g-stats">
+      <div class="g-stat"><b>20 minutes</b><span>Time to build</span></div>
+      <div class="g-stat"><b>Free tier</b><span>Cost</span></div>
+      <div class="g-stat"><b>No code</b><span>Skill level</span></div>
+      <div class="g-stat"><b>A transcript</b><span>All you need</span></div>
+    </div>
+
+    <div class="listen-links">
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="listen-btn secondary">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        From EP 11 &mdash; Ride or Die AI Workflows
+      </a>
+    </div>
+
+    <div class="ep-divider"></div>
+  </header>
+
+  <div class="ep-content">
+    <div class="transcript-layout">
+
+      <!-- CONTENTS -->
+      <details class="chapter-nav" open>
+        <summary>Contents</summary>
+        <ol>
+          <li><a href="#why" data-ch>Why this one first</a></li>
+          <li><a href="#need" data-ch>What you need</a></li>
+          <li><a href="#model" data-ch>Pick your model</a></li>
+          <li><a href="#step-1" data-ch>1 &middot; Get one transcript</a></li>
+          <li><a href="#step-2" data-ch>2 &middot; Run the coach</a></li>
+          <li><a href="#step-3" data-ch>3 &middot; Make it mean, or don't</a></li>
+          <li><a href="#step-4" data-ch>4 &middot; Make it reusable</a></li>
+          <li><a href="#step-5" data-ch>5 &middot; Add the tracking layer</a></li>
+          <li><a href="#step-6" data-ch>6 &middot; Fail loudly, and audit</a></li>
+          <li><a href="#limits" data-ch>When not to do this</a></li>
+          <li><a href="#troubleshooting" data-ch>Troubleshooting</a></li>
+          <li><a href="#point" data-ch>The point of this</a></li>
+        </ol>
+      </details>
+
+      <div class="guide-body">
+
+        <!-- WHY -->
+        <section class="g-sec rv" id="why">
+          <div class="g-sec-num">Why this one first</div>
+          <h2>Nobody tells you that you talk too much</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>Most professional feedback stops arriving somewhere around your first management job. People stop telling you that you talk too much, that you open with a disclaimer instead of a claim, that you asked one question in fifty minutes. Not because you fixed it. Because it got awkward to say.</p>
+
+          <p>A transcript doesn't find it awkward.</p>
+
+          <p>This came out of our bonus episode, where Ceci described the meeting coach she built for herself. Her framing was blunt:</p>
+
+          <blockquote class="g-quote">
+            "It's probably like a side effect of my insecurity."
+            <cite>Cecilia Manduca &mdash; EP 11</cite>
+          </blockquote>
+
+          <p>Then she described what it does, and Bea's reaction on tape was <em>"This is brilliant. Another one that I will copy."</em></p>
+
+          <div class="callout key">
+            <div class="callout-t">The detail that makes it work</div>
+            <p><strong>It reads the transcript, not the summary.</strong> Summaries are written to be pleasant. Transcripts contain the sentence where you cut someone off.</p>
+          </div>
+        </section>
+
+        <!-- WHAT YOU NEED -->
+        <section class="g-sec rv" id="need">
+          <div class="g-sec-num">What you need</div>
+          <h2>Three things, and you almost certainly have all of them</h2>
+          <div class="g-sec-bar"></div>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead>
+                <tr><th>You need</th><th>Options that work</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>A transcript source</strong></td>
+                  <td>Any notetaker that saves transcripts &mdash; Granola, Otter, Fathom, Fireflies, tl;dv, Zoom's own cloud transcript, Google Meet, Teams. Or paste a transcript in by hand.</td>
+                </tr>
+                <tr>
+                  <td><strong>An AI you can paste into</strong></td>
+                  <td>Claude or ChatGPT. Free tier is fine to start.</td>
+                </tr>
+                <tr>
+                  <td><strong>A calendar</strong> <span class="no">(optional)</span></td>
+                  <td>Only needed for the automated version in Step 4. Google Calendar, Outlook, whatever.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>You do not need:</strong> a paid notetaker, a specific company, connectors, an ops team, or permission from anyone. If you can get a transcript of a meeting you were in, you can run this today.</p>
+
+          <div class="callout warn">
+            <div class="callout-t">One thing to check first</div>
+            <p>Recording and transcribing meetings has legal and cultural rules that vary by country and company &mdash; in some places every participant must consent. Check your own policy before you point anything at a call. If recording is off the table, this still works on a meeting you transcribe yourself, or on your half of the conversation from your own notes.</p>
+          </div>
+        </section>
+
+        <!-- MODEL -->
+        <section class="g-sec rv" id="model">
+          <div class="g-sec-num">Pick your model</div>
+          <h2>Do not run this on the cheap tier</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>The single most common mistake with this workflow is running it on a cheap, fast model. Transcripts are long. A one-hour meeting is 8,000 to 12,000 words. Small models lose the middle of long documents, and the middle is where the useful evidence lives.</p>
+
+          <p>As of August 2026:</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead>
+                <tr><th>What you're doing</th><th>On Claude</th><th>On ChatGPT</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Building the skill</strong><br>One-off, needs to get the structure right</td>
+                  <td class="yes">Fable 5</td>
+                  <td class="yes">GPT-5.6 Sol</td>
+                </tr>
+                <tr>
+                  <td><strong>Running it on each meeting</strong><br>Routine, repeated</td>
+                  <td class="yes">Sonnet 5</td>
+                  <td class="yes">GPT-5.6 Terra</td>
+                </tr>
+                <tr>
+                  <td><strong>Reviewing your setup for security</strong><br>See Step 6</td>
+                  <td class="yes">Fable 5, high effort</td>
+                  <td class="yes">GPT-5.6 Sol</td>
+                </tr>
+                <tr>
+                  <td><strong>Do not use for this</strong></td>
+                  <td class="no">Haiku</td>
+                  <td class="no">Luna</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p><strong>Why Luna and Haiku are the wrong call here:</strong> both are built for cheap, high-volume, short tasks. On long-context recall &mdash; which is exactly what reading a full transcript is &mdash; Luna scores around 41% against Sol's 91%. It will confidently quote things nobody said. For a workflow whose entire value is accurate evidence, that's disqualifying.</p>
+
+          <div class="callout">
+            <div class="callout-t">The rule, so this survives the model names changing</div>
+            <p><em>Build with the strongest model you have access to, run with the balanced mid-tier, and never run long-document analysis on the cheap tier.</em> Model names turn over every few months. That rule doesn't.</p>
+          </div>
+        </section>
+
+        <!-- STEP 1 -->
+        <section class="g-sec rv" id="step-1">
+          <div class="g-sec-num">Step 1</div>
+          <h2>Get one transcript</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>Pick a meeting from the last week where you did most of the talking. Not your best meeting. That's the point.</p>
+
+          <p>Export the transcript as plain text. Almost every notetaker has a copy-transcript or download-transcript option. You want the raw dialogue with speaker labels, like this:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Transcript format</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Alex (00:04)
+So I wanted to walk through the Q3 numbers before we get into the roadmap.
+
+Priya (00:11)
+Sure. Do you want me to pull the dashboard up?</pre>
+          </div>
+
+          <p>Speaker labels matter &mdash; without them the coach can't tell your talking from theirs. If your tool doesn't label speakers, most will let you tag them once and remember.</p>
+        </section>
+
+        <!-- STEP 2 -->
+        <section class="g-sec rv" id="step-2">
+          <div class="g-sec-num">Step 2</div>
+          <h2>Run the coach</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>This is the whole workflow in one prompt. Paste it into Claude or ChatGPT, fill in the bracketed parts, paste your transcript underneath.</p>
+
+          <p>It works standalone, in a plain chat window, with no setup at all. Step 4 turns it into something reusable.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">The prompt</span>
+              <button class="copy-btn" type="button">Copy prompt</button>
+            </div>
+<pre>You are an executive meeting coach. You are honest, specific and unsentimental.
+You are not encouraging. Your job is to make me better, not to make me feel good.
+
+Below is the transcript of a meeting I was in.
+
+MY NAME IN THE TRANSCRIPT: [your name exactly as it appears]
+MY ROLE: [e.g. Chief of Staff / Head of Finance / Founder]
+WHAT THIS MEETING WAS FOR: [one line — e.g. "get the team to commit to a
+  launch date" or "understand why churn moved"]
+WHAT A GOOD OUTCOME WOULD HAVE BEEN: [one line]
+
+Analyse ONLY what is in the transcript. Follow these rules absolutely:
+
+1. Every single claim you make must be supported by a VERBATIM QUOTE from the
+   transcript. If you cannot quote it, do not claim it.
+2. Never invent, paraphrase or reconstruct a quote. Quote exactly or say
+   "no evidence in transcript".
+3. If the meeting was genuinely good, say so. Do not manufacture problems to
+   seem useful. An honest "three things went well and one thing to watch" is a
+   valid result.
+4. Do not comment on my personality. Comment on behaviour I could change on
+   Monday.
+
+Produce exactly this, and nothing else:
+
+## THE NUMBERS
+- My share of the words spoken: X% (and the rough split for everyone else)
+- Questions I asked: X total — of those, X were genuinely open (invited
+  thinking) and X were closed or rhetorical. List the open ones verbatim.
+- My longest uninterrupted turn: approximately X words, on the topic of [topic].
+  Quote the first line of it.
+- Times I interrupted someone mid-sentence: X. Quote each one.
+- Times someone tried to speak and I continued: X. Quote each one.
+- Decisions actually reached: list them. For each, say whether it has a named
+  owner and a date, or does not.
+- Open loops left at the end: anything raised and never resolved.
+
+## WHAT WORKED
+Two or three things I did well, each with the quote that proves it.
+
+## THE VERDICT
+Three sentences maximum. The single most important pattern in how I showed up.
+Lead with the claim. No preamble, no cushioning.
+
+## THREE FIXES
+Exactly three, ordered by how much they'd change the outcome. For each:
+- **The behaviour:** what I did, with the verbatim quote
+- **Why it cost me:** tied to the stated purpose of this meeting
+- **Say this instead:** an actual rewrite of my actual words. Not general
+  advice. The specific sentence I should have said.
+
+## ONE THING TO TRY IN MY NEXT MEETING
+A single, concrete, testable action. Something I can either do or not do, and
+know afterwards which it was.
+
+TRANSCRIPT:
+---
+[paste transcript here]
+---</pre>
+          </div>
+
+          <h3>What comes back</h3>
+
+          <p>You'll get numbers you can't argue with and a verdict you probably can. Both are useful. The numbers are the part that changes behaviour &mdash; most people are genuinely surprised by their own talk share, and nobody guesses their longest monologue correctly.</p>
+
+          <div class="callout key">
+            <div class="callout-t">Rule 1 is the load-bearing instruction</div>
+            <p>Without <em>"every claim must have a verbatim quote,"</em> you get fluent, generic, plausible coaching that would apply to any meeting ever held. With it, you get evidence. If your output has no quotes in it, the model ignored the rule &mdash; say <em>"you made claims without quoting the transcript, redo it"</em> and it will comply.</p>
+          </div>
+
+          <p><strong>Rule 3 matters more than it looks.</strong> An AI asked for criticism will always find criticism. Explicitly permitting "this was fine" is what makes the bad reports trustworthy.</p>
+        </section>
+
+        <!-- STEP 3 -->
+        <section class="g-sec rv" id="step-3">
+          <div class="g-sec-num">Step 3</div>
+          <h2>Make it mean, or don't</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>Ceci's version is deliberately harsh:</p>
+
+          <blockquote class="g-quote">
+            "It's really mean sometimes, but I want it mean."
+            <cite>Cecilia Manduca &mdash; EP 11</cite>
+          </blockquote>
+
+          <p>That's a preference, not a requirement. Add one of these lines to the prompt:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Dial it up</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Be blunt to the point of uncomfortable. Do not soften anything. Assume I am
+experienced and can take it. Skip all praise unless it is genuinely notable.</pre>
+          </div>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Dial it down</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Be direct but constructive. Lead with what worked. Frame fixes as experiments
+rather than failures.</pre>
+          </div>
+
+          <div class="callout tip">
+            <div class="callout-t">The tuning note nobody mentions</div>
+            <p>If you make it too harsh you will stop reading it, and a coach you avoid is worth nothing. If you make it too kind you'll read it forever and never change. Start neutral, run it four or five times, then adjust based on whether you're actually opening the reports.</p>
+          </div>
+        </section>
+
+        <!-- STEP 4 -->
+        <section class="g-sec rv" id="step-4">
+          <div class="g-sec-num">Step 4</div>
+          <h2>Turn it into something reusable</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>Pasting a prompt works, but you won't keep doing it. Here's how to install it properly on each platform.</p>
+
+          <h3>On Claude</h3>
+
+          <h4>Option A &mdash; a Project (easiest, 5 minutes)</h4>
+          <ol>
+            <li>In Claude, create a new Project called <code>Meeting Coach</code>.</li>
+            <li>Open the Project's custom instructions and paste in the prompt from Step 2 &mdash; everything from <em>"You are an executive meeting coach"</em> down to but not including <code>TRANSCRIPT:</code>.</li>
+            <li>Replace the bracketed fields with your real name and role once, permanently.</li>
+            <li>From then on, every new chat in that Project only needs the transcript pasted in. Everything else is remembered.</li>
+          </ol>
+
+          <h4>Option B &mdash; a Skill (better, reusable, invokable by name)</h4>
+          <ol>
+            <li>Create a folder called <code>meeting-coach</code>.</li>
+            <li>Inside it create a file called <code>SKILL.md</code>.</li>
+            <li>Put this at the top of the file:</li>
+          </ol>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">SKILL.md frontmatter</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>---
+name: meeting-coach
+description: Analyse a meeting transcript and score how the user showed up —
+  talk share, questions asked, longest monologue, interruptions, decisions
+  reached. Returns a verdict and three specific fixes with rewrites. Use when
+  the user shares a meeting transcript, asks how a meeting went, asks for
+  feedback on their own performance in a call, or says "coach this meeting".
+---</pre>
+          </div>
+
+          <ol start="4">
+            <li>Underneath the <code>---</code>, paste the full prompt from Step 2.</li>
+            <li>Zip the folder so you get <code>meeting-coach.zip</code>, then rename it <code>meeting-coach.skill</code>.</li>
+            <li>Upload it in Claude's skill settings.</li>
+          </ol>
+
+          <p>Now you can say <em>"run meeting-coach on this"</em> and paste a transcript, in any conversation.</p>
+
+          <h4>Option C &mdash; automate it (the version Ceci actually runs)</h4>
+
+          <p>If you have Claude connected to your calendar and your notetaker, you can go further and have it run without you asking. Ask Claude, in a Project that already has the skill:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Scheduled task</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Set this up as a scheduled task. Every weekday at 18:00, look at my calendar
+for meetings that happened today where I was a participant. For each one that
+has a transcript available in [your notetaker], run the meeting-coach analysis.
+Then give me ONE combined summary for the day: the numbers per meeting, and a
+single pattern you noticed across all of them. Do not send me one report per
+meeting — I will not read five reports.</pre>
+          </div>
+
+          <p>That last sentence is the difference between a habit and an ignored notification.</p>
+
+          <div class="callout tip">
+            <div class="callout-t">The interactive version</div>
+            <p>Ceci's lives as an artifact in Cowork rather than as an email: a list of her meetings that she clicks into when she wants feedback, rather than a report that arrives whether she wants it or not. If you're building this, prefer pull over push. Feedback you requested lands very differently from feedback that turned up.</p>
+          </div>
+
+          <h3>On ChatGPT</h3>
+
+          <h4>Option A &mdash; a Project</h4>
+          <ol>
+            <li>Create a new Project called <code>Meeting Coach</code>.</li>
+            <li>Put the Step 2 prompt into the Project instructions, with your name and role filled in.</li>
+            <li>Paste transcripts into chats inside the Project.</li>
+          </ol>
+
+          <h4>Option B &mdash; a custom GPT</h4>
+          <ol>
+            <li>Go to <em>Explore GPTs &rarr; Create</em>.</li>
+            <li>Name it <code>Meeting Coach</code>.</li>
+            <li>In <em>Instructions</em>, paste the Step 2 prompt.</li>
+            <li>Under <em>Conversation starters</em>, add: <code>Here's a transcript, coach me.</code></li>
+            <li>Turn <strong>off</strong> web browsing and image generation. It doesn't need them, and switching them off stops it wandering off to look up meeting-facilitation blogs instead of reading your transcript.</li>
+            <li>Save as private.</li>
+          </ol>
+
+          <h4>Option C &mdash; Tasks</h4>
+          <p>ChatGPT's scheduled Tasks can prompt you rather than fetch for you. Set one for Friday afternoon: <em>"Ask me to paste this week's toughest meeting transcript, then run the Meeting Coach analysis."</em> Less automatic, but it survives having no connectors at all.</p>
+        </section>
+
+        <!-- STEP 5 -->
+        <section class="g-sec rv" id="step-5">
+          <div class="g-sec-num">Step 5</div>
+          <h2>Add the tracking layer</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>This is the part missing from most versions of this workflow, including the one on the episode. A verdict tells you about one meeting. A trend tells you whether you're actually getting better.</p>
+
+          <p>After each run, append one line to a running file or sheet:</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead>
+                <tr><th>Date</th><th>Meeting</th><th>My talk share</th><th>Open questions</th><th>Longest turn</th><th>Fix I was given</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>11 Aug</td>
+                  <td>Roadmap review</td>
+                  <td>68%</td>
+                  <td>2</td>
+                  <td>340 words</td>
+                  <td>Stop answering my own question</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>Then once a month:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Monthly review</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Here is my meeting log for the last month. Do not coach individual meetings.
+Tell me: what is measurably improving, what is not moving at all, and which
+fix I have now been given three times and clearly haven't implemented.
+Quote the dates.</pre>
+          </div>
+
+          <p>The third one is the useful one. Being told the same thing repeatedly, with dates attached, is harder to ignore than being told it once.</p>
+        </section>
+
+        <!-- STEP 6 -->
+        <section class="g-sec rv" id="step-6">
+          <div class="g-sec-num">Step 6</div>
+          <h2>Make it fail loudly, and audit it</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>Two rules from the episode that apply to everything you build, not just this.</p>
+
+          <h3>Make it fail loudly</h3>
+
+          <p>If you automate this and the transcript isn't available, the run must tell you. A workflow that silently does nothing is worse than no workflow, because you'll believe it's running. Add to any scheduled version:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Failure instruction</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>If you cannot find a transcript for a meeting, do not skip it silently. Say
+explicitly: "No transcript found for [meeting name] — coach did not run."</pre>
+          </div>
+
+          <blockquote class="g-quote">
+            "If they can't reach the information, make it say: Hi, I'm the fairy, I couldn't reach the information."
+            <cite>Beatrice Aliprandi &mdash; EP 11</cite>
+          </blockquote>
+
+          <p>Silence is not success.</p>
+
+          <h3>Audit your own setup</h3>
+
+          <p>Once you've built two or three of these, point your strongest model at all of them and ask it to find what's broken. On the episode, Bea did exactly this and it found an authentication flaw in one of her own scheduled tasks, left over from reconnecting some connectors.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Security audit</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Go through every skill, scheduled task and automation I have set up. For each
+one, check: what data can it read, what can it write or send, whose credentials
+is it using, and what happens if a connection breaks or a permission changes.
+Flag anything where the access is broader than the job requires. Be specific
+about the risk, not general.</pre>
+          </div>
+
+          <p>Run it on Claude Fable 5 or ChatGPT Sol. This is the one job where you want the expensive model &mdash; a reviewer that rubber-stamps everything is worse than no reviewer.</p>
+
+          <div class="callout key">
+            <div class="callout-t">The general version of the rule</div>
+            <p>Every three prompts, check for bugs. Every ten, check for security.</p>
+          </div>
+        </section>
+
+        <!-- LIMITS -->
+        <section class="g-sec rv" id="limits">
+          <div class="g-sec-num">Honest limits</div>
+          <h2>When not to do this</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>Honest limits, because a guide that only sells you the upside isn't a guide.</p>
+
+          <ul>
+            <li><strong>Sensitive meetings.</strong> Some conversations should not be transcribed at all, and some shouldn't leave your machine. Ceci retired a different automation partly for this reason &mdash; the output would have sat on a calendar she'd then have to make private. If a meeting is confidential, it's outside this workflow. Full stop.</li>
+            <li><strong>Interviews and performance conversations.</strong> Don't point this at meetings where you're assessing another person. The transcript then contains their material, not yours, and coaching yourself on it slides quickly into analysing them.</li>
+            <li><strong>Meetings where talking a lot was the job.</strong> A talk share of 80% in a presentation is correct. Tell the coach the purpose in the prompt or it will scold you for doing your job properly. This is why the <code>WHAT THIS MEETING WAS FOR</code> field exists.</li>
+            <li><strong>The first week will be unpleasant, and that's fine.</strong> Everyone's first three reports are worse than they expected. Judge the workflow on week four, not day one.</li>
+          </ul>
+        </section>
+
+        <!-- TROUBLESHOOTING -->
+        <section class="g-sec rv" id="troubleshooting">
+          <div class="g-sec-num">Troubleshooting</div>
+          <h2>When it misbehaves</h2>
+          <div class="g-sec-bar"></div>
+
+          <details class="faq-item">
+            <summary>"It's giving me generic advice."</summary>
+            <div class="faq-a">It's ignoring the verbatim-quote rule. Reply: <em>"Every claim needs a verbatim quote from the transcript. Redo it and cut anything you can't quote."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>"The percentages look wrong."</summary>
+            <div class="faq-a">They're estimates from word counts, not a measurement instrument. Treat them as directional. If you want them exact, ask it to count words per speaker and show the arithmetic.</div>
+          </details>
+          <details class="faq-item">
+            <summary>"It's quoting things I never said."</summary>
+            <div class="faq-a">You're on too small a model, or the transcript is too long for the context window. Move up a tier, or split the transcript in half and run it twice.</div>
+          </details>
+          <details class="faq-item">
+            <summary>"It's too nice."</summary>
+            <div class="faq-a">Add the harsh calibration from Step 3, and add: <em>"You are being too generous. Assume your first draft was too kind and redo it."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>"It missed the actual problem in the meeting."</summary>
+            <div class="faq-a">Tell it what the problem was and ask it to find the evidence. If there's no evidence in the transcript, the problem may have been in the room rather than in the words &mdash; tone, faces, who wasn't speaking. That's the limit of the tool, and it's a real one.</div>
+          </details>
+        </section>
+
+        <!-- THE POINT -->
+        <section class="g-sec rv" id="point">
+          <div class="g-sec-num">The point of this</div>
+          <h2>A meeting coach isn't really about meetings</h2>
+          <div class="g-sec-bar"></div>
+
+          <p>It's the smallest possible version of a bigger idea: the parts of your job you can't see are the parts you can't improve, and a transcript is just a mirror you can't argue with.</p>
+
+          <p><strong>The busywork was never the job. But neither was flying blind.</strong></p>
+
+          <!-- DOWNLOAD -->
+          <div class="g-download rv">
+            <div class="g-dl-title">Take it with you</div>
+            <p class="g-dl-desc">The whole guide as a PDF, prompts included, in full colour &mdash; for reading offline or sending to the colleague who needs it most. The print option gives you an ink-friendly version instead.</p>
+            <div class="g-dl-btns">
+              <a href="guide-1-meeting-coach.pdf" class="g-dl-btn primary" download data-dl="pdf">
+                <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+                Download PDF
+              </a>
+              <button type="button" class="g-dl-btn secondary" id="print-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5a3 3 0 0 0-3 3v6h4v3h12v-3h4v-6a3 3 0 0 0-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm3-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+                Print this page
+              </button>
+            </div>
+          </div>
+
+          <div class="callout" style="margin-top:32px">
+            <p>This guide came out of Top of the Ops, Season 1 Bonus &mdash; <a href="episode-11-our-ride-or-die-ai-workflows.html">"Ride or Die AI Workflows"</a>, where Bea and Ceci went through every automation they actually run. The rest of the Operator Field Guides live on the <a href="free-guides.html">Free Guides</a> page.</p>
+            <p><em>Built something better? Tell us. We'll publish the improved version and credit you.</em></p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- MORE -->
+    <section class="ep-section rv" style="padding:0;margin-top:20px">
+      <div class="ep-section-label">Keep Going</div>
+      <h2>More from Top of the Ops</h2>
+      <div class="ep-section-bar"></div>
+
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="more-ep-card">
+        <div class="more-ep-num">11</div>
+        <div>
+          <div class="more-ep-title">Our Ride or Die AI Workflows</div>
+          <div class="more-ep-desc">The episode this guide came from. Every automation we actually run.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="free-guides.html" class="more-ep-card">
+        <div class="more-ep-num">&#9733;</div>
+        <div>
+          <div class="more-ep-title">All Free Guides</div>
+          <div class="more-ep-desc">The rest of the Operator Field Guides, as they land.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <a href="index.html" class="f-logo">TOP OF <span>THE OPS</span></a>
+    <div class="f-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="index.html#hosts">Hosts</a>
+      <a href="free-guides.html">Free Guides</a>
+      <a href="https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb" target="_blank" rel="noopener" title="Spotify">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TopOfTheOps" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/topoftheopspodcast/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@top.of.the.ops" target="_blank" rel="noopener" title="TikTok">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+    </div>
+    <div class="f-copy">&copy; 2026 Top of the Ops</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var els=document.querySelectorAll('.rv');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis')}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){o.observe(el)});
+}catch(e){els.forEach(function(el){el.classList.add('vis')})}
+</script>
+
+<script>
+// Contents nav — collapse on mobile, highlight the section in view
+(function(){
+  var nav=document.querySelector('.chapter-nav');if(!nav)return;
+  if(window.innerWidth<769){nav.removeAttribute('open');}
+  var links={};nav.querySelectorAll('a[data-ch]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var hs=document.querySelectorAll('.g-sec[id]');var cur=null;
+  try{
+    var ob=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){if(cur)cur.classList.remove('active');cur=links[e.target.id];if(cur)cur.classList.add('active');}
+    });},{rootMargin:'-10% 0px -75% 0px'});
+    hs.forEach(function(h){ob.observe(h);});
+  }catch(e){}
+})();
+</script>
+
+<script>
+// Copy-to-clipboard on every prompt block.
+// Three tiers: async clipboard API -> execCommand -> select the text so the
+// keyboard shortcut works. The button always says what happened.
+(function(){
+  function flash(btn,label,cls,ms){
+    if(!btn.dataset.label){btn.dataset.label=btn.textContent;}
+    btn.textContent=label;
+    btn.classList.remove('done');
+    if(cls){btn.classList.add(cls);}
+    clearTimeout(btn._t);
+    btn._t=setTimeout(function(){btn.textContent=btn.dataset.label;btn.classList.remove('done');},ms||2000);
+  }
+  function succeeded(btn,pre){
+    flash(btn,'Copied','done');
+    if(typeof gtag==='function'){
+      var l=btn.closest('.prompt-block').querySelector('.prompt-label');
+      gtag('event','copy_prompt',{label:l?l.textContent:'',page_path:location.pathname});
+    }
+  }
+  // Last resort: select the block so Ctrl/Cmd+C works, and say so.
+  function selectBlock(btn,pre){
+    try{
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      flash(btn,'Selected — press ⌘C',null,4000);
+    }catch(e){
+      flash(btn,'Copy failed',null,3000);
+    }
+  }
+  function execCopy(pre){
+    var ta=document.createElement('textarea');
+    ta.value=pre.textContent;ta.setAttribute('readonly','');
+    ta.style.position='absolute';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pre=btn.closest('.prompt-block').querySelector('pre');
+      if(!pre)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(pre.textContent).then(
+          function(){succeeded(btn,pre);},
+          function(){execCopy(pre)?succeeded(btn,pre):selectBlock(btn,pre);}
+        );
+      }else{
+        execCopy(pre)?succeeded(btn,pre):selectBlock(btn,pre);
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// Troubleshooting answers are collapsed on screen — force them open for print,
+// then restore. ?print=1 opens them up front for the PDF export.
+(function(){
+  var ds=document.querySelectorAll('.faq-item');
+  function openAll(){ds.forEach(function(d){if(!d.open){d.dataset.wasShut='1';d.open=true;}});}
+  function restore(){ds.forEach(function(d){if(d.dataset.wasShut){d.open=false;delete d.dataset.wasShut;}});}
+  if(location.search.indexOf('print=1')>-1){openAll();}
+  // ?pdf=1 renders the print view in the brand's dark palette instead of the
+  // ink-friendly light one. Used for the downloadable PDF; the Print button
+  // stays light so it doesn't flood a paper printer.
+  if(location.search.indexOf('pdf=1')>-1){
+    document.body.classList.add('pdf-export');
+    document.documentElement.classList.add('pdf-export');
+  }
+  window.addEventListener('beforeprint',openAll);
+  window.addEventListener('afterprint',restore);
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    var onChange=function(m){m.matches?openAll():restore();};
+    if(mq.addEventListener){mq.addEventListener('change',onChange);}
+    else if(mq.addListener){mq.addListener(onChange);}
+  }
+})();
+
+// Download / print tracking
+var pb=document.getElementById('print-btn');
+if(pb){pb.addEventListener('click',function(){
+  if(typeof gtag==='function'){gtag('event','print_guide',{page_path:location.pathname});}
+  window.print();
+});}
+document.querySelectorAll('a[data-dl]').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(typeof gtag==='function'){gtag('event','download_guide',{format:a.getAttribute('data-dl'),page_path:location.pathname});}
+  });
+});
+// Outbound listen-click tracking (GA4)
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');if(!a)return;
+  var h=a.href||'';
+  var plat=h.indexOf('youtu')>-1?'youtube':(h.indexOf('spotify')>-1?'spotify':null);
+  if(plat&&typeof gtag==='function'){gtag('event','outbound_click',{platform:plat,link_url:h,page_path:location.pathname});}
+});
+</script>
+</body>
+</html>
