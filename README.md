@@ -40,9 +40,20 @@ Each episode is a standalone `episode-<n>-<slug>.html` page. When adding one, al
 
 ## Adding a free guide
 
-Guides are listed on `free-guides.html` and live at `guide-<slug>.html`. The guides hub currently shows a "coming soon" empty state.
+Guides are listed on `free-guides.html` and live at `guide-<n>-<slug>.html`, each with a matching `.pdf`.
 
-1. Create `guide-<slug>.html` — copy an episode page for the head/nav/footer, or copy `free-guides.html` and replace the body.
-2. In `free-guides.html`, add a guide card inside `.guides-list` (a copy-paste template sits in an HTML comment right above it), newest first. Delete the `.guides-empty` block once the first guide is live.
-3. Add an `ItemList` node to the JSON-LD in the `free-guides.html` `<head>` — there is a commented example showing the shape.
-4. Update `sitemap.xml`, `llms.txt`, and `_redirects` (short `/guide-N` URL).
+1. Create `guide-<n>-<slug>.html` by copying `guide-1-meeting-coach.html`. It already has the contents nav, callout styles, copy-to-clipboard prompt blocks, tables, print styles and the PDF download block.
+2. In `free-guides.html`, add a card inside `.guides-list` (copy-paste template sits in an HTML comment right above it), newest first.
+3. Add a `listItem` to the `ItemList` in the `free-guides.html` `<head>` and bump `numberOfItems`.
+4. Export the PDF (see below).
+5. Update `sitemap.xml`, `llms.txt`, and `_redirects` (short `/guide-N` URL).
+
+### Exporting a guide PDF
+
+The PDF is rendered from the page itself, so the print stylesheet in `style.css` (`@media print`) is the single source of truth for how it looks. Serve the folder, then:
+
+```bash
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --disable-gpu --no-pdf-header-footer --virtual-time-budget=15000 --print-to-pdf=guide-1-meeting-coach.pdf "http://localhost:8000/guide-1-meeting-coach.html?print=1"
+```
+
+`?print=1` expands the collapsed troubleshooting answers so they appear in the PDF. **Re-run this whenever you edit a guide's content**, or the PDF will drift out of sync with the page.

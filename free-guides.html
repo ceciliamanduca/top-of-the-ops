@@ -47,22 +47,10 @@
 <meta name="twitter:image" content="https://top-of-the-ops.com/og-image.png">
 
 <!-- ═══════════════════════════════════════════════
-     STRUCTURED DATA – CollectionPage + Breadcrumb (AEO)
+     STRUCTURED DATA – CollectionPage + ItemList + Breadcrumb (AEO)
 
-     WHEN YOU ADD GUIDES: add an "ItemList" node to the @graph
-     below, one listItem per guide, so the set is machine-readable:
-
-     {
-       "@type": "ItemList",
-       "@id": "https://top-of-the-ops.com/free-guides#guides",
-       "itemListOrder": "https://schema.org/ItemListOrderDescending",
-       "numberOfItems": 1,
-       "itemListElement": [
-         { "@type": "ListItem", "position": 1,
-           "url": "https://top-of-the-ops.com/guide-<slug>",
-           "name": "<Guide title>" }
-       ]
-     }
+     WHEN YOU ADD A GUIDE: add a listItem to the ItemList below
+     and bump numberOfItems.
 ═══════════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
@@ -77,6 +65,21 @@
       "inLanguage": "en-GB",
       "isPartOf": { "@id": "https://top-of-the-ops.com/#website" },
       "publisher": { "@id": "https://top-of-the-ops.com/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://top-of-the-ops.com/free-guides#guides",
+      "name": "Operator Field Guides",
+      "itemListOrder": "https://schema.org/ItemListOrderDescending",
+      "numberOfItems": 1,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://top-of-the-ops.com/guide-1-meeting-coach",
+          "name": "The Meeting Coach: Build an AI That Grades Your Meetings"
+        }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -164,20 +167,20 @@
       <!-- ───────────────────────────────────────────────
            HOW TO ADD A GUIDE
 
-           1. Build the guide page itself as guide-<slug>.html
-              (copy an episode page for the head/nav/footer, or
-              copy this page and swap the body).
-           2. Delete the .guides-empty block below the first time
-              you add a real guide.
-           3. Copy the template between the markers into the list,
-              newest guide at the top, and bump the number.
+           1. Build the guide page itself as guide-<n>-<slug>.html
+              (copy guide-1-meeting-coach.html — it already has the
+              contents nav, callouts, prompt blocks with copy buttons,
+              tables, print styles and the PDF download block).
+           2. Copy the template between the markers into the list
+              below, newest guide at the top, and bump the number.
+           3. Export the PDF: see "Adding a free guide" in README.md.
            4. Also update: sitemap.xml, llms.txt, _redirects
               (short /guide-N URL), and the ItemList schema in the
               <head> of this page.
 
            ── GUIDE CARD TEMPLATE ──────────────────────
-           <a href="guide-<slug>.html" class="more-ep-card">
-             <div class="more-ep-num">01</div>
+           <a href="guide-<n>-<slug>.html" class="more-ep-card">
+             <div class="more-ep-num">02</div>
              <div>
                <div class="more-ep-title">Guide title goes here</div>
                <div class="more-ep-desc">One line on the problem it solves and who it is for.</div>
@@ -189,13 +192,14 @@
 
       <div class="guides-list">
 
-        <!-- Guide cards go here. Remove the empty state below once the first one ships. -->
-
-        <div class="guides-empty">
-          <div class="ge-label">Coming Soon</div>
-          <div class="ge-title">The first guides are being written</div>
-          <p class="ge-desc">We are turning the workflows from the show into proper step-by-step guides. Drop your email below and we will send them over as they land, or start with <a href="episode-11-our-ride-or-die-ai-workflows.html">episode 11</a>, where we walk through every automation we run.</p>
-        </div>
+        <a href="guide-1-meeting-coach.html" class="more-ep-card">
+          <div class="more-ep-num">01</div>
+          <div>
+            <div class="more-ep-title">The Meeting Coach<span class="guide-card-tag">20 min &middot; no code</span></div>
+            <div class="more-ep-desc">Build an AI that reads your meeting transcripts and tells you your talk share, your longest monologue, and the three things to fix. With the exact line you said and the better version of it.</div>
+          </div>
+          <div class="more-ep-arrow">&rarr;</div>
+        </a>
 
       </div>
     </section>
@@ -221,8 +225,8 @@
          BACK TO THE SHOW
     ═══════════════════════════════════════════════ -->
     <section class="ep-section rv">
-      <div class="ep-section-label">In the Meantime</div>
-      <h2>Start with these episodes</h2>
+      <div class="ep-section-label">Where They Come From</div>
+      <h2>The episodes behind the guides</h2>
       <div class="ep-section-bar"></div>
 
       <a href="episode-11-our-ride-or-die-ai-workflows.html" class="more-ep-card">
