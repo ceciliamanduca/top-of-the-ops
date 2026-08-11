@@ -12,6 +12,7 @@ A static site: hand-written HTML, one shared stylesheet, no build step.
 | --- | --- |
 | `index.html` | Landing page with the episode list |
 | `episode-*.html` | One page per episode (show notes, chaptered transcript, FAQ, schema) |
+| `free-guides.html` | Free AI guides hub, linked from the nav on every page |
 | `style.css` | Shared styles for every page |
 | `404.html` | Custom not-found page |
 | `_redirects` | Netlify redirect rules (short `/episode-N` URLs → full slugs) |
@@ -36,3 +37,12 @@ The site is hosted on Netlify and served at the custom domain top-of-the-ops.com
 ## Adding an episode
 
 Each episode is a standalone `episode-<n>-<slug>.html` page. When adding one, also update `index.html` (episode tile), `sitemap.xml`, and `_redirects` so the short `/episode-N` URL resolves.
+
+## Adding a free guide
+
+Guides are listed on `free-guides.html` and live at `guide-<slug>.html`. The guides hub currently shows a "coming soon" empty state.
+
+1. Create `guide-<slug>.html` — copy an episode page for the head/nav/footer, or copy `free-guides.html` and replace the body.
+2. In `free-guides.html`, add a guide card inside `.guides-list` (a copy-paste template sits in an HTML comment right above it), newest first. Delete the `.guides-empty` block once the first guide is live.
+3. Add an `ItemList` node to the JSON-LD in the `free-guides.html` `<head>` — there is a commented example showing the shape.
+4. Update `sitemap.xml`, `llms.txt`, and `_redirects` (short `/guide-N` URL).

@@ -18,6 +18,10 @@ Every episode page on this site includes full show notes, a per-episode FAQ, and
 - [EP 10 — Inside Sana's $1.1B Exit: The Operating Principles That Made It](https://top-of-the-ops.com/episode-10-olivia-elf-inside-sanas-1-1b-exit): Olivia Elf joined Sana at 20 people and rode it to a $1.1B Workday acquisition. The operating principles that built it.
 - [EP 11 — Our Ride or Die AI Workflows](https://top-of-the-ops.com/episode-11-our-ride-or-die-ai-workflows): The season one bonus. Every automation the hosts actually run, from two operators with zero engineering background.
 
+## Free Guides
+
+- [Free AI Guides](https://top-of-the-ops.com/free-guides): Free, practical AI guides for operators and Chiefs of Staff, written up from the workflows discussed on the show. Prompts, workflows, automations and templates, free to read with no sign-up wall. Guides are published here as they are written.
+
 ## Hosts
 
 - [Cecilia Manduca on LinkedIn](https://www.linkedin.com/in/ceciliamanduca/): Co-host. Former VC at Talis Capital, Chief of Staff at Seqera, Finance Director at PortalOne.
