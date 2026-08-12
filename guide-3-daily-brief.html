@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#171717">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GJM7VXTYPN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GJM7VXTYPN');
+</script>
+
+<!-- ═══════════════════════════════════════════════
+     PRIMARY SEO
+═══════════════════════════════════════════════ -->
+<title>The Daily Brief That Checks Up On You – A Self-Verifying Morning Brief | Top of the Ops</title>
+<meta name="description" content="Operator Field Guide No. 03. Build a morning brief plus a second, adversarial agent that verifies every item before it reaches you and cuts anything already handled. Free, no code, 45 minutes.">
+<meta name="keywords" content="AI morning brief, daily brief automation, verification agent, supervising agent, chief of staff AI, Claude scheduled task, two-stage agent pattern">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://top-of-the-ops.com/guide-3-daily-brief">
+
+<!-- ═══════════════════════════════════════════════
+     OPEN GRAPH
+═══════════════════════════════════════════════ -->
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Top of the Ops">
+<meta property="og:title" content="The Daily Brief That Checks Up On You">
+<meta property="og:description" content="Everyone builds a morning brief. Most abandon it in week two because it tells them to do things they've already done. The fix is a second agent.">
+<meta property="og:url" content="https://top-of-the-ops.com/guide-3-daily-brief">
+<meta property="og:image" content="https://top-of-the-ops.com/og-image.png">
+<meta property="og:image:alt" content="Top of the Ops podcast cover art">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+
+<!-- ═══════════════════════════════════════════════
+     TWITTER / X CARD
+═══════════════════════════════════════════════ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="The Daily Brief That Checks Up On You">
+<meta name="twitter:description" content="Everyone builds a morning brief. Most abandon it in week two because it tells them to do things they've already done. The fix is a second agent.">
+<meta name="twitter:image" content="https://top-of-the-ops.com/og-image.png">
+
+<!-- ═══════════════════════════════════════════════
+     STRUCTURED DATA – TechArticle + HowTo + Breadcrumb (AEO)
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://top-of-the-ops.com/guide-3-daily-brief#article",
+      "headline": "The Daily Brief That Checks Up On You: A Morning Brief With a Verification Agent",
+      "description": "Operator Field Guide No. 03. Build a morning brief plus a second, adversarial agent that verifies every item before it reaches you and cuts anything already handled. Free, no code, 45 minutes.",
+      "url": "https://top-of-the-ops.com/guide-3-daily-brief",
+      "inLanguage": "en-GB",
+      "datePublished": "2026-08-11",
+      "dateModified": "2026-08-11",
+      "isAccessibleForFree": true,
+      "proficiencyLevel": "Beginner",
+      "keywords": "AI morning brief, daily brief automation, verification agent, supervising agent, chief of staff AI, Claude scheduled task, two-stage agent pattern",
+      "author": [
+        { "@type": "Person", "name": "Cecilia Manduca", "url": "https://www.linkedin.com/in/ceciliamanduca/" },
+        { "@type": "Person", "name": "Beatrice Aliprandi", "url": "https://www.linkedin.com/in/beatricealiprandi/" }
+      ],
+      "publisher": { "@id": "https://top-of-the-ops.com/#organization" },
+      "isPartOf": { "@id": "https://top-of-the-ops.com/free-guides#webpage" },
+      "image": "https://top-of-the-ops.com/og-image.png"
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://top-of-the-ops.com/guide-3-daily-brief#howto",
+      "name": "Build a self-verifying daily brief",
+      "description": "Produce a morning brief, then run a second adversarial agent over it that removes anything already handled.",
+      "totalTime": "PT45M",
+      "estimatedCost": { "@type": "MonetaryAmount", "currency": "GBP", "value": "0" },
+      "supply": [
+        { "@type": "HowToSupply", "name": "A calendar, email and meeting notes source" },
+        { "@type": "HowToSupply", "name": "A chat tool such as Slack or Teams" },
+        { "@type": "HowToSupply", "name": "An AI assistant with scheduled tasks" }
+      ],
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "Build the brief", "text": "Write a prompt capped at ten sourced items covering today, promises made, what you're waiting on, prep and drift.", "url": "https://top-of-the-ops.com/guide-3-daily-brief#step-1" },
+        { "@type": "HowToStep", "position": 2, "name": "Build the supervisor", "text": "Write a second adversarial prompt that must quote evidence before removing any item as done or moot.", "url": "https://top-of-the-ops.com/guide-3-daily-brief#step-2" },
+        { "@type": "HowToStep", "position": 3, "name": "Have it delivered", "text": "Chain both stages in a scheduled weekday task that drafts the verified brief to your inbox or chat.", "url": "https://top-of-the-ops.com/guide-3-daily-brief#step-3" },
+        { "@type": "HowToStep", "position": 4, "name": "Make it fail loudly", "text": "Force the brief to declare itself incomplete or unverified when a source or the supervisor cannot run.", "url": "https://top-of-the-ops.com/guide-3-daily-brief#fail-loudly" },
+        { "@type": "HowToStep", "position": 5, "name": "Audit the access", "text": "Review monthly what the automation can read, write and send, since this one touches most of your working life.", "url": "https://top-of-the-ops.com/guide-3-daily-brief#audit" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://top-of-the-ops.com/guide-3-daily-brief#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://top-of-the-ops.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Free Guides", "item": "https://top-of-the-ops.com/free-guides" },
+        { "@type": "ListItem", "position": 3, "name": "The Daily Brief", "item": "https://top-of-the-ops.com/guide-3-daily-brief" }
+      ]
+    }
+  ]
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Space+Mono:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="circuit-bg"></div>
+
+<nav id="nav">
+  <a href="index.html" class="nav-logo">TOP OF <span>THE OPS</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#episodes">Episodes</a>
+    <a href="index.html#hosts">Hosts</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="free-guides.html"><span class="nav-free">Free </span>Guides</a>
+    <a href="index.html#subscribe" class="nav-cta">Subscribe</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- Provenance line — only appears in print/PDF, where the nav and footer are hidden -->
+  <div class="print-only print-head">
+    <strong>Top of the Ops</strong> &mdash; Operator Field Guide No. 03 &middot; top-of-the-ops.com/guide-3-daily-brief
+  </div>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="free-guides.html">Free Guides</a></li>
+        <li>No. 03 &mdash; The Daily Brief</li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- HERO -->
+  <header class="ep-hero rv" data-num="03">
+    <div class="ep-meta">
+      <span class="ep-badge">Operator Field Guide No. 03</span>
+      <span class="ep-number">Free &mdash; no sign-up wall</span>
+    </div>
+    <h1>The Daily Brief That Checks Up On You<br><span>A morning brief with a second agent whose only job is catching the first one lying</span></h1>
+    <p class="ep-tagline">One email every morning with what actually matters today, what you promised people and haven't done, and what you're waiting on. Verified, so it doesn't tell you to chase something you already closed.</p>
+
+    <div class="g-stats">
+      <div class="g-stat"><b>45 minutes</b><span>Time to build</span></div>
+      <div class="g-stat"><b>Paid tier</b><span>For connectors</span></div>
+      <div class="g-stat"><b>No code</b><span>Skill level</span></div>
+      <div class="g-stat"><b>Free version</b><span>Included</span></div>
+    </div>
+
+    <div class="listen-links">
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="listen-btn secondary">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        From EP 11 &mdash; Ride or Die AI Workflows
+      </a>
+    </div>
+
+    <div class="ep-divider"></div>
+  </header>
+
+  <div class="ep-content">
+    <div class="transcript-layout">
+
+      <!-- CONTENTS -->
+      <details class="chapter-nav" open>
+        <summary>Contents</summary>
+        <ol>
+          <li><a href="#why" data-ch>Why the second agent</a></li>
+          <li><a href="#need" data-ch>What you need</a></li>
+          <li><a href="#model" data-ch>Pick your model</a></li>
+          <li><a href="#step-1" data-ch>1 · Build the brief</a></li>
+          <li><a href="#step-2" data-ch>2 · Build the supervisor</a></li>
+          <li><a href="#step-3" data-ch>3 · Have it delivered</a></li>
+          <li><a href="#fail-loudly" data-ch>4 · Make it fail loudly</a></li>
+          <li><a href="#audit" data-ch>5 · Audit it</a></li>
+          <li><a href="#manual" data-ch>The free version</a></li>
+          <li><a href="#limits" data-ch>When not to do this</a></li>
+          <li><a href="#troubleshooting" data-ch>Troubleshooting</a></li>
+          <li><a href="#point" data-ch>The point of this</a></li>
+        </ol>
+      </details>
+
+      <div class="guide-body">
+
+        <section class="g-sec rv" id="why">
+          <div class="g-sec-num">Why the second agent is the whole guide</div>
+          <h2>Most morning briefs die in week two</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>Everyone builds a morning brief. Most people stop using theirs inside two weeks, and the reason is always the same: <strong>it tells you to do things you've already done.</strong></p>
+
+          <p>You closed that loop in a Slack thread on Friday afternoon. The brief doesn't know that, because it read your calendar and your notes but not the resolution. So Monday morning it confidently tells you to follow up. Do that four times and you stop trusting it. Stop trusting it and you stop opening it.</p>
+
+          <p>Bea hit exactly this:</p>
+
+          <blockquote class="g-quote">
+            &quot;At the beginning it was just giving me like rough, you have to do this, but then actually there was a whole other thread on Slack about that. It was very clear that action was done.&quot;
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <p>The fix is not a better brief. It's a <strong>second agent that reviews the first one's output before it reaches you</strong>, and deletes anything already handled.</p>
+
+          <blockquote class="g-quote">
+            &quot;So I asked another agent to check on a daily basis before it sends the email with the to-do list and priorities.&quot;
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+          <div class="callout key">
+            <div class="callout-t">The reusable idea</div>
+            <p>That two-stage pattern works far beyond briefs. Any agent that produces a to-do list benefits from a second one whose only instruction is <em>prove each of these is still outstanding.</em></p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="need">
+          <div class="g-sec-num">What you need</div>
+          <h2>Five sources, three of them optional</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>You need</th><th>Options that work</th></tr></thead>
+              <tbody>
+                <tr><td><strong>A meeting notes source</strong></td><td>Granola, Otter, Fathom, Fireflies, or your own written notes in a doc</td></tr>
+                <tr><td><strong>A calendar</strong></td><td>Google Calendar, Outlook</td></tr>
+                <tr><td><strong>Email</strong></td><td>Gmail, Outlook</td></tr>
+                <tr><td><strong>A chat tool</strong> <span class='no'>(optional, but this is where the value is)</span></td><td>Slack, Teams</td></tr>
+                <tr><td><strong>A task list</strong> <span class='no'>(optional)</span></td><td>Notion, Todoist, Linear, Asana, a plain doc</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The more of these it can read, the better the supervisor works, because completion evidence usually lives in chat rather than anywhere formal.</p>
+
+          <p><strong>No connectors? It still works.</strong> Skip to the manual version near the end. You paste, it reasons. Same output, more clicking.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="model">
+          <div class="g-sec-num">Pick your model</div>
+          <h2>The supervisor is long-context work</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>As of August 2026:</p>
+
+          <div class="g-table-wrap">
+            <table class="g-table">
+              <thead><tr><th>What you're doing</th><th>On Claude</th><th>On ChatGPT</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Building it</strong></td><td><span class="yes">Fable 5</span></td><td><span class="yes">GPT-5.6 Sol</span></td></tr>
+                <tr><td><strong>The daily brief run</strong></td><td><span class="yes">Sonnet 5</span></td><td><span class="yes">GPT-5.6 Terra</span></td></tr>
+                <tr><td><strong>The supervising agent</strong></td><td><span class="yes">Sonnet 5</span> or Opus 5</td><td><span class="yes">GPT-5.6 Terra</span></td></tr>
+                <tr><td><strong>Auditing your setup</strong></td><td><span class="yes">Fable 5</span>, high effort</td><td><span class="yes">GPT-5.6 Sol</span></td></tr>
+                <tr><td><strong>Do not use</strong></td><td><span class="no">Haiku</span></td><td><span class="no">Luna</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The supervisor reads across a lot of scattered text looking for evidence. That's long-context work, which is where the cheap tiers fall apart badly. Luna scores around 41% on long-context recall against Sol's 91%. <strong>A supervisor that misses evidence is worse than no supervisor</strong>, because it gives you false confidence in the brief.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-1">
+          <div class="g-sec-num">Step 1</div>
+          <h2>Build the brief</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>The instinct is to ask for a summary of everything. Don't. A brief that lists everything is a second inbox.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">The brief prompt</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>You are my chief of staff. Every weekday morning you write me one short brief.
+
+WHO I AM: [role] at [type of company]
+WHAT I ACTUALLY OWN: [e.g. finance, legal, people ops, investor relations]
+WHO I CANNOT LET DOWN: [e.g. my CEO, the board, two key customers]
+WHAT A GOOD DAY LOOKS LIKE: [one line]
+
+Read, for the last 3 days: my calendar, my email, my meeting notes, and my
+messages. Then write the brief below.
+
+RULES, absolute:
+1. Maximum 10 items across the whole brief. If there are more, you chose
+   wrong. Rank ruthlessly.
+2. Every item must have a source. Name the meeting, the thread or the email.
+   No item without a source.
+3. Never invent a commitment. If I did not clearly say I would do something,
+   it does not go in the promises section.
+4. Do not summarise my meetings. I was there. Only tell me what needs an
+   action or a decision from me.
+5. No greeting, no motivational line, no sign-off.
+
+THE BRIEF:
+
+## TODAY, IN ORDER
+Up to 3 things. What genuinely has to happen today and why today. If something
+has a hard external deadline, say so.
+
+## I SAID I WOULD
+Things I committed to and have not visibly done. For each: what I said, where
+I said it, who is expecting it, and how long ago. Quote me.
+
+## WAITING ON OTHERS
+What I asked for and have not received. Who, what, how long. Mark anything
+older than 5 working days as chase.
+
+## MEETINGS THAT NEED PREP
+Only meetings where turning up cold would be bad. One line on what to prepare.
+
+## QUIETLY GOING WRONG
+Anything drifting that nobody has escalated. A thread that died, a decision
+nobody made, a question asked twice with no answer. Say "nothing" if there
+is nothing. Do not manufacture something here.</pre>
+          </div>
+
+          <div class="callout key">
+            <div class="callout-t">Rule 3 exists for a reason</div>
+            <p>Without it these briefs invent commitments out of politeness. Somebody says &quot;we should look at that&quot; in a meeting and by Tuesday morning it&#39;s on your list as a promise you made. Quoting yourself is the guard against it.</p>
+          </div>
+
+          <p><strong>"Quietly going wrong" is the section that earns its keep.</strong> It's also the one that will produce nonsense if you let it, which is why it's explicitly allowed to say nothing.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-2">
+          <div class="g-sec-num">Step 2</div>
+          <h2>Build the supervisor</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>This is the part almost nobody builds. It runs <em>after</em> the brief, on the brief's own output, before you ever see it.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">The supervising agent prompt</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>You are a verification agent. You did not write the brief below. Your job is
+to find everything in it that is already handled, and cut it.
+
+You are adversarial. Assume the brief is out of date. Your default assumption
+is that some of this is already done.
+
+For EVERY item in the brief:
+
+1. Search my messages, email and meeting notes from the last 5 days for
+   evidence that it is already complete, already answered, cancelled, or
+   handed to someone else.
+2. Look especially at: replies in the same thread, later messages from me,
+   later meetings on the same subject, and anything sent after the item was
+   created. Completion evidence is usually in chat, not in a task list.
+3. Classify each item:
+   - DONE — clear evidence it is complete. Quote the evidence.
+   - MOOT — no longer relevant, cancelled, or someone else owns it now.
+     Quote the evidence.
+   - STILL OPEN — no evidence of completion anywhere.
+   - UNCLEAR — ambiguous evidence.
+
+RULES:
+- To mark anything DONE or MOOT you must quote the exact message or line that
+  proves it. No quote, no removal. This is not negotiable.
+- If you are unsure, mark it UNCLEAR and leave it in. A stale item is annoying.
+  A dropped item is a broken promise.
+- Do not add new items. Do not rewrite items. You only verify and cut.
+
+Output:
+1. The cleaned brief, with DONE and MOOT items removed entirely.
+2. A short section at the bottom, "Removed as already handled", listing what
+   you cut and the quote that justified it.
+3. UNCLEAR items kept in the brief but marked with a question mark.</pre>
+          </div>
+
+          <div class="callout key">
+            <div class="callout-t">The asymmetry in the second rule is deliberate</div>
+            <p>A stale item wastes ten seconds. A dropped item loses you someone&#39;s trust. So the supervisor is instructed to err towards leaving things in, and it needs hard evidence to remove anything.</p>
+          </div>
+
+          <p><strong>The "Removed as already handled" section is not decoration.</strong> It's how you learn to trust the thing. For the first fortnight you'll read it and check. Then you'll stop, because it'll be right.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="step-3">
+          <div class="g-sec-num">Step 3</div>
+          <h2>Have it delivered</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <h3>On Claude</h3>
+
+          <p>Ask, in a Project where both prompts live:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Scheduled task</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Set this up as a scheduled task, every weekday at 07:00 my time.
+
+Stage 1: run the daily brief prompt.
+Stage 2: pass that output to the supervising agent prompt and let it verify
+and cut.
+Stage 3: put the final cleaned brief in my inbox as a draft addressed to me,
+subject line "Brief — [date]".
+
+Only the verified version reaches me. I never see the unverified draft.</pre>
+          </div>
+
+          <p><strong>The draft-in-inbox thing.</strong> Bea's lands as a draft she has to click send on: <em>"it is a draft in my inbox, and I have to send it to myself every morning. It's a small click that I can live with."</em> Ceci has the same annoyance on a different workflow: <em>"I have a similar workflow for something completely different and it sits in my drafts."</em></p>
+
+          <p>So expect the click. Two ways around it if it bothers you:</p>
+
+          <ul>
+            <li><strong>Deliver it somewhere else.</strong> Post to a private Slack channel or DM yourself. Chat delivery usually avoids the send-permission problem entirely, and honestly a brief reads better in Slack than in email.</li>
+            <li><strong>Reframe it.</strong> The click is a one-second review gate. You glance at the subject and the first line before it becomes a real email. That's not the worst design.</li>
+          </ul>
+
+          <h3>On ChatGPT</h3>
+
+          <p>Use Tasks for a weekday 07:00 run. Chain the two stages in a single instruction: <em>"First produce the brief. Then act as the verification agent on your own output and give me only the cleaned version."</em></p>
+
+          <p>It's a weaker version of the pattern &mdash; one model checking itself is less rigorous than a genuinely separate pass &mdash; so be explicit: <em>"Adopt the verification role completely. Assume the brief you just wrote is out of date and try to prove it."</em></p>
+
+          <h3>Install as a skill on Claude</h3>
+
+          <p>Folder <code>daily-brief</code>, file <code>SKILL.md</code>:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">SKILL.md frontmatter</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>---
+name: daily-brief
+description: Produce a verified morning brief — today's priorities, promises
+  the user made and hasn't kept, what they're waiting on, meetings needing
+  prep, and things quietly going wrong. Runs a second verification pass to
+  remove anything already handled. Use when the user asks for their daily
+  brief, morning brief, what's on today, or what they're forgetting.
+---</pre>
+          </div>
+
+          <p>Both prompts underneath, clearly labelled Stage 1 and Stage 2. Zip, rename to <code>.skill</code>, upload.</p>
+
+        </section>
+
+        <section class="g-sec rv" id="fail-loudly">
+          <div class="g-sec-num">Step 4</div>
+          <h2>Make it fail loudly</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>A brief that arrives looking normal but was built from half the data is genuinely dangerous, because it reads as complete.</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Failure instruction</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>If you cannot reach any source — calendar, email, messages, notes — do not
+produce a normal brief. Put this at the very top, before anything else:
+
+"INCOMPLETE BRIEF. Could not reach: [source]. Treat the sections below as
+partial."
+
+If the supervising agent cannot run, mark the brief clearly as UNVERIFIED at
+the top. Never send a brief that looks verified when it is not.</pre>
+          </div>
+
+          <blockquote class="g-quote">
+            &quot;If they can&#39;t reach the information, make it say: Hi, I&#39;m the fairy, I couldn&#39;t reach the information and tag you so that you actually know when it&#39;s failing. Otherwise, it&#39;s not a process that you are keeping.&quot;
+            <cite>Beatrice Aliprandi — EP 11</cite>
+          </blockquote>
+
+        </section>
+
+        <section class="g-sec rv" id="audit">
+          <div class="g-sec-num">Step 5</div>
+          <h2>Audit it, because this one can read everything</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>This workflow has the broadest data access of anything in this series. It reads your calendar, your email, your messages and your notes. <strong>That's most of your working life in one automation.</strong></p>
+
+          <p>Point your strongest model at it once a month:</p>
+
+          <div class="prompt-block">
+            <div class="prompt-head">
+              <span class="prompt-label">Security audit</span>
+              <button class="copy-btn" type="button">Copy</button>
+            </div>
+<pre>Review my daily brief automation. Tell me exactly: what can it read, what can
+it write or send, whose credentials it uses, and what happens if a connector
+breaks or a permission changes. Flag anything where the access is wider than
+the job needs. Be specific about the risk.</pre>
+          </div>
+
+          <div class="callout warn">
+            <div class="callout-t">This is not theoretical</div>
+            <p>This is not theoretical. On the episode Bea ran a sweep like this and it found a real problem: an authentication flaw in one of her own scheduled tasks, left over from reconnecting broken connectors.</p><p>The lesson isn&#39;t that the tool was unsafe. It&#39;s that <strong>reconnecting a broken connector can silently leave things in a worse state than before</strong>, and you won&#39;t notice by looking at the output. Run the audit on Claude Fable 5 or ChatGPT Sol. Cheap reviewers rubber-stamp.</p>
+          </div>
+
+          <div class="callout key">
+            <div class="callout-t">The general cadence</div>
+            <p>Every three prompts, check for bugs. Every ten, check for security.</p>
+          </div>
+
+        </section>
+
+        <section class="g-sec rv" id="manual">
+          <div class="g-sec-num">No connectors</div>
+          <h2>The free version</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>If you can't or won't connect anything, this still works. Every morning, paste in:</p>
+
+          <ul>
+            <li>your calendar for today and yesterday</li>
+            <li>anything you wrote in your notes app yesterday</li>
+            <li>the last two days of messages from your two or three most important channels</li>
+          </ul>
+
+          <p>Then use both prompts in sequence. Two minutes of copying, and you get 90% of the value. <strong>The supervisor is actually the more important half, and it works fine on pasted text.</strong></p>
+
+        </section>
+
+        <section class="g-sec rv" id="limits">
+          <div class="g-sec-num">Honest limits</div>
+          <h2>When not to do this</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <ul>
+            <li><strong>Don't let it write to anyone but you.</strong> A brief that reads is low risk. A brief that starts sending your chase-ups is a different thing entirely, and one bad inference becomes an awkward message to your CEO.</li>
+            <li><strong>Don't run it on a day you're off.</strong> Coming back to five briefs is worse than coming back to none.</li>
+            <li><strong>Don't let it own your task list.</strong> It surfaces; you decide. Give it write access to your tasks and within a fortnight your list is full of things you never agreed to.</li>
+            <li><strong>Kill it if it overlaps something else.</strong> Bea retired a weekly roundup for exactly this reason: <em>"I don't use it that much anymore because I have the daily brief and it like overlaps."</em> Two automations telling you similar things means you'll ignore both.</li>
+          </ul>
+
+        </section>
+
+        <section class="g-sec rv" id="troubleshooting">
+          <div class="g-sec-num">Troubleshooting</div>
+          <h2>When it misbehaves</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <details class="faq-item">
+            <summary>&quot;It&#39;s still telling me to do done things.&quot;</summary>
+            <div class="faq-a">The supervisor isn&#39;t reading the right places. Name them explicitly: <em>"Check the thread the item came from, and any message I sent after it."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It&#39;s cutting things that aren&#39;t done.&quot;</summary>
+            <div class="faq-a">Tighten the evidence rule: <em>"You removed an item without quoting proof. Never remove anything without a verbatim quote."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It&#39;s too long.&quot;</summary>
+            <div class="faq-a">The 10-item cap is being ignored. Reply: <em>"You gave me 19 items. The limit is 10. Cut the 9 least important and tell me what you cut."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It invented a promise I never made.&quot;</summary>
+            <div class="faq-a">Rule 3. Reply: <em>"Quote where I committed to that. If you can&#39;t, remove it and never infer a commitment again."</em></div>
+          </details>
+          <details class="faq-item">
+            <summary>&quot;It&#39;s useless on Mondays.&quot;</summary>
+            <div class="faq-a">It&#39;s only looking back three days and missing the weekend. Widen to five for Monday runs.</div>
+          </details>
+
+        </section>
+
+        <section class="g-sec rv" id="point">
+          <div class="g-sec-num">The point of this</div>
+          <h2>Build the supervisor</h2>
+          <div class="g-sec-bar"></div>
+
+          
+          <p>The brief isn't the clever part. Anyone can ask an AI what's on today.</p>
+
+          <p>The clever part is the second agent that assumes the first one is wrong. Most automations fail not because they can't do the work, but because they can't tell what's already been done, so they slowly become noise and you quietly stop reading them.</p>
+
+          <p><strong>Build the supervisor. It's the difference between a tool you use in month six and one you abandoned in week two.</strong></p>
+
+        </section>
+
+        <!-- DOWNLOAD -->
+        <div class="g-download rv">
+          <div class="g-dl-title">Take it with you</div>
+          <p class="g-dl-desc">The whole guide as a PDF, prompts included, in full colour &mdash; for reading offline or sending to the colleague who needs it most. The print option gives you an ink-friendly version instead.</p>
+          <div class="g-dl-btns">
+            <a href="guide-3-daily-brief.pdf" class="g-dl-btn primary" download data-dl="pdf">
+              <svg viewBox="0 0 24 24"><path d="M12 16l-6-6h4V4h4v6h4l-6 6zm-8 2h16v2H4v-2z"/></svg>
+              Download PDF
+            </a>
+            <button type="button" class="g-dl-btn secondary" id="print-btn">
+              <svg viewBox="0 0 24 24"><path d="M19 8h-1V3H6v5H5a3 3 0 0 0-3 3v6h4v3h12v-3h4v-6a3 3 0 0 0-3-3zM8 5h8v3H8V5zm8 14H8v-4h8v4zm3-7a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg>
+              Print this page
+            </button>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:32px">
+          <p>This guide came out of Top of the Ops, Season 1 Bonus &mdash; <a href="episode-11-our-ride-or-die-ai-workflows.html">"Ride or Die AI Workflows"</a>, where Bea and Ceci went through every automation they actually run. The rest of the Operator Field Guides live on the <a href="free-guides.html">Free Guides</a> page.</p>
+          <p><em>Built something better? Tell us. We'll publish the improved version and credit you.</em></p>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MORE -->
+    <section class="ep-section rv" style="padding:0;margin-top:20px">
+      <div class="ep-section-label">Keep Going</div>
+      <h2>More from Top of the Ops</h2>
+      <div class="ep-section-bar"></div>
+
+      <a href="guide-4-birthday-bot.html" class="more-ep-card">
+        <div class="more-ep-num">04</div>
+        <div>
+          <div class="more-ep-title">The Birthday Bot</div>
+          <div class="more-ep-desc">The safest place to learn the pattern every other bot uses. Twenty minutes.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="episode-11-our-ride-or-die-ai-workflows.html" class="more-ep-card">
+        <div class="more-ep-num">11</div>
+        <div>
+          <div class="more-ep-title">Our Ride or Die AI Workflows</div>
+          <div class="more-ep-desc">The episode this guide came from. Every automation we actually run.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+
+      <a href="free-guides.html" class="more-ep-card">
+        <div class="more-ep-num">&#9733;</div>
+        <div>
+          <div class="more-ep-title">All Free Guides</div>
+          <div class="more-ep-desc">The rest of the Operator Field Guides.</div>
+        </div>
+        <div class="more-ep-arrow">&rarr;</div>
+      </a>
+    </section>
+
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <a href="index.html" class="f-logo">TOP OF <span>THE OPS</span></a>
+    <div class="f-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#episodes">Episodes</a>
+      <a href="index.html#hosts">Hosts</a>
+      <a href="free-guides.html">Free Guides</a>
+      <a href="https://open.spotify.com/show/3j68Bu146eigZMKmH12pXb" target="_blank" rel="noopener" title="Spotify">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+      </a>
+      <a href="https://www.youtube.com/@TopOfTheOps" target="_blank" rel="noopener" title="YouTube">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/topoftheopspodcast/" target="_blank" rel="noopener" title="Instagram">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@top.of.the.ops" target="_blank" rel="noopener" title="TikTok">
+        <svg viewBox="0 0 24 24" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      </a>
+    </div>
+    <div class="f-copy">&copy; 2026 Top of the Ops</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',function(){document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60)});
+var els=document.querySelectorAll('.rv');
+try{
+  var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis')}})},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  els.forEach(function(el){o.observe(el)});
+}catch(e){els.forEach(function(el){el.classList.add('vis')})}
+</script>
+
+<script>
+// Contents nav — collapse on mobile, highlight the section in view
+(function(){
+  var nav=document.querySelector('.chapter-nav');if(!nav)return;
+  if(window.innerWidth<769){nav.removeAttribute('open');}
+  var links={};nav.querySelectorAll('a[data-ch]').forEach(function(a){links[a.getAttribute('href').slice(1)]=a;});
+  var hs=document.querySelectorAll('.g-sec[id]');var cur=null;
+  try{
+    var ob=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){if(cur)cur.classList.remove('active');cur=links[e.target.id];if(cur)cur.classList.add('active');}
+    });},{rootMargin:'-10% 0px -75% 0px'});
+    hs.forEach(function(h){ob.observe(h);});
+  }catch(e){}
+})();
+</script>
+
+<script>
+// Copy-to-clipboard on every prompt block.
+// Three tiers: async clipboard API -> execCommand -> select the text so the
+// keyboard shortcut works. The button always says what happened.
+(function(){
+  function flash(btn,label,cls,ms){
+    if(!btn.dataset.label){btn.dataset.label=btn.textContent;}
+    btn.textContent=label;
+    btn.classList.remove('done');
+    if(cls){btn.classList.add(cls);}
+    clearTimeout(btn._t);
+    btn._t=setTimeout(function(){btn.textContent=btn.dataset.label;btn.classList.remove('done');},ms||2000);
+  }
+  function succeeded(btn){
+    flash(btn,'Copied','done');
+    if(typeof gtag==='function'){
+      var l=btn.closest('.prompt-block').querySelector('.prompt-label');
+      gtag('event','copy_prompt',{label:l?l.textContent:'',page_path:location.pathname});
+    }
+  }
+  function selectBlock(btn,pre){
+    try{
+      var r=document.createRange();r.selectNodeContents(pre);
+      var s=window.getSelection();s.removeAllRanges();s.addRange(r);
+      flash(btn,'Selected — press \u2318C',null,4000);
+    }catch(e){
+      flash(btn,'Copy failed',null,3000);
+    }
+  }
+  function execCopy(pre){
+    var ta=document.createElement('textarea');
+    ta.value=pre.textContent;ta.setAttribute('readonly','');
+    ta.style.position='absolute';ta.style.left='-9999px';
+    document.body.appendChild(ta);ta.select();
+    var ok=false;
+    try{ok=document.execCommand('copy');}catch(e){ok=false;}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var pre=btn.closest('.prompt-block').querySelector('pre');
+      if(!pre)return;
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(pre.textContent).then(
+          function(){succeeded(btn);},
+          function(){execCopy(pre)?succeeded(btn):selectBlock(btn,pre);}
+        );
+      }else{
+        execCopy(pre)?succeeded(btn):selectBlock(btn,pre);
+      }
+    });
+  });
+})();
+</script>
+
+<script>
+// Troubleshooting answers are collapsed on screen — force them open for print,
+// then restore. ?print=1 opens them up front for the PDF export.
+(function(){
+  var ds=document.querySelectorAll('.faq-item');
+  function openAll(){ds.forEach(function(d){if(!d.open){d.dataset.wasShut='1';d.open=true;}});}
+  function restore(){ds.forEach(function(d){if(d.dataset.wasShut){d.open=false;delete d.dataset.wasShut;}});}
+  if(location.search.indexOf('print=1')>-1){openAll();}
+  // ?pdf=1 renders the print view in the brand's dark palette instead of the
+  // ink-friendly light one. Used for the downloadable PDF; the Print button
+  // stays light so it doesn't flood a paper printer.
+  if(location.search.indexOf('pdf=1')>-1){
+    document.body.classList.add('pdf-export');
+    document.documentElement.classList.add('pdf-export');
+    // Relative links are dead once the PDF leaves the browser — absolutise them
+    // so a shared PDF's links still work. Export only; the live page is untouched.
+    document.querySelectorAll('a[href]').forEach(function(a){
+      var h=a.getAttribute('href');
+      if(!h||/^(https?:|mailto:|#)/.test(h))return;
+      a.setAttribute('href','https://top-of-the-ops.com/'+h.replace(/^\.?\//,'').replace(/\.html($|#)/,'$1'));
+    });
+  }
+  window.addEventListener('beforeprint',openAll);
+  window.addEventListener('afterprint',restore);
+  if(window.matchMedia){
+    var mq=window.matchMedia('print');
+    var onChange=function(m){m.matches?openAll():restore();};
+    if(mq.addEventListener){mq.addEventListener('change',onChange);}
+    else if(mq.addListener){mq.addListener(onChange);}
+  }
+})();
+
+// Download / print tracking
+var pb=document.getElementById('print-btn');
+if(pb){pb.addEventListener('click',function(){
+  if(typeof gtag==='function'){gtag('event','print_guide',{page_path:location.pathname});}
+  window.print();
+});}
+document.querySelectorAll('a[data-dl]').forEach(function(a){
+  a.addEventListener('click',function(){
+    if(typeof gtag==='function'){gtag('event','download_guide',{format:a.getAttribute('data-dl'),page_path:location.pathname});}
+  });
+});
+// Outbound listen-click tracking (GA4)
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a');if(!a)return;
+  var h=a.href||'';
+  var plat=h.indexOf('youtu')>-1?'youtube':(h.indexOf('spotify')>-1?'spotify':null);
+  if(plat&&typeof gtag==='function'){gtag('event','outbound_click',{platform:plat,link_url:h,page_path:location.pathname});}
+});
+</script>
+</body>
+</html>
