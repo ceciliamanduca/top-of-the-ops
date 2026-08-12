@@ -528,7 +528,10 @@ footer{position:relative;z-index:2;padding:56px 40px 40px;border-top:1px solid r
   .ep-list .ep-card:first-child .ep-type::after{display:inline-block;margin:6px 0 0}
   .f-links{flex-wrap:wrap;justify-content:center}
   .breadcrumb,.ep-hero,.ep-content{padding-left:20px;padding-right:20px}
-  .transcript-layout{grid-template-columns:1fr;gap:24px}
+  /* minmax(0,…), not 1fr: 1fr's auto minimum is the content's min-content, so a
+     wide child stretched the column past the viewport and pushed the fixed nav
+     off-screen. Matches the desktop rule above. */
+  .transcript-layout{grid-template-columns:minmax(0,1fr);gap:24px}
   .chapter-nav{position:static;max-height:none}
   .ep-hero h1{font-size:28px}
   .ep-hero::before{font-size:110px;top:-12px;right:0}
