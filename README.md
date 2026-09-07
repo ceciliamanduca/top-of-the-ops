@@ -11,7 +11,8 @@ A static site: hand-written HTML, one shared stylesheet, no build step.
 | File / pattern | Purpose |
 | --- | --- |
 | `index.html` | Landing page with the episode list |
-| `episode-*.html` | One page per episode (show notes, chaptered transcript, FAQ, schema) |
+| `episode-*.html` | Season 1 episode pages (show notes, chaptered transcript, FAQ, schema) |
+| `s2-episode-*.html` | Season 2 episode pages, same structure; numbering restarts at 01 |
 | `free-guides.html` | Free AI guides hub, linked from the nav on every page |
 | `guide-*.html` | One page per Operator Field Guide, each with a matching `.pdf` |
 | `cash-flow-tracker.xlsx` | Downloadable template that ships with guide 02 |
@@ -38,7 +39,11 @@ The site is hosted on Netlify and served at the custom domain top-of-the-ops.com
 
 ## Adding an episode
 
-Each episode is a standalone `episode-<n>-<slug>.html` page. When adding one, also update `index.html` (episode tile), `sitemap.xml`, and `_redirects` so the short `/episode-N` URL resolves.
+Each episode is a standalone page: `episode-<n>-<slug>.html` for Season 1, `s2-episode-<n>-<slug>.html` for Season 2 (numbering restarts at 01 each season). When adding one, also update `index.html` (episode tile inside the right `.ep-list[data-season]` panel, footer column, JSON-LD episode list), `sitemap.xml`, `llms.txt`, and `_redirects` so the short URL resolves (`/episode-N` for Season 1, `/s2/episode-N` for Season 2).
+
+## Seasons on the homepage
+
+The chart has one `.ep-list` panel per season, switched by the `.season-tab` buttons. The panel carrying `data-latest` is shown by default and is the only one whose first tile gets the "New Entry" badge. When a new season's first episode goes live, move `data-latest` to that season's panel and remove the `.ep-upnext` coming-soon tile.
 
 ## Adding a free guide
 

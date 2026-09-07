@@ -18,3 +18,7 @@
 /birthday-bot     /guide-4-birthday-bot                            301
 /guide-5          /guide-5-invoice-fairy                           301
 /invoice-fairy    /guide-5-invoice-fairy                           301
+
+# Season 2 short URLs: add one pair per episode as it goes live, e.g.
+# /s2/episode-1        /s2-episode-1-<slug>        301
+# /s2/episode-1.html   /s2-episode-1-<slug>        301

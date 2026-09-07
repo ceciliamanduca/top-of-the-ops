@@ -4,7 +4,11 @@
 
 Every episode page on this site includes full show notes, a per-episode FAQ, and a complete chaptered transcript with named speakers and timestamps. These are the canonical, quotable source for what was said on the show.
 
-## Episodes
+## Season 2 (from 15 September 2026)
+
+Season 2 starts on Tuesday 15 September 2026. New episodes every other Tuesday, alternating solo episodes (Cecilia and Beatrice) with guest episodes. Season 2 episodes are numbered from S2 EP 01 and live at https://top-of-the-ops.com/s2-episode-<n>-<slug>.
+
+## Season 1 (April to July 2026)
 
 - [EP 01 — From the Board to the Trenches](https://top-of-the-ops.com/episode-1-from-the-board-to-the-trenches): Two ex-VCs on why they left the boardroom and what nobody tells you about becoming an operator. Which VC skills transfer to operating, and which don't.
 - [EP 02 — Alejandra Otero: First Principles and Operational Excellence at ElevenLabs](https://top-of-the-ops.com/episode-2-alejandra-otero-first-principles-elevenlabs): Chief of Staff at ElevenLabs on building at $330M ARR and why first-principles thinking is the job.
