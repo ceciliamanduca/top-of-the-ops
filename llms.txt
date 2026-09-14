@@ -6,7 +6,9 @@ Every episode page on this site includes full show notes, a per-episode FAQ, and
 
 ## Season 2 (from 15 September 2026)
 
-Season 2 starts on Tuesday 15 September 2026. New episodes every other Tuesday, alternating solo episodes (Cecilia and Beatrice) with guest episodes. Season 2 episodes are numbered from S2 EP 01 and live at https://top-of-the-ops.com/s2-episode-<n>-<slug>.
+Season 2 starts on Tuesday 15 September 2026. New episodes every other Tuesday, alternating solo episodes (Cecilia and Beatrice) with guest episodes. Episode numbering runs continuously from Season 1, so Season 2 opens at EP 12, and episodes live at https://top-of-the-ops.com/episode-<n>-<slug>.
+
+- [EP 12 — The Honest Truth About Firing People, Layoffs and Bad Boards](https://top-of-the-ops.com/episode-12-firing-people-layoffs-and-bad-boards): The half of the ops job nobody posts about. Firing people, layoffs and the one spreadsheet that decides them, salary cuts, boards that lose trust in their founders, pivots, and conflict at the top.
 
 ## Season 1 (April to July 2026)
 
